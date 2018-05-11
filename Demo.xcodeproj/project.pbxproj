@@ -243,9 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				A4AAC2C42057A85B00DBC435 /* Scene */,
-				A4AAC2C32057A85600DBC435 /* M */,
-				A4AAC2C22057A85200DBC435 /* V */,
-				A4AAC2C12057A84C00DBC435 /* C */,
 			);
 			path = "SoundWaves(声波通讯)";
 			sourceTree = "<group>";
@@ -270,13 +267,6 @@
 				A486E6201FECA4B600CD848B /* 多点定位 */,
 			);
 			path = V;
-			sourceTree = "<group>";
-		};
-		A43FD2BF1FE26D3100E3BDB6 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		A43FD2C01FE26D3400E3BDB6 /* Scene */ = {
@@ -340,8 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				A4434B141FC4020E003923A3 /* Scene */,
-				A4434B131FC40209003923A3 /* M */,
-				A4434B121FC40205003923A3 /* V */,
+				A46AD73820A5DBBC00F92DDF /* M */,
+				A46AD73720A5DBB100F92DDF /* V */,
 				A4434B111FC401FE003923A3 /* C */,
 			);
 			path = "MainVC（首页视图）";
@@ -351,7 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				A43FD2C01FE26D3400E3BDB6 /* Scene */,
-				A43FD2BF1FE26D3100E3BDB6 /* M */,
+				A498748820A5DCF900B20014 /* M */,
 				A43FD2BE1FE26D2D00E3BDB6 /* V */,
 				A43FD2BD1FE26D2800E3BDB6 /* C */,
 			);
@@ -365,20 +355,6 @@
 				A43FD2BB1FE24A4200E3BDB6 /* SideMenuControl.m */,
 			);
 			path = C;
-			sourceTree = "<group>";
-		};
-		A4434B121FC40205003923A3 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
-		A4434B131FC40209003923A3 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		A4434B141FC4020E003923A3 /* Scene */ = {
@@ -527,6 +503,20 @@
 			path = BaseCC;
 			sourceTree = "<group>";
 		};
+		A46AD73720A5DBB100F92DDF /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		A46AD73820A5DBBC00F92DDF /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
 		A47B00141FF5EB9600DCF4BA /* 004 本地推送服务 */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,6 +614,13 @@
 			path = "公司门禁";
 			sourceTree = "<group>";
 		};
+		A498748820A5DCF900B20014 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
 		A498EF5D1FC58C0C0081C721 /* NewIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,27 +679,6 @@
 				A4A3153C1FC436930060C7DA /* GATouchIDValidationService.m */,
 			);
 			path = "003 指纹识别服务";
-			sourceTree = "<group>";
-		};
-		A4AAC2C12057A84C00DBC435 /* C */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = C;
-			sourceTree = "<group>";
-		};
-		A4AAC2C22057A85200DBC435 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
-		A4AAC2C32057A85600DBC435 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		A4AAC2C42057A85B00DBC435 /* Scene */ = {
@@ -800,7 +776,7 @@
 		A4434AED1FC3C94C003923A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = YanSY;
 				TargetAttributes = {
 					A4434AF41FC3C94C003923A3 = {
@@ -1002,6 +978,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1009,6 +986,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1057,6 +1035,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1064,6 +1043,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

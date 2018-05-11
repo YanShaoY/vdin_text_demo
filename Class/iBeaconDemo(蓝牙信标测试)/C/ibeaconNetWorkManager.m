@@ -14,6 +14,12 @@
 /// 自动开门
 + (void)autoOpenTheDoorRequestComplete:(COMPLETEBLOCK)block{
     
+    NSDictionary *dicInfo = [[NSBundle mainBundle] infoDictionary];
+    NSString *strAppName = [dicInfo objectForKey:@"CFBundleDisplayName"];
+    if ([strAppName isEqualToString:@"VdinDemo"]) {
+        block(strAppName, NO);
+        return;
+    }
     __block NSMutableDictionary * parameter = [[NSMutableDictionary alloc]init];
     __block NSString * requestURL = @"http://zdht-cd.imwork.net:8000/accctrl";
 

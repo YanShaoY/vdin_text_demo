@@ -19,9 +19,11 @@
 
 @interface EntranceGuardView ()<GAibeaconLocationServiceDelegate>{
     
-    BOOL  _isOnRequest;              // 是否正在请求
+    
 }
 
+/// 是否正在请求
+@property (nonatomic , assign) BOOL                     isOnRequest;
 /// 顶部设置视图
 @property (nonatomic , strong) UIView                 * setUpBackView;
 /// 扫描开门按钮
@@ -360,7 +362,7 @@
     [ibeaconNetWorkManager autoOpenTheDoorRequestComplete:^(id responseObject, BOOL isSuccess) {
         @strongify(self);
         [self dismissAnimationOnButton];
-        _isOnRequest = NO;
+        self.isOnRequest = NO;
 
 //        [self performSelector:@selector(changeisOnRequestStatus) withObject:nil afterDelay:2];
     }];
