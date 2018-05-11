@@ -2,11 +2,11 @@
 platform :ios, '9.2'
 # Uncomment this line if you're using Swift
 # use_frameworks!
-
+# YanSY
 use_frameworks!
 
 target 'Demo' do
-    
+   
     pod 'lottie-ios'
     pod 'GTMBase64', '~> 1.0.0'
     pod 'Masonry'
