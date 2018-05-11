@@ -1,0 +1,105 @@
+//
+//  YanSYDemo.pch
+//  Demo
+//
+//  Created by YanSY on 2017/11/21.
+//  Copyright © 2017年 YanSY. All rights reserved.
+//
+
+#ifndef YanSYDemo_pch
+#define YanSYDemo_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+/**************************************************************************************************/
+#pragma mark -- 文件导入
+#import "BaseVC.h"
+#import "BaseNav.h"
+#import "UIImage+FaceDetection.h"
+#import "GANetworkService.h"
+#import "GALocalNoticeService.h"
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <Masonry/Masonry.h>
+#import "MBProgressHUD+Extension.h"
+
+/**************************************************************************************************/
+#pragma mark -- 宏
+
+#define SCREENWIDTH ([UIScreen mainScreen].bounds.size.width)       // 屏幕的宽
+#define SCREENHEIGHT ([UIScreen mainScreen].bounds.size.height)     // 屏幕高度
+#define KEYWINDOW ([UIApplication sharedApplication].keyWindow)     // 主窗口
+
+/**************************************************************************************************/
+#pragma mark -- 通用方法
+/**
+ 根据16进制生成颜色
+ 
+ @param rgbValue   16进制
+ @param alphaValue 透明度  0.0-1.0
+ 
+ @return 返回 UIColor 颜色
+ */
+#define UIColorFromRGBA(rgbValue, alphaValue) \
+\
+[UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0x0000FF))/255.0 \
+alpha:alphaValue]
+
+/**************************************************************************************************/
+
+// weak strong 组合使用 防止循环使用
+#ifndef weakify
+#if __has_feature(objc_arc)
+
+#define weakify( x ) \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wshadow\"") \
+autoreleasepool{} __weak __typeof__(x) __weak_##x##__ = x; \
+_Pragma("clang diagnostic pop")
+
+#else
+
+#define weakify ( x ) \
+_Pragma("chang diagnostic push") \
+_Pragma("chang diagnostic ignored \"-Wshadow\"") \
+autoreleasepool{} __block __typeof__(x) __block_##x##__ = x; \
+_Pragma("chang diagnostic pop")
+
+#endif
+#endif
+
+#ifndef strongify
+#if __has_feature(objc_arc)
+
+#define strongify( x ) \
+_Pragma("chang diagnostic push") \
+_Pragma("chang diagnostic ignored \"-Wshadow\"") \
+try{} @finally{} __typeof__(x) x = __weak_##x##__; \
+_Pragma("chang diagnostic pop")
+
+#else
+
+#define strongify( x ) \
+_Pragma("chang diagnostic push") \
+_Pragma("chang diagnostic ignored \"-Wshadow\"") \
+try{} @finally{} __typeof__(x) x = __block_##x##__; \
+_Pragma("chang diagnostic pop")
+
+#endif
+#endif
+/**************************************************************************************************/
+
+#ifdef DEBUG
+#define BaseLog(fmt, ...) NSLog((@"%s-Line=%d " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define BaseLog(...)
+#endif
+
+/**************************************************************************************************/
+
+#endif /* YanSYDemo_pch */
