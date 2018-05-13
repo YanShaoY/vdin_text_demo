@@ -1,9 +1,7 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '9.2'
+# platform :ios, '9.2'
 # Uncomment this line if you're using Swift
 # use_frameworks!
-# YanSY
-use_frameworks!
 
 target 'Demo' do
    
@@ -15,5 +13,7 @@ target 'Demo' do
     pod 'SDWebImage’
     pod 'MBProgressHUD'
     pod 'MJRefresh'
+    pod 'TZImagePickerController'
+    pod 'IQKeyboardManager'
     
 end
