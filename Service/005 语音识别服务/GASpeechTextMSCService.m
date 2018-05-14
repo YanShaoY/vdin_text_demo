@@ -12,16 +12,33 @@
 @class IFlyPcmRecorder;
 @class IFlySpeechRecognizer;
 
-@interface GASpeechTextMSCService () <IFlySpeechRecognizerDelegate,IFlyRecognizerViewDelegate,IFlyPcmRecorderDelegate>
+typedef NS_OPTIONS(NSInteger, SynthesizeType) {
+    NomalType           = 5,//普通合成
+    UriType             = 6, //uri合成
+};
 
-@property (nonatomic, strong) IATConfig            * configInstance;         // 语音识别配置
-@property (nonatomic, strong) IFlySpeechRecognizer * iFlySpeechRecognizer;   // 不带界面的识别对象
-@property (nonatomic, strong) IFlyRecognizerView   * iflyRecognizerView;     // 带界面的识别对象
-@property (nonatomic, strong) IFlyDataUploader     * uploader;               // 数据上传对象
-@property (nonatomic, strong) IFlyPcmRecorder      * pcmRecorder;            // 录音器，用于音频流识别的数据传入
+
+typedef NS_OPTIONS(NSInteger, Status) {
+    NotStart            = 0,
+    Playing             = 2, //高异常分析需要的级别
+    Paused              = 4,
+};
+
+@interface GASpeechTextMSCService () <IFlySpeechRecognizerDelegate,IFlyRecognizerViewDelegate,IFlyPcmRecorderDelegate,IFlySpeechSynthesizerDelegate>
+
+@property (nonatomic, strong) XFMSCConfiger         * configInstance;         // 语音识别配置
+@property (nonatomic, strong) IFlySpeechRecognizer  * iFlySpeechRecognizer;   // 不带界面的识别对象
+@property (nonatomic, strong) IFlySpeechSynthesizer * iFlySpeechSynthesizer;
+@property (nonatomic, strong) IFlyRecognizerView    * iflyRecognizerView;     // 带界面的识别对象
+@property (nonatomic, strong) IFlyDataUploader      * uploader;               // 数据上传对象
+@property (nonatomic, strong) IFlyPcmRecorder       * pcmRecorder;            // 录音器，用于音频流识别的数据传入
 @property (nonatomic, assign) BOOL isStreamRec;             // 是否是音频流识别
 @property (nonatomic, assign) BOOL isBeginOfSpeech;         // 是否返回BeginOfSpeech回调
 @property (nonatomic, assign) BOOL isCanceled;              // 是否取消
+
+@property (nonatomic, strong) NSString *uriPath;
+@property (nonatomic, assign) Status state;
+@property (nonatomic, assign) SynthesizeType synType;
 
 /// 识别结果
 @property (nonatomic, strong) NSMutableString * resultStr;
@@ -44,7 +61,7 @@
         [IFlySetting setLogFilePath:cachePath];
         
         self.uploader = [[IFlyDataUploader alloc] init];
-        self.configInstance = [[IATConfig alloc]init];
+        self.configInstance = [[XFMSCConfiger alloc]init];
         self.resultStr = [[NSMutableString alloc]init];
     }
     return self;
@@ -125,7 +142,16 @@
     
     [_uploader setParameter:@"uup" forKey:[IFlySpeechConstant SUBJECT]];
     [_uploader setParameter:@"contact" forKey:[IFlySpeechConstant DATA_TYPE]];
-    [_uploader uploadDataWithCompletionHandler:block name:@"contact" data:contact];
+    
+    [_uploader uploadDataWithCompletionHandler:^(NSString *result, IFlySpeechError *error) {
+        if ([error errorCode] == 0) {
+            block(contact,error);
+        }else{
+            block(result,error);
+        }
+        
+    } name:@"contact" data:contact];
+    
 }
 
 #pragma mark -- 上传用户词表
@@ -136,7 +162,15 @@
     
     [_uploader setParameter:@"uup" forKey:[IFlySpeechConstant SUBJECT]];
     [_uploader setParameter:@"userword" forKey:[IFlySpeechConstant DATA_TYPE]];
-    [_uploader uploadDataWithCompletionHandler:block name:@"userwords" data:[iFlyUserWords toString]];
+    
+    [_uploader uploadDataWithCompletionHandler:^(NSString *result, IFlySpeechError *error) {
+        if ([error errorCode] == 0) {
+            block([iFlyUserWords toString],error);
+        }else{
+            block(result,error);
+        }
+        
+    } name:@"userwords" data:[iFlyUserWords toString]];
 }
 
 #pragma mark -- 音频流识别启动
@@ -288,7 +322,7 @@
 }
 
 #pragma mark -- 设置识别参数
--(void)initRecognizerWithConfig:(IATConfig *)instance{
+-(void)initRecognizerWithConfig:(XFMSCConfiger *)instance{
     
     if (instance) {
         self.configInstance = instance;

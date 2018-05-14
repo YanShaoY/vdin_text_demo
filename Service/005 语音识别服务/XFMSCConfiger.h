@@ -1,17 +1,18 @@
 //
-//  IATConfig.h
+//  XFMSCConfiger.h
 //  Demo
 //
-//  Created by YanSY on 2018/5/10.
+//  Created by YanSY on 2018/5/14.
 //  Copyright © 2018年 YanSY. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 /**
- 语音识别配置
+ 讯飞语音配置
  */
-@interface IATConfig : NSObject
+@interface XFMSCConfiger : NSObject
 
+#pragma mark -- 语音识别配置
 /// 普通话
 -(NSString *)mandarin;
 /// 广东话
@@ -59,11 +60,45 @@
 
 /// 是否显示动画
 @property (nonatomic, assign) BOOL haveView;
+/// 口音识别ID
 @property (nonatomic, strong) NSArray *accentIdentifer;
+/// 口音名称数组
 @property (nonatomic, strong) NSArray *accentNickName;
 
+#pragma mark -- 语音合成配置
+
+/**
+ 以下参数，需要通过
+ iFlySpeechSynthesizer
+ 进行设置
+ ****/
+
+/// 语速
+@property (nonatomic) NSString *speed;
+/// 音量
+@property (nonatomic) NSString *volume;
+/// 音调
+@property (nonatomic) NSString *pitch;
+/// 发音人
+@property (nonatomic) NSString *vcnName;
+/// 引擎类型,"auto","local","cloud"
+@property (nonatomic) NSString *engineType;
+
+/// 播音员数组
+@property (nonatomic,strong) NSArray *vcnNickNameArray;
+/// 播音员ID数组
+@property (nonatomic,strong) NSArray *vcnIdentiferArray;
 
 @end
+
+
+
+
+
+
+
+
+
 
 
 

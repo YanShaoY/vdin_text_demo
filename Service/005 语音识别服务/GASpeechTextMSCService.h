@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "IFlyMSC/IFlyMSC.h"
-#import <QuartzCore/QuartzCore.h>
-#import "Definition.h"
 #import "ISRDataHelper.h"
-#import "IATConfig.h"
+#import "XFMSCConfiger.h"
 
 @protocol GASpeechTextMSCServiceDelegate <NSObject>
 
@@ -83,7 +81,7 @@
 
  @param instance 语音识别配置参数 nil:默认
  */
--(void)initRecognizerWithConfig:(IATConfig *)instance;
+-(void)initRecognizerWithConfig:(XFMSCConfiger *)instance;
 
 /**
  开始语音识别
