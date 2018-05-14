@@ -7,10 +7,13 @@
 //
 
 #import "XFVoiceDictationView.h"
-
 #import "XFVoiceDictationModel.h"
 
-@interface XFVoiceDictationView (){
+#import "GASpeechTextMSCService.h"
+
+#define USERWORDS   @"{\"userword\":[{\"name\":\"我的常用词\",\"words\":[\"中德宏泰\",\"天祥广场\",\"高新区\",\"成都市\"]},{\"name\":\"我的好友\",\"words\":[\"孙二浪\",\"污妖汪\",\"哈哈全\",\"大润发\",\"二姐\",\"YanSY\"]}]}"
+
+@interface XFVoiceDictationView ()<GASpeechTextMSCServiceDelegate>{
     
 }
 
@@ -35,6 +38,8 @@
 
 /// 模型
 @property (nonatomic , strong) XFVoiceDictationModel      * myModel;
+/// 语音听写服务
+@property (nonatomic , strong) GASpeechTextMSCService     * mscService;
 
 
 @end
@@ -104,29 +109,125 @@
 }
 
 - (void)startRecBtnClick:(UIButton *)sender{
+
+    BOOL ret = [self.mscService startToASR];
+    if (ret) {
+        [_textView setText:@""];
+        [_textView resignFirstResponder];
+    }else{
+        [_textView setText:@"语音识别开启失败"];
+    }
     
 }
 
 - (void)stopRecBtnClick:(UIButton *)sender{
-    
+    [self.mscService stopToASR];
 }
 
 - (void)cancelRecBtnClick:(UIButton *)sender{
-    
+    [self.mscService cancelToASR];
 }
 
 - (void)audioStreamBtnClick:(UIButton *)sender{
-    
+    BOOL ret = [self.mscService audioStreamStart];
+    if (ret) {
+        [_textView setText:@""];
+        [_textView resignFirstResponder];
+    }else{
+        [_textView setText:@"语音识别开启失败"];
+    }
 }
 
 - (void)upContactBtnClick:(UIButton *)sender{
     
+    @weakify(self);
+    [self.mscService upContactDataWithBlock:^(NSString *result, IFlySpeechError *error) {
+        @strongify(self);
+        if (error.errorCode == 0) {
+            self.textView.text = result;
+        }
+        [self onUploadFinished:error];
+    }];
 }
 
 - (void)upWordListBtnClick:(UIButton *)sender{
     
+    @weakify(self);
+    [self.mscService upUserWordDataWithJson:USERWORDS Block:^(NSString *result, IFlySpeechError *error) {
+        @strongify(self);
+        if (error.errorCode == 0) {
+            self.textView.text = result;
+        }
+        [self onUploadFinished:error];
+    }];
 }
 
+/**
+ 上传联系人和词表的结果回调
+ error ，错误码
+ ****/
+- (void)onUploadFinished:(IFlySpeechError *)error
+{
+    NSLog(@"%d",[error errorCode]);
+    
+    if ([error errorCode] == 0) {
+//        [_popUpView showText: @"上传成功"];
+    }
+    else {
+//        [_popUpView showText: [NSString stringWithFormat:@"上传失败，错误码:%d",error.errorCode]];
+        
+    }
+    
+    [_startRecBtn setEnabled:YES];
+    [_audioStreamBtn setEnabled:YES];
+    _upWordListBtn.enabled = YES;
+    _upContactBtn.enabled = YES;
+}
+
+#pragma mark - GASpeechTextMSCServiceDelegate
+/**
+ 音量回调函数
+ 
+ @param volume 0-30
+ */
+- (void)onVolumeChanged:(int)volume{
+
+}
+
+/**
+ 开始识别回调
+ */
+- (void)onBeginOfSpeech{
+
+}
+
+/**
+ 停止录音回调
+ */
+- (void)onEndOfSpeech{
+
+}
+
+/**
+ 听写取消回调
+ */
+- (void)onCancel{
+
+}
+
+/**
+ 听写结束回调（注：无论听写是否正确都会回调）
+ 
+ @param error 0:听写正确 other:听写出错
+ */
+- (void)onError:(IFlySpeechError *)error{
+    NSLog(@"%s",__func__);
+}
+
+- (void)onResult:(NSString *)resultStr{
+    
+    _textView.text = resultStr;
+}
 
 #pragma mark -- 添加约束
 - (void)addConstraint{
@@ -233,8 +334,18 @@
     return _messageLabel;
 }
 
+- (GASpeechTextMSCService *)mscService{
+    if (!_mscService) {
+        _mscService = [[GASpeechTextMSCService alloc]init];
+        _mscService.delegate = self;
+        [_mscService initRecognizerWithConfig:nil];
+    }
+    return _mscService;
+}
+
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [self.mscService deallocToASR];
 }
 
 

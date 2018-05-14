@@ -682,10 +682,7 @@
 		A49FCF9420A3E1FA009826E6 /* 005 语音识别服务 */ = {
 			isa = PBXGroup;
 			children = (
-				A4F7E9F520A9304E009F486A /* IATConfig.h */,
-				A4F7E9F620A9304F009F486A /* IATConfig.m */,
-				A4F7E9F220A92E98009F486A /* ISRDataHelper.h */,
-				A4F7E9F320A92E98009F486A /* ISRDataHelper.m */,
+				A4F7E9F820A95C88009F486A /* Foundation */,
 				A49FCF9520A3E360009826E6 /* GASpeechTextMSCService.h */,
 				A49FCF9620A3E360009826E6 /* GASpeechTextMSCService.m */,
 			);
@@ -788,6 +785,17 @@
 				A416864C1FF1F6ED00B86842 /* MBProgressHUD+Extension.m */,
 			);
 			path = "100 CateGorys";
+			sourceTree = "<group>";
+		};
+		A4F7E9F820A95C88009F486A /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				A4F7E9F520A9304E009F486A /* IATConfig.h */,
+				A4F7E9F620A9304F009F486A /* IATConfig.m */,
+				A4F7E9F220A92E98009F486A /* ISRDataHelper.h */,
+				A4F7E9F320A92E98009F486A /* ISRDataHelper.m */,
+			);
+			name = Foundation;
 			sourceTree = "<group>";
 		};
 		F7F5D7624F364EE582B22D05 /* Frameworks */ = {

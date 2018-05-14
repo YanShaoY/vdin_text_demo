@@ -26,64 +26,56 @@
     return nil;
 }
 
-#pragma -- 创建单例
-+ (IATConfig *)sharedInstance {
-    static IATConfig  * instance = nil;
-    static dispatch_once_t predict;
-    dispatch_once(&predict, ^{
-        instance = [[IATConfig alloc] init];
-    });
-    return instance;
-}
 
 #pragma mark -- 默认设置参数
 -(void)defaultSetting {
     _speechTimeout = @"30000";
     _vadEos = @"3000";
     _vadBos = @"3000";
+    _netWorkWait = @"20000";
     _dot = @"1";
     _sampleRate = @"16000";
     _language = CHINESE;
     _accent = PUTONGHUA;
     //默认是不带界面
-    _haveView = NO;
+    _haveView = YES;
     _accentNickName = [[NSArray alloc] initWithObjects:@"粤语",@"普通话",@"英文",@"四川话", nil];
 }
 
 
-+(NSString *)mandarin {
+-(NSString *)mandarin {
     return PUTONGHUA;
 }
 
-+(NSString *)cantonese {
+-(NSString *)cantonese {
     return YUEYU;
 }
 
-+(NSString *)chinese {
+-(NSString *)chinese {
     return CHINESE;
 }
 
-+(NSString *)english {
+-(NSString *)english {
     return ENGLISH;
 }
 
-+(NSString *)sichuanese {
+-(NSString *)sichuanese {
     return SICHUANESE;
 }
 
-+(NSString *)lowSampleRate {
+-(NSString *)lowSampleRate {
     return @"8000";
 }
 
-+(NSString *)highSampleRate {
+-(NSString *)highSampleRate {
     return @"16000";
 }
 
-+(NSString *)isDot {
+-(NSString *)isDot {
     return @"1";
 }
 
-+(NSString *)noDot {
+-(NSString *)noDot {
     return @"0";
 }
 

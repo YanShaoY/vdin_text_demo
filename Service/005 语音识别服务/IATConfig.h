@@ -7,39 +7,31 @@
 //
 
 #import <Foundation/Foundation.h>
-
 /**
  语音识别配置
  */
 @interface IATConfig : NSObject
 
-/**
- 创建实例对象
-
- @return 返回本类实例对象
- */
-+(IATConfig *)sharedInstance;
-
 /// 普通话
-+(NSString *)mandarin;
+-(NSString *)mandarin;
 /// 广东话
-+(NSString *)cantonese;
+-(NSString *)cantonese;
 /// 四川话
-+(NSString *)sichuanese;
+-(NSString *)sichuanese;
 /// 中文
-+(NSString *)chinese;
+-(NSString *)chinese;
 /// 英文
-+(NSString *)english;
+-(NSString *)english;
 
 /// 低采样率
-+(NSString *)lowSampleRate;
+-(NSString *)lowSampleRate;
 /// 高采样率
-+(NSString *)highSampleRate;
+-(NSString *)highSampleRate;
 
 /// 加入标点
-+(NSString *)isDot;
+-(NSString *)isDot;
 /// 不加标点
-+(NSString *)noDot;
+-(NSString *)noDot;
 
 
 /**
@@ -47,24 +39,31 @@
  iFlySpeechRecgonizer
  进行设置
  ****/
+
+/// 设置最长录音时间
 @property (nonatomic, strong) NSString *speechTimeout;
+/// 设置后端点
 @property (nonatomic, strong) NSString *vadEos;
+/// 设置前端点
 @property (nonatomic, strong) NSString *vadBos;
-
+/// 设置网络等待时间
+@property (nonatomic, strong) NSString *netWorkWait;
+/// 设置语言
 @property (nonatomic, strong) NSString *language;
+/// 设置方言
 @property (nonatomic, strong) NSString *accent;
-
+/// 设置是否返回标点符号
 @property (nonatomic, strong) NSString *dot;
+/// 设置采样率，推荐使用16K
 @property (nonatomic, strong) NSString *sampleRate;
 
-
-/**
- 以下参数无需设置
- 不必管
- ****/
+/// 是否显示动画
 @property (nonatomic, assign) BOOL haveView;
 @property (nonatomic, strong) NSArray *accentIdentifer;
 @property (nonatomic, strong) NSArray *accentNickName;
 
 
 @end
+
+
+
