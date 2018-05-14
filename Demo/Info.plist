@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>MengJin</string>
+	<string>VdinDemo</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
@@ -71,6 +71,8 @@
 	<string>APP需要您的同意，才能访问蓝牙以用于信标位置采集</string>
 	<key>NSCameraUsageDescription</key>
 	<string>App需要您的同意，才能访问相机以用于拍照或者扫描二维码</string>
+	<key>NSContactsUsageDescription</key>
+	<string>App需要您的同意，才能读取联系人信息以更好的匹配用户语音输入内容</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>APP需要您的同意，才能使用Face ID以用于解锁程序锁屏设置</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -85,8 +87,6 @@
 	<string>App需要您的同意，才能添加聊天中需要保存的图片</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>App需要您的同意，才能访问相册以选取发送图片</string>
-	<key>NSContactsUsageDescription</key>
-	<string>App需要您的同意，才能读取联系人信息以更好的匹配用户语音输入内容</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>

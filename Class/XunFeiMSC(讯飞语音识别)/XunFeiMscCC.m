@@ -7,7 +7,9 @@
 //
 
 #import "XunFeiMscCC.h"
+
 #import "xunFeiMscPopMenuView.h"
+#import "XFVoiceDictationView.h"
 
 @interface XunFeiMscCC (){
     
@@ -63,9 +65,9 @@
     switch (self.showViewType) {
         case 0:
         {
-//            EntranceGuardView* entranceView = [[EntranceGuardView alloc]init];
-//            entranceView.backgroundColor = [UIColor clearColor];
-//            [_backView addSubview:entranceView];
+            XFVoiceDictationView * voiceDictationView = [[XFVoiceDictationView alloc]init];
+            voiceDictationView.backgroundColor = [UIColor clearColor];
+            [_backView addSubview:voiceDictationView];
         }
             break;
             
@@ -94,7 +96,7 @@
     
     for (UIView * view in _backView.subviews) {
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.top.bottom.equalTo(_backView);
+            make.left.right.top.bottom.equalTo(self.backView);
         }];
     }
 }
@@ -111,7 +113,7 @@
             @weakify(self);
             [xunFeiMscPopMenuView showXFMscPopMenuViewWithType:self.showViewType WithBlock:^(NSUInteger index) {
                 @strongify(self);
-                [_backView addGestureRecognizer:_screenEdgePan];
+                [self.backView addGestureRecognizer:self.screenEdgePan];
                 if (self.showViewType != index) {
                     self.showViewType = index;
                     [self fetchData];

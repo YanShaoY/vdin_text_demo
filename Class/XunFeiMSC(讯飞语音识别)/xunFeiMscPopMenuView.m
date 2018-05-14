@@ -88,7 +88,7 @@
         
         UIImage * img = [imageList[i]thumbnailWithSize:CGSizeMake(64, 64)];
         [button setImage:img forState:UIControlStateNormal];
-        [button setImage:[[UIImage imageNamed:@"select"]thumbnailWithSize:CGSizeMake(64, 64)] forState:UIControlStateSelected];
+        [button setImage:[[UIImage imageNamed:@"menuBtSelect"]thumbnailWithSize:CGSizeMake(64, 64)] forState:UIControlStateSelected];
         
         [button addTarget:self action:@selector(onMenuButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [_buttonList addObject:button];

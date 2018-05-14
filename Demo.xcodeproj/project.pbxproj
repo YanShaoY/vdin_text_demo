@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8767109021AE828FBE34D04A /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA77F78A4B11EA361425D22 /* Pods_Demo.framework */; };
+		36F2580C3E9C289064DD706A /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8296A4150ED2249C753B13FA /* libPods-Demo.a */; };
 		A400A3601FFB21EA00D9F9E7 /* SingleScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = A400A35F1FFB21EA00D9F9E7 /* SingleScanView.m */; };
 		A40917601FE7564200DAC1AD /* UIView+FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A409175F1FE7564200DAC1AD /* UIView+FindViewController.m */; };
 		A416864A1FF1F35A00B86842 /* ibeaconNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41686491FF1F35A00B86842 /* ibeaconNetWorkManager.m */; };
@@ -76,6 +76,8 @@
 		A4A3153D1FC436930060C7DA /* GATouchIDValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3153C1FC436930060C7DA /* GATouchIDValidationService.m */; };
 		A4A3D33C1FCE8E8900DBFAB2 /* CycleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3D33B1FCE8E8900DBFAB2 /* CycleProgressView.m */; };
 		A4AAC2CA2057A94300DBC435 /* soundWavesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AAC2C92057A94300DBC435 /* soundWavesVC.m */; };
+		A4D2612620A83B420091C587 /* XFVoiceDictationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2612520A83B420091C587 /* XFVoiceDictationView.m */; };
+		A4D2612A20A8581B0091C587 /* XFVoiceDictationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2612920A8581B0091C587 /* XFVoiceDictationModel.m */; };
 		A4EAC42E1FC673A000099677 /* guideAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC42D1FC673A000099677 /* guideAnimationView.m */; };
 		A4EAC4311FC6B3C900099677 /* TakingFacePicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC4301FC6B3C900099677 /* TakingFacePicturesView.m */; };
 		A4EAC43D1FC6DD9800099677 /* UIImage+FaceDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC43C1FC6DD9800099677 /* UIImage+FaceDetection.m */; };
@@ -83,7 +85,7 @@
 
 /* Begin PBXFileReference section */
 		68FD094C289516BCE4FB7CF0 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		7DA77F78A4B11EA361425D22 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8296A4150ED2249C753B13FA /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A400A35E1FFB21EA00D9F9E7 /* SingleScanView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleScanView.h; sourceTree = "<group>"; };
 		A400A35F1FFB21EA00D9F9E7 /* SingleScanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleScanView.m; sourceTree = "<group>"; };
 		A409175E1FE7564200DAC1AD /* UIView+FindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FindViewController.h"; sourceTree = "<group>"; };
@@ -193,6 +195,10 @@
 		A4A3D33B1FCE8E8900DBFAB2 /* CycleProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleProgressView.m; sourceTree = "<group>"; };
 		A4AAC2C82057A94300DBC435 /* soundWavesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundWavesVC.h; sourceTree = "<group>"; };
 		A4AAC2C92057A94300DBC435 /* soundWavesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = soundWavesVC.m; sourceTree = "<group>"; };
+		A4D2612420A83B420091C587 /* XFVoiceDictationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFVoiceDictationView.h; sourceTree = "<group>"; };
+		A4D2612520A83B420091C587 /* XFVoiceDictationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFVoiceDictationView.m; sourceTree = "<group>"; };
+		A4D2612820A8581B0091C587 /* XFVoiceDictationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFVoiceDictationModel.h; sourceTree = "<group>"; };
+		A4D2612920A8581B0091C587 /* XFVoiceDictationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFVoiceDictationModel.m; sourceTree = "<group>"; };
 		A4D8CFBE206E0E06001206BD /* YanSYDemo.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanSYDemo.pch; sourceTree = "<group>"; };
 		A4EAC42C1FC673A000099677 /* guideAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = guideAnimationView.h; sourceTree = "<group>"; };
 		A4EAC42D1FC673A000099677 /* guideAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = guideAnimationView.m; sourceTree = "<group>"; };
@@ -223,7 +229,7 @@
 				A49FCF7C20A3E005009826E6 /* SystemConfiguration.framework in Frameworks */,
 				A49FCF7A20A3DFF9009826E6 /* AVFoundation.framework in Frameworks */,
 				A49FCF7820A3DFDB009826E6 /* libz.tbd in Frameworks */,
-				8767109021AE828FBE34D04A /* Pods_Demo.framework in Frameworks */,
+				36F2580C3E9C289064DD706A /* libPods-Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,9 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				A4AAC2C42057A85B00DBC435 /* Scene */,
-				A4AAC2C32057A85600DBC435 /* M */,
-				A4AAC2C22057A85200DBC435 /* V */,
-				A4AAC2C12057A84C00DBC435 /* C */,
 			);
 			path = "SoundWaves(声波通讯)";
 			sourceTree = "<group>";
@@ -270,13 +273,6 @@
 				A486E6201FECA4B600CD848B /* 多点定位 */,
 			);
 			path = V;
-			sourceTree = "<group>";
-		};
-		A43FD2BF1FE26D3100E3BDB6 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		A43FD2C01FE26D3400E3BDB6 /* Scene */ = {
@@ -340,8 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				A4434B141FC4020E003923A3 /* Scene */,
-				A4434B131FC40209003923A3 /* M */,
-				A4434B121FC40205003923A3 /* V */,
+				A46AD73820A5DBBC00F92DDF /* M */,
+				A46AD73720A5DBB100F92DDF /* V */,
 				A4434B111FC401FE003923A3 /* C */,
 			);
 			path = "MainVC（首页视图）";
@@ -351,7 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				A43FD2C01FE26D3400E3BDB6 /* Scene */,
-				A43FD2BF1FE26D3100E3BDB6 /* M */,
+				A498748820A5DCF900B20014 /* M */,
 				A43FD2BE1FE26D2D00E3BDB6 /* V */,
 				A43FD2BD1FE26D2800E3BDB6 /* C */,
 			);
@@ -365,20 +361,6 @@
 				A43FD2BB1FE24A4200E3BDB6 /* SideMenuControl.m */,
 			);
 			path = C;
-			sourceTree = "<group>";
-		};
-		A4434B121FC40205003923A3 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
-		A4434B131FC40209003923A3 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		A4434B141FC4020E003923A3 /* Scene */ = {
@@ -438,8 +420,11 @@
 		A460497520A52DA000A58724 /* V */ = {
 			isa = PBXGroup;
 			children = (
-				A460497E20A536ED00A58724 /* xunFeiMscPopMenuView.h */,
-				A460497F20A536ED00A58724 /* xunFeiMscPopMenuView.m */,
+				A4D2611F20A839660091C587 /* 讯飞语音识别菜单栏 */,
+				A4D2612320A83A150091C587 /* 语音听写 */,
+				A4D2612220A83A0B0091C587 /* 语音合成 */,
+				A4D2612120A83A040091C587 /* 语法识别 */,
+				A4D2612020A839AA0091C587 /* 语音评测 */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -447,6 +432,7 @@
 		A460497620A52DA800A58724 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				A4D2612720A857F60091C587 /* 语音听写模型 */,
 			);
 			name = M;
 			sourceTree = "<group>";
@@ -525,6 +511,20 @@
 				A46A21D61FEA425E00F43DB6 /* BaseCC.m */,
 			);
 			path = BaseCC;
+			sourceTree = "<group>";
+		};
+		A46AD73720A5DBB100F92DDF /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		A46AD73820A5DBBC00F92DDF /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
 			sourceTree = "<group>";
 		};
 		A47B00141FF5EB9600DCF4BA /* 004 本地推送服务 */ = {
@@ -624,6 +624,13 @@
 			path = "公司门禁";
 			sourceTree = "<group>";
 		};
+		A498748820A5DCF900B20014 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
 		A498EF5D1FC58C0C0081C721 /* NewIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,27 +691,6 @@
 			path = "003 指纹识别服务";
 			sourceTree = "<group>";
 		};
-		A4AAC2C12057A84C00DBC435 /* C */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = C;
-			sourceTree = "<group>";
-		};
-		A4AAC2C22057A85200DBC435 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
-		A4AAC2C32057A85600DBC435 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
-			sourceTree = "<group>";
-		};
 		A4AAC2C42057A85B00DBC435 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,6 +698,54 @@
 				A4AAC2C92057A94300DBC435 /* soundWavesVC.m */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		A4D2611F20A839660091C587 /* 讯飞语音识别菜单栏 */ = {
+			isa = PBXGroup;
+			children = (
+				A460497E20A536ED00A58724 /* xunFeiMscPopMenuView.h */,
+				A460497F20A536ED00A58724 /* xunFeiMscPopMenuView.m */,
+			);
+			name = "讯飞语音识别菜单栏";
+			sourceTree = "<group>";
+		};
+		A4D2612020A839AA0091C587 /* 语音评测 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "语音评测";
+			sourceTree = "<group>";
+		};
+		A4D2612120A83A040091C587 /* 语法识别 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "语法识别";
+			sourceTree = "<group>";
+		};
+		A4D2612220A83A0B0091C587 /* 语音合成 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "语音合成";
+			sourceTree = "<group>";
+		};
+		A4D2612320A83A150091C587 /* 语音听写 */ = {
+			isa = PBXGroup;
+			children = (
+				A4D2612420A83B420091C587 /* XFVoiceDictationView.h */,
+				A4D2612520A83B420091C587 /* XFVoiceDictationView.m */,
+			);
+			name = "语音听写";
+			sourceTree = "<group>";
+		};
+		A4D2612720A857F60091C587 /* 语音听写模型 */ = {
+			isa = PBXGroup;
+			children = (
+				A4D2612820A8581B0091C587 /* XFVoiceDictationModel.h */,
+				A4D2612920A8581B0091C587 /* XFVoiceDictationModel.m */,
+			);
+			name = "语音听写模型";
 			sourceTree = "<group>";
 		};
 		A4EAC42B1FC6730900099677 /* View */ = {
@@ -766,7 +800,7 @@
 				A49FCF7720A3DFDA009826E6 /* libz.tbd */,
 				A41686501FF1F8C400B86842 /* libsqlite3.0.tbd */,
 				A416864E1FF1F8B900B86842 /* libsqlite3.tbd */,
-				7DA77F78A4B11EA361425D22 /* Pods_Demo.framework */,
+				8296A4150ED2249C753B13FA /* libPods-Demo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -782,7 +816,6 @@
 				A4434AF11FC3C94C003923A3 /* Sources */,
 				A4434AF21FC3C94C003923A3 /* Frameworks */,
 				A4434AF31FC3C94C003923A3 /* Resources */,
-				66C372A7DF0FB4C3F79EB94A /* [CP] Embed Pods Frameworks */,
 				2DD372BE92DC171B814F6116 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -800,7 +833,7 @@
 		A4434AED1FC3C94C003923A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = YanSY;
 				TargetAttributes = {
 					A4434AF41FC3C94C003923A3 = {
@@ -865,45 +898,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		66C372A7DF0FB4C3F79EB94A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMBase64/GTMBase64.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMBase64.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EDC8D22E961BEE88DD8C5402 /* [CP] Check Pods Manifest.lock */ = {
@@ -933,6 +941,8 @@
 			files = (
 				A416864D1FF1F6ED00B86842 /* MBProgressHUD+Extension.m in Sources */,
 				A486E6251FECA51600CD848B /* EntranceGuardView.m in Sources */,
+				A4D2612A20A8581B0091C587 /* XFVoiceDictationModel.m in Sources */,
+				A4D2612620A83B420091C587 /* XFVoiceDictationView.m in Sources */,
 				A47C62A71FDE27D400C5C4E9 /* GANetworkService.m in Sources */,
 				A46A21C41FEA2BCC00F43DB6 /* BaseView.m in Sources */,
 				A46A21DD1FEA54C400F43DB6 /* ibeaconPopMenuView.m in Sources */,
@@ -1002,6 +1012,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1009,6 +1020,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1057,6 +1069,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1064,6 +1077,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

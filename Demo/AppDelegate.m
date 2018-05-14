@@ -44,6 +44,21 @@
 
     [GASpeechTextMSCService initMSCServiceWithAPPId:@"5af397b8"];
     
+    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
+    
+    keyboardManager.enable = NO; // 控制整个功能是否启用
+    
+    keyboardManager.shouldResignOnTouchOutside = YES; // 控制点击背景是否收起键盘
+    
+    keyboardManager.enableAutoToolbar = NO; // 控制是否显示键盘上的工具条
+    
+    keyboardManager.shouldShowToolbarPlaceholder = YES; // 是否显示占位文字
+    
+    keyboardManager.placeholderFont = [UIFont fontWithName:@"HelveticaNeue" size:16]; // 设置占位文字的字体
+    
+    keyboardManager.keyboardDistanceFromTextField = 25.0f;
+    
+    
     return YES;
 }
 
