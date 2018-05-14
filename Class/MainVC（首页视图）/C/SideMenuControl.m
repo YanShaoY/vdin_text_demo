@@ -105,16 +105,18 @@
 
 #pragma mark -- private methods
 - (void)pauseGuideAnimation{
+    
+    __block CGFloat menuPercen = menuPercentage;
     [UIView animateWithDuration:0.2f animations:^{
         
-        CGAffineTransform rightScopeTransform = CGAffineTransformTranslate(KEYWINDOW.transform, SCREENWIDTH * menuPercentage, 0);
+        CGAffineTransform rightScopeTransform = CGAffineTransformTranslate(KEYWINDOW.transform, SCREENWIDTH * menuPercen, 0);
         if (self.centerViewController.view.frame.origin.x > SCREENWIDTH * 0.4) {
             self.centerViewController.view.transform = rightScopeTransform;
-            self.menuTableView.tx = self.centerViewController.view.tx * (1/menuPercentage-1);
+            self.menuTableView.tx = self.centerViewController.view.tx * (1/menuPercen-1);
             [self hiddenShadow];
         } else {
             self.centerViewController.view.transform = CGAffineTransformIdentity;
-            self.menuTableView.tx = self.centerViewController.view.tx * (1/menuPercentage-1);
+            self.menuTableView.tx = self.centerViewController.view.tx * (1/menuPercen-1);
             [self showShadow];
         }
         
@@ -141,15 +143,16 @@
         self.menuTableView.tx = sender.view.tx * (1/menuPercentage-1);
     }
     // 拖拽结束时
+    __block CGFloat menuPercen = menuPercentage;
     if (sender.state == UIGestureRecognizerStateEnded) {
         [UIView animateWithDuration:0.3f animations:^{
             if (sender.view.frame.origin.x > SCREENWIDTH * 0.4) {
                 sender.view.transform = rightScopeTransform;
-                self.menuTableView.tx = sender.view.tx * (1/menuPercentage-1);
+                self.menuTableView.tx = sender.view.tx * (1/menuPercen-1);
                 [self hiddenShadow];
             } else {
                 sender.view.transform = CGAffineTransformIdentity;
-                self.menuTableView.tx = sender.view.tx * (1/menuPercentage-1);
+                self.menuTableView.tx = sender.view.tx * (1/menuPercen-1);
                 [self showShadow];
             }
         }];
@@ -291,11 +294,12 @@
     
     CGAffineTransform rightScopeTransform = CGAffineTransformTranslate(KEYWINDOW.transform, SCREENWIDTH * menuPercentage, 0);
     
+    __block CGFloat menuPercen = menuPercentage;
     switch (showType) {
         case SideMenu_Tab_Type_menu:{
             [UIView animateWithDuration:0.3f animations:^{
                 self.centerViewController.view.transform = rightScopeTransform;
-                self.menuTableView.tx = self.centerViewController.view.tx * (1/menuPercentage-1);
+                self.menuTableView.tx = self.centerViewController.view.tx * (1/menuPercen-1);
                 [self hiddenShadow];
             }];
         }
@@ -304,7 +308,7 @@
         case SideMenu_Tab_Type_Root:{
             [UIView animateWithDuration:0.3f animations:^{
                 self.centerViewController.view.transform = CGAffineTransformIdentity;
-                self.menuTableView.tx = self.centerViewController.view.tx * (1/menuPercentage-1);
+                self.menuTableView.tx = self.centerViewController.view.tx * (1/menuPercen-1);
                 [self showShadow];
             }];
         }
@@ -419,10 +423,11 @@
         make.left.right.top.bottom.equalTo(self);
     }];
     
+    __block CGFloat menuPercen = menuPercentage;
     [self.menuTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(KEYWINDOW.mas_top).offset(0);
         make.bottom.equalTo(KEYWINDOW.mas_bottom).offset(0);
-        make.left.equalTo(KEYWINDOW.mas_left).offset(-SCREENWIDTH * (1 - menuPercentage));
+        make.left.equalTo(KEYWINDOW.mas_left).offset(-SCREENWIDTH * (1 - menuPercen));
         make.width.mas_equalTo(SCREENWIDTH);
     }];
 }

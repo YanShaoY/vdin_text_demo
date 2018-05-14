@@ -30,6 +30,10 @@
     [self registerNotification];
     [self fetchData];
     [self removeNotification];
+    
+    //避免同时产生多个按钮事件
+    [self setExclusiveTouchForButtons:self.view];
+    
 }
 
 #pragma mark -- 设置边缘布局，针对于 iPhoneX
@@ -118,6 +122,23 @@
 ///移除通知
 - (void)removeNotification{
 //    BaseLog(@"");
+}
+
+/**
+ 设置UIButton的ExclusiveTouch属性
+ ****/
+-(void)setExclusiveTouchForButtons:(UIView *)myView
+{
+    for (UIView * button in [myView subviews]) {
+        if([button isKindOfClass:[UIButton class]])
+        {
+            [((UIButton *)button) setExclusiveTouch:YES];
+        }
+        else if ([button isKindOfClass:[UIView class]])
+        {
+            [self setExclusiveTouchForButtons:button];
+        }
+    }
 }
 
 @end

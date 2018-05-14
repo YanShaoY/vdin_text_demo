@@ -222,7 +222,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        for (UIButton *button in _buttonList){
+        for (UIButton *button in self.buttonList){
             button.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, BackViewWidth, 0);
             if (button.tag == self.selectedIndex) {
                 button.selected = YES;

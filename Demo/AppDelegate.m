@@ -42,7 +42,7 @@
     // 启动图片延时: 1秒
 //    [NSThread sleepForTimeInterval:1];
 
-    [GASpeechTextMSCService initMSCServiceWithAPPId:@"5af397b8"];
+    [GASpeechTextMSCService setMSCWithAPPId:@"5af397b8"];
     
     IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
     
