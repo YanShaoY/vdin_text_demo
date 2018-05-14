@@ -81,6 +81,8 @@
 		A4EAC42E1FC673A000099677 /* guideAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC42D1FC673A000099677 /* guideAnimationView.m */; };
 		A4EAC4311FC6B3C900099677 /* TakingFacePicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC4301FC6B3C900099677 /* TakingFacePicturesView.m */; };
 		A4EAC43D1FC6DD9800099677 /* UIImage+FaceDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC43C1FC6DD9800099677 /* UIImage+FaceDetection.m */; };
+		A4F7E9F420A92E99009F486A /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F7E9F320A92E98009F486A /* ISRDataHelper.m */; };
+		A4F7E9F720A9304F009F486A /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F7E9F620A9304F009F486A /* IATConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +208,10 @@
 		A4EAC4301FC6B3C900099677 /* TakingFacePicturesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakingFacePicturesView.m; sourceTree = "<group>"; };
 		A4EAC43B1FC6DD9800099677 /* UIImage+FaceDetection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+FaceDetection.h"; sourceTree = "<group>"; };
 		A4EAC43C1FC6DD9800099677 /* UIImage+FaceDetection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FaceDetection.m"; sourceTree = "<group>"; };
+		A4F7E9F220A92E98009F486A /* ISRDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRDataHelper.h; sourceTree = "<group>"; };
+		A4F7E9F320A92E98009F486A /* ISRDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRDataHelper.m; sourceTree = "<group>"; };
+		A4F7E9F520A9304E009F486A /* IATConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IATConfig.h; sourceTree = "<group>"; };
+		A4F7E9F620A9304F009F486A /* IATConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATConfig.m; sourceTree = "<group>"; };
 		CCF197EAD3B0485B9C1D2A3A /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -676,6 +682,10 @@
 		A49FCF9420A3E1FA009826E6 /* 005 语音识别服务 */ = {
 			isa = PBXGroup;
 			children = (
+				A4F7E9F520A9304E009F486A /* IATConfig.h */,
+				A4F7E9F620A9304F009F486A /* IATConfig.m */,
+				A4F7E9F220A92E98009F486A /* ISRDataHelper.h */,
+				A4F7E9F320A92E98009F486A /* ISRDataHelper.m */,
 				A49FCF9520A3E360009826E6 /* GASpeechTextMSCService.h */,
 				A49FCF9620A3E360009826E6 /* GASpeechTextMSCService.m */,
 			);
@@ -945,10 +955,12 @@
 				A4D2612620A83B420091C587 /* XFVoiceDictationView.m in Sources */,
 				A47C62A71FDE27D400C5C4E9 /* GANetworkService.m in Sources */,
 				A46A21C41FEA2BCC00F43DB6 /* BaseView.m in Sources */,
+				A4F7E9F720A9304F009F486A /* IATConfig.m in Sources */,
 				A46A21DD1FEA54C400F43DB6 /* ibeaconPopMenuView.m in Sources */,
 				A4AAC2CA2057A94300DBC435 /* soundWavesVC.m in Sources */,
 				A498EF721FC652ED0081C721 /* BaseVC.m in Sources */,
 				A46A21BC1FEA105D00F43DB6 /* CollapseAnimator.m in Sources */,
+				A4F7E9F420A92E99009F486A /* ISRDataHelper.m in Sources */,
 				A43FD2BC1FE24A4200E3BDB6 /* SideMenuControl.m in Sources */,
 				A47C62A41FDE27B900C5C4E9 /* GANetworkTool.m in Sources */,
 				A4434B081FC3C94C003923A3 /* main.m in Sources */,

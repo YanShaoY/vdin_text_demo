@@ -25,9 +25,14 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.title = self.dataSourceArr[0].title;
+    [self.sideMenuListView scrollTabWithType:SideMenu_Tab_Type_Root toRowNumber:1];
 }
 
 #pragma mark -- 所有子类都应该实现的方法

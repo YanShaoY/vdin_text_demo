@@ -242,7 +242,7 @@
         NSString * rssi = [NSString stringWithFormat:@"%@",model.rssi];
         
         
-        NSString * message = [NSString stringWithFormat:@"UUID==%@\n\n主频(major)==%@\n\n副频(minor)==%@\n\n实测距离（acc）==%@\n\n信号强度(rssi)==%@\n\n",uuid,major,minor,acc,rssi];
+//        NSString * message = [NSString stringWithFormat:@"UUID==%@\n\n主频(major)==%@\n\n副频(minor)==%@\n\n实测距离（acc）==%@\n\n信号强度(rssi)==%@\n\n",uuid,major,minor,acc,rssi];
         
 //        UITextView*textView=(UITextView*)[self viewWithTag:model.minor.integerValue];
 //        textView.userInteractionEnabled = NO;

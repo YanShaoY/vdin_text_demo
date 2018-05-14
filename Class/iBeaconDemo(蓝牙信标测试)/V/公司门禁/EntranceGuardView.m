@@ -19,9 +19,11 @@
 
 @interface EntranceGuardView ()<GAibeaconLocationServiceDelegate>{
     
-    BOOL  _isOnRequest;              // 是否正在请求
+    
 }
 
+/// 是否正在请求
+@property (nonatomic , assign) BOOL                     isOnRequest;
 /// 顶部设置视图
 @property (nonatomic , strong) UIView                 * setUpBackView;
 /// 扫描开门按钮
@@ -131,14 +133,14 @@
     
     UILabel * label_101 = [_setUpBackView viewWithTag:101];
     [label_101 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(_setUpBackView);
+        make.top.left.equalTo(self.setUpBackView);
         make.width.mas_equalTo(SCREENWIDTH / 20 * 12);
         make.height.mas_equalTo(SCREENHEIGHT / 4 / 3);
     }];
     
     UILabel * label_102 = [_setUpBackView viewWithTag:102];
     [label_102 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.right.equalTo(_setUpBackView);
+        make.top.right.equalTo(self.setUpBackView);
         make.width.mas_equalTo(SCREENWIDTH / 20 * 5);
         make.height.mas_equalTo(SCREENHEIGHT / 4 / 3);
     }];
@@ -147,7 +149,7 @@
     UILabel * label_103 = [_setUpBackView viewWithTag:103];
     [label_103 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label_101.mas_bottom);
-        make.left.equalTo(_setUpBackView.mas_left);
+        make.left.equalTo(self.setUpBackView.mas_left);
         make.width.mas_equalTo(SCREENWIDTH / 20 * 12);
         make.height.mas_equalTo(SCREENHEIGHT / 4 / 3);
     }];
@@ -155,7 +157,7 @@
     UILabel * label_104 = [_setUpBackView viewWithTag:104];
     [label_104 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label_102.mas_bottom);
-        make.right.equalTo(_setUpBackView.mas_right);
+        make.right.equalTo(self.setUpBackView.mas_right);
         make.width.mas_equalTo(SCREENWIDTH / 20 * 5);
         make.height.mas_equalTo(SCREENHEIGHT / 4 / 3);
     }];
@@ -163,22 +165,22 @@
     UISlider * slider = [_setUpBackView viewWithTag:105];
     [slider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label_104.mas_bottom);
-        make.left.equalTo(_setUpBackView.mas_left).offset(SCREENWIDTH / 15);
-        make.right.equalTo(_setUpBackView.mas_right).offset(-SCREENWIDTH / 15);
+        make.left.equalTo(self.setUpBackView.mas_left).offset(SCREENWIDTH / 15);
+        make.right.equalTo(self.setUpBackView.mas_right).offset(-SCREENWIDTH / 15);
         make.height.mas_equalTo(SCREENHEIGHT / 4 / 3);
     }];
 
     [_scanButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.mas_centerX);
-        make.top.equalTo(_setUpBackView.mas_bottom).offset(SCREENHEIGHT / 8);
+        make.top.equalTo(self.setUpBackView.mas_bottom).offset(SCREENHEIGHT / 8);
         make.height.mas_equalTo(SCREENHEIGHT / 6);
         make.width.mas_equalTo(SCREENHEIGHT / 6);
     }];
     
     UILabel * label_106 = [self viewWithTag:106];
     [label_106 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_scanButton.mas_bottom).offset(SCREENHEIGHT / 12);
-        make.left.equalTo(_setUpBackView.mas_left);
+        make.top.equalTo(self.scanButton.mas_bottom).offset(SCREENHEIGHT / 12);
+        make.left.equalTo(self.setUpBackView.mas_left);
         make.width.mas_equalTo(SCREENWIDTH / 20 * 12);
         make.height.mas_equalTo(SCREENHEIGHT / 4 / 3);
     }];
@@ -360,7 +362,7 @@
     [ibeaconNetWorkManager autoOpenTheDoorRequestComplete:^(id responseObject, BOOL isSuccess) {
         @strongify(self);
         [self dismissAnimationOnButton];
-        _isOnRequest = NO;
+        self.isOnRequest = NO;
 
 //        [self performSelector:@selector(changeisOnRequestStatus) withObject:nil afterDelay:2];
     }];

@@ -94,7 +94,7 @@
     
     for (UIView * view in _backView.subviews) {
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.top.bottom.equalTo(_backView);
+            make.left.right.top.bottom.equalTo(self.backView);
         }];
     }
 }
@@ -111,7 +111,7 @@
             @weakify(self);
             [ibeaconPopMenuView showIBeaconPopMenuViewWithType:self.showViewType WithBlock:^(NSUInteger index) {
                 @strongify(self);
-                [_backView addGestureRecognizer:_screenEdgePan];
+                [self.backView addGestureRecognizer:self.screenEdgePan];
                 if (self.showViewType != index) {
                     self.showViewType = index;
                     [self fetchData];

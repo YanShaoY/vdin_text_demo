@@ -21,4 +21,5 @@
  *  @return  返回联系人信息
  */
 - (NSString *) contact;
+
 @end

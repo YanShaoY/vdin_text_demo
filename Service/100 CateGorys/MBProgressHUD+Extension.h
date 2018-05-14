@@ -73,7 +73,7 @@
  @param interval      时长
  @param completeBlock 完成后的回调
  */
-+ (void)hudWithText:(NSString *)text toView:(UIView *)view DealyTime:(NSTimeInterval)interval complete:(void (^)())completeBlock;
++ (void)hudWithText:(NSString *)text toView:(UIView *)view DealyTime:(NSTimeInterval)interval complete:(void (^)(void))completeBlock;
 
 @end
 
