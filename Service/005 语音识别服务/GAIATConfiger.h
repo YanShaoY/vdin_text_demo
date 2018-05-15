@@ -63,6 +63,15 @@
 /// 口音名称数组
 @property (nonatomic, strong) NSArray *accentNickName;
 
+
+/**
+ 创建配置
+
+ @param config 对应的对象
+ @return 返回实例
+ */
++(instancetype)createWithId:(id)config;
+
 @end
 
 

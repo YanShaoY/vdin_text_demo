@@ -22,7 +22,14 @@
 @property (strong, nonatomic) UIView  * toolView;             // 工具条
 @property (strong, nonatomic) UILabel * titleLabel;           // 标题
 
-@property (strong, nonatomic) SAMultisectorControl * roundSlider; // 标题
+@property (strong, nonatomic) SAMultisectorControl * roundSlider;  // 原型滑块
+@property (strong, nonatomic) SAMultisectorSector  * internalSec;  // 内部滑动控件
+@property (strong, nonatomic) SAMultisectorSector  * middleSec;    // 中间滑动控件
+@property (strong, nonatomic) SAMultisectorSector  * outsideSec;   // 外部滑动控件
+
+@property (strong, nonatomic) UILabel * leftLabel;           // 左边文字
+@property (strong, nonatomic) UILabel * centerLabel;         // 左边文字
+@property (strong, nonatomic) UILabel * rightLabel;          // 右边文字
 
 @end
 
@@ -51,6 +58,7 @@
         
         [self configurationBackView];
         [self configurationToolView];
+        [self setupMultisectorControl];
 
     }
     return self;
@@ -67,6 +75,13 @@
     
     self.configer = configer;
     self.setUpAlertBlock = block;
+    if ([GAIATConfiger createWithId:self.configer]) {
+        GAIATConfiger * instance = [GAIATConfiger createWithId:self.configer];
+        _internalSec.endValue = instance.vadBos.integerValue;
+        _middleSec.endValue   = instance.vadEos.integerValue;
+        _outsideSec.endValue  = instance.speechTimeout.integerValue;
+    }
+
     
     [self showSetUpAlert];
 }
@@ -139,6 +154,36 @@
         make.centerY.equalTo(self.toolView.mas_centerY);
         make.width.mas_equalTo(45.f);
         make.height.mas_equalTo(30.f);
+    }];
+}
+
+/// 设置原型滑块
+- (void)setupMultisectorControl{
+    
+    self.roundSlider = [[SAMultisectorControl alloc]init];
+    [self.setUpAlertBackView addSubview:self.roundSlider];
+    
+    [_roundSlider addTarget:self action:@selector(multisectorValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    UIColor *blueColor = [UIColor colorWithRed:0.0 green:168.0/255.0 blue:255.0/255.0 alpha:1.0];
+    UIColor *redColor = [UIColor colorWithRed:245.0/255.0 green:76.0/255.0 blue:76.0/255.0 alpha:1.0];
+    UIColor *greenColor = [UIColor colorWithRed:29.0/255.0 green:207.0/255.0 blue:0.0 alpha:1.0];
+    
+    // 内部
+    _internalSec = [SAMultisectorSector sectorWithColor:redColor maxValue:10000];
+    // 中间
+    _middleSec = [SAMultisectorSector sectorWithColor:blueColor maxValue:10000];
+    // 外面
+    _outsideSec = [SAMultisectorSector sectorWithColor:greenColor maxValue:60000];
+    
+    [_roundSlider addSector:_internalSec];
+    [_roundSlider addSector:_internalSec];
+    [_roundSlider addSector:_internalSec];
+    
+    [self.roundSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.toolView.mas_bottom);
+        make.left.right.equalTo(self.toolView);
+        make.height.mas_equalTo(300.f);
     }];
 }
 

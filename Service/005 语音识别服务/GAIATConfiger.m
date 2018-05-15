@@ -77,6 +77,19 @@
     return @"0";
 }
 
+/**
+ 创建配置
+ 
+ @param config 对应的对象
+ @return 返回实例
+ */
++(instancetype)createWithId:(id)config{
+    if ([config isKindOfClass:[self class]]) {
+        GAIATConfiger * configer = (GAIATConfiger *)config;
+        return configer;
+    }
+    return nil;
+}
 @end
 
 

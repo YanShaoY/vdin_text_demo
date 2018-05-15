@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85DAF2A6E038BC6BA63A9AA9 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 475D7984F5A46BEEEFCDFD52 /* libPods-Demo.a */; };
 		A400A3601FFB21EA00D9F9E7 /* SingleScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = A400A35F1FFB21EA00D9F9E7 /* SingleScanView.m */; };
 		A40917601FE7564200DAC1AD /* UIView+FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A409175F1FE7564200DAC1AD /* UIView+FindViewController.m */; };
 		A416864A1FF1F35A00B86842 /* ibeaconNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41686491FF1F35A00B86842 /* ibeaconNetWorkManager.m */; };
@@ -87,6 +88,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		475D7984F5A46BEEEFCDFD52 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68FD094C289516BCE4FB7CF0 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		A400A35E1FFB21EA00D9F9E7 /* SingleScanView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleScanView.h; sourceTree = "<group>"; };
 		A400A35F1FFB21EA00D9F9E7 /* SingleScanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleScanView.m; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				A49FCF7C20A3E005009826E6 /* SystemConfiguration.framework in Frameworks */,
 				A49FCF7A20A3DFF9009826E6 /* AVFoundation.framework in Frameworks */,
 				A49FCF7820A3DFDB009826E6 /* libz.tbd in Frameworks */,
+				85DAF2A6E038BC6BA63A9AA9 /* libPods-Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -883,6 +886,7 @@
 				A49FCF7720A3DFDA009826E6 /* libz.tbd */,
 				A41686501FF1F8C400B86842 /* libsqlite3.0.tbd */,
 				A416864E1FF1F8B900B86842 /* libsqlite3.tbd */,
+				475D7984F5A46BEEEFCDFD52 /* libPods-Demo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

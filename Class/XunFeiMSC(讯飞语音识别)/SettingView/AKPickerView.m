@@ -183,11 +183,8 @@
 	[self selectItem:self.selectedItem animated:NO notifySelection:NO];
 }
 
-- (CGFloat)offsetForItem:(NSUInteger)item
-{
-	NSAssert(item < [self.collectionView numberOfItemsInSection:0],
-			 @"item out of range; '%lu' passed, but the maximum is '%lu'",(unsigned long)item, (long)[self.collectionView numberOfItemsInSection:0]);
-
+- (CGFloat)offsetForItem:(NSUInteger)item{
+    
 	CGFloat offset = 0.0;
 
 	for (NSInteger i = 0; i < item; i++) {
