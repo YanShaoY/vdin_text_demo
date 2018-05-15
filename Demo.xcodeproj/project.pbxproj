@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		36F2580C3E9C289064DD706A /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8296A4150ED2249C753B13FA /* libPods-Demo.a */; };
 		A400A3601FFB21EA00D9F9E7 /* SingleScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = A400A35F1FFB21EA00D9F9E7 /* SingleScanView.m */; };
 		A40917601FE7564200DAC1AD /* UIView+FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A409175F1FE7564200DAC1AD /* UIView+FindViewController.m */; };
 		A416864A1FF1F35A00B86842 /* ibeaconNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41686491FF1F35A00B86842 /* ibeaconNetWorkManager.m */; };
@@ -37,10 +36,8 @@
 		A460542B1FC5254700C3BABB /* 4圈圈旋转.json in Resources */ = {isa = PBXBuildFile; fileRef = A46054241FC5254700C3BABB /* 4圈圈旋转.json */; };
 		A460542C1FC5254700C3BABB /* 1指纹识别中.json in Resources */ = {isa = PBXBuildFile; fileRef = A46054251FC5254700C3BABB /* 1指纹识别中.json */; };
 		A460542D1FC5254700C3BABB /* 5人脸线框动画.json in Resources */ = {isa = PBXBuildFile; fileRef = A46054261FC5254700C3BABB /* 5人脸线框动画.json */; };
-		A466228620A9C64000C282FA /* XFMSCConfiger.m in Sources */ = {isa = PBXBuildFile; fileRef = A466228520A9C64000C282FA /* XFMSCConfiger.m */; };
 		A46622A420A9CB6700C282FA /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = A466228D20A9CB6700C282FA /* PopupView.m */; };
 		A46622AC20A9CB6700C282FA /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A466229E20A9CB6700C282FA /* AlertView.m */; };
-		A46622AD20A9CB6700C282FA /* PcmPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A46622A220A9CB6700C282FA /* PcmPlayer.m */; };
 		A46A21BC1FEA105D00F43DB6 /* CollapseAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A46A21BB1FEA105D00F43DB6 /* CollapseAnimator.m */; };
 		A46A21C41FEA2BCC00F43DB6 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A46A21C31FEA2BCC00F43DB6 /* BaseView.m */; };
 		A46A21D31FEA359900F43DB6 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A46A21D21FEA359900F43DB6 /* BaseModel.m */; };
@@ -74,17 +71,23 @@
 		A4A3153D1FC436930060C7DA /* GATouchIDValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3153C1FC436930060C7DA /* GATouchIDValidationService.m */; };
 		A4A3D33C1FCE8E8900DBFAB2 /* CycleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3D33B1FCE8E8900DBFAB2 /* CycleProgressView.m */; };
 		A4AAC2CA2057A94300DBC435 /* soundWavesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AAC2C92057A94300DBC435 /* soundWavesVC.m */; };
+		A4B6B96320AA65970066616F /* GAIATConfiger.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B96220AA65970066616F /* GAIATConfiger.m */; };
+		A4B6B96720AA67530066616F /* GAXFMscDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B96620AA67530066616F /* GAXFMscDataHelper.m */; };
+		A4B6B96A20AA68590066616F /* GASpeechIATService.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B96920AA68590066616F /* GASpeechIATService.m */; };
+		A4B6B96D20AAC1170066616F /* GAXFMscPcmPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B96C20AAC1170066616F /* GAXFMscPcmPlayer.m */; };
+		A4B6B97220AAD0480066616F /* XFMscSetUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B97120AAD0480066616F /* XFMscSetUpView.m */; };
+		A4B6B97A20AADCCD0066616F /* AKPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B97520AADCCD0066616F /* AKPickerView.m */; };
+		A4B6B97B20AADCCD0066616F /* SAMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B97720AADCCD0066616F /* SAMath.m */; };
+		A4B6B97C20AADCCD0066616F /* SAMultisectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B97920AADCCD0066616F /* SAMultisectorControl.m */; };
 		A4D2612620A83B420091C587 /* XFVoiceDictationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2612520A83B420091C587 /* XFVoiceDictationView.m */; };
 		A4D2612A20A8581B0091C587 /* XFVoiceDictationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2612920A8581B0091C587 /* XFVoiceDictationModel.m */; };
 		A4EAC42E1FC673A000099677 /* guideAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC42D1FC673A000099677 /* guideAnimationView.m */; };
 		A4EAC4311FC6B3C900099677 /* TakingFacePicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC4301FC6B3C900099677 /* TakingFacePicturesView.m */; };
 		A4EAC43D1FC6DD9800099677 /* UIImage+FaceDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC43C1FC6DD9800099677 /* UIImage+FaceDetection.m */; };
-		A4F7E9F420A92E99009F486A /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F7E9F320A92E98009F486A /* ISRDataHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		68FD094C289516BCE4FB7CF0 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		8296A4150ED2249C753B13FA /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A400A35E1FFB21EA00D9F9E7 /* SingleScanView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleScanView.h; sourceTree = "<group>"; };
 		A400A35F1FFB21EA00D9F9E7 /* SingleScanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleScanView.m; sourceTree = "<group>"; };
 		A409175E1FE7564200DAC1AD /* UIView+FindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FindViewController.h"; sourceTree = "<group>"; };
@@ -136,14 +139,9 @@
 		A46054241FC5254700C3BABB /* 4圈圈旋转.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4圈圈旋转.json"; sourceTree = "<group>"; };
 		A46054251FC5254700C3BABB /* 1指纹识别中.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1指纹识别中.json"; sourceTree = "<group>"; };
 		A46054261FC5254700C3BABB /* 5人脸线框动画.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "5人脸线框动画.json"; sourceTree = "<group>"; };
-		A466228420A9C64000C282FA /* XFMSCConfiger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFMSCConfiger.h; sourceTree = "<group>"; };
-		A466228520A9C64000C282FA /* XFMSCConfiger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFMSCConfiger.m; sourceTree = "<group>"; };
 		A466228C20A9CB6700C282FA /* AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertView.h; sourceTree = "<group>"; };
 		A466228D20A9CB6700C282FA /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		A466229E20A9CB6700C282FA /* AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertView.m; sourceTree = "<group>"; };
-		A46622A020A9CB6700C282FA /* PcmPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcmPlayer.h; sourceTree = "<group>"; };
-		A46622A120A9CB6700C282FA /* PcmPlayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcmPlayerDelegate.h; sourceTree = "<group>"; };
-		A46622A220A9CB6700C282FA /* PcmPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PcmPlayer.m; sourceTree = "<group>"; };
 		A46622A320A9CB6700C282FA /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		A46A21BA1FEA105D00F43DB6 /* CollapseAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollapseAnimator.h; sourceTree = "<group>"; };
 		A46A21BB1FEA105D00F43DB6 /* CollapseAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollapseAnimator.m; sourceTree = "<group>"; };
@@ -189,14 +187,29 @@
 		A49FCF9120A3E093009826E6 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		A49FCF9520A3E360009826E6 /* GASpeechTextMSCService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GASpeechTextMSCService.h; sourceTree = "<group>"; };
 		A49FCF9620A3E360009826E6 /* GASpeechTextMSCService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GASpeechTextMSCService.m; sourceTree = "<group>"; };
-		A49FCF9A20A3E47B009826E6 /* Definition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
-		A49FCFA120A43CF7009826E6 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		A49FCFA120A43CF7009826E6 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = ../../iflyMSC.framework; sourceTree = "<group>"; };
 		A4A3153B1FC436930060C7DA /* GATouchIDValidationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GATouchIDValidationService.h; sourceTree = "<group>"; };
 		A4A3153C1FC436930060C7DA /* GATouchIDValidationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GATouchIDValidationService.m; sourceTree = "<group>"; };
 		A4A3D33A1FCE8E8900DBFAB2 /* CycleProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CycleProgressView.h; sourceTree = "<group>"; };
 		A4A3D33B1FCE8E8900DBFAB2 /* CycleProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleProgressView.m; sourceTree = "<group>"; };
 		A4AAC2C82057A94300DBC435 /* soundWavesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundWavesVC.h; sourceTree = "<group>"; };
 		A4AAC2C92057A94300DBC435 /* soundWavesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = soundWavesVC.m; sourceTree = "<group>"; };
+		A4B6B96120AA65970066616F /* GAIATConfiger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIATConfiger.h; sourceTree = "<group>"; };
+		A4B6B96220AA65970066616F /* GAIATConfiger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAIATConfiger.m; sourceTree = "<group>"; };
+		A4B6B96520AA67530066616F /* GAXFMscDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAXFMscDataHelper.h; sourceTree = "<group>"; };
+		A4B6B96620AA67530066616F /* GAXFMscDataHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAXFMscDataHelper.m; sourceTree = "<group>"; };
+		A4B6B96820AA68590066616F /* GASpeechIATService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GASpeechIATService.h; sourceTree = "<group>"; };
+		A4B6B96920AA68590066616F /* GASpeechIATService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GASpeechIATService.m; sourceTree = "<group>"; };
+		A4B6B96B20AAC1170066616F /* GAXFMscPcmPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAXFMscPcmPlayer.h; sourceTree = "<group>"; };
+		A4B6B96C20AAC1170066616F /* GAXFMscPcmPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAXFMscPcmPlayer.m; sourceTree = "<group>"; };
+		A4B6B97020AAD0480066616F /* XFMscSetUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFMscSetUpView.h; sourceTree = "<group>"; };
+		A4B6B97120AAD0480066616F /* XFMscSetUpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFMscSetUpView.m; sourceTree = "<group>"; };
+		A4B6B97420AADCCD0066616F /* AKPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPickerView.h; sourceTree = "<group>"; };
+		A4B6B97520AADCCD0066616F /* AKPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKPickerView.m; sourceTree = "<group>"; };
+		A4B6B97620AADCCD0066616F /* SAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMath.h; sourceTree = "<group>"; };
+		A4B6B97720AADCCD0066616F /* SAMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMath.m; sourceTree = "<group>"; };
+		A4B6B97820AADCCD0066616F /* SAMultisectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMultisectorControl.h; sourceTree = "<group>"; };
+		A4B6B97920AADCCD0066616F /* SAMultisectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMultisectorControl.m; sourceTree = "<group>"; };
 		A4D2612420A83B420091C587 /* XFVoiceDictationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFVoiceDictationView.h; sourceTree = "<group>"; };
 		A4D2612520A83B420091C587 /* XFVoiceDictationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFVoiceDictationView.m; sourceTree = "<group>"; };
 		A4D2612820A8581B0091C587 /* XFVoiceDictationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFVoiceDictationModel.h; sourceTree = "<group>"; };
@@ -208,8 +221,6 @@
 		A4EAC4301FC6B3C900099677 /* TakingFacePicturesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakingFacePicturesView.m; sourceTree = "<group>"; };
 		A4EAC43B1FC6DD9800099677 /* UIImage+FaceDetection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+FaceDetection.h"; sourceTree = "<group>"; };
 		A4EAC43C1FC6DD9800099677 /* UIImage+FaceDetection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FaceDetection.m"; sourceTree = "<group>"; };
-		A4F7E9F220A92E98009F486A /* ISRDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRDataHelper.h; sourceTree = "<group>"; };
-		A4F7E9F320A92E98009F486A /* ISRDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRDataHelper.m; sourceTree = "<group>"; };
 		CCF197EAD3B0485B9C1D2A3A /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,7 +244,6 @@
 				A49FCF7C20A3E005009826E6 /* SystemConfiguration.framework in Frameworks */,
 				A49FCF7A20A3DFF9009826E6 /* AVFoundation.framework in Frameworks */,
 				A49FCF7820A3DFDB009826E6 /* libz.tbd in Frameworks */,
-				36F2580C3E9C289064DD706A /* libPods-Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +301,6 @@
 		A4434AEC1FC3C94C003923A3 = {
 			isa = PBXGroup;
 			children = (
-				A466228B20A9CB6700C282FA /* tools */,
 				A47C629C1FDE273000C5C4E9 /* Service */,
 				A4434B0E1FC3D842003923A3 /* Class */,
 				A4434AF71FC3C94C003923A3 /* Demo */,
@@ -425,7 +434,9 @@
 		A460497520A52DA000A58724 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				A4B6B96F20AAD0100066616F /* 讯飞语音识别设置视图 */,
 				A4D2611F20A839660091C587 /* 讯飞语音识别菜单栏 */,
+				A4B6B96E20AAC1D50066616F /* 提示弹窗 */,
 				A4D2612320A83A150091C587 /* 语音听写 */,
 				A4D2612220A83A0B0091C587 /* 语音合成 */,
 				A4D2612120A83A040091C587 /* 语法识别 */,
@@ -449,28 +460,6 @@
 				A460497920A52E4A00A58724 /* XunFeiMscVC.m */,
 			);
 			name = Scene;
-			sourceTree = "<group>";
-		};
-		A466228B20A9CB6700C282FA /* tools */ = {
-			isa = PBXGroup;
-			children = (
-				A466228C20A9CB6700C282FA /* AlertView.h */,
-				A466229E20A9CB6700C282FA /* AlertView.m */,
-				A466229F20A9CB6700C282FA /* pcmPlayerCode */,
-				A46622A320A9CB6700C282FA /* PopupView.h */,
-				A466228D20A9CB6700C282FA /* PopupView.m */,
-			);
-			path = tools;
-			sourceTree = "<group>";
-		};
-		A466229F20A9CB6700C282FA /* pcmPlayerCode */ = {
-			isa = PBXGroup;
-			children = (
-				A46622A020A9CB6700C282FA /* PcmPlayer.h */,
-				A46622A220A9CB6700C282FA /* PcmPlayer.m */,
-				A46622A120A9CB6700C282FA /* PcmPlayerDelegate.h */,
-			);
-			path = pcmPlayerCode;
 			sourceTree = "<group>";
 		};
 		A46A21BE1FEA120200F43DB6 /* 002 蓝牙定位服务 */ = {
@@ -577,7 +566,6 @@
 		A47B4F711FC41F1C00E34638 /* PchFile(宏文件) */ = {
 			isa = PBXGroup;
 			children = (
-				A49FCF9A20A3E47B009826E6 /* Definition.h */,
 				A4D8CFBE206E0E06001206BD /* YanSYDemo.pch */,
 			);
 			path = "PchFile(宏文件)";
@@ -714,6 +702,77 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		A4B6B95E20AA64430066616F /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				A49FCFA120A43CF7009826E6 /* iflyMSC.framework */,
+			);
+			name = SDK;
+			sourceTree = "<group>";
+		};
+		A4B6B95F20AA64CE0066616F /* ISR （语音识别） */ = {
+			isa = PBXGroup;
+			children = (
+				A4B6B96120AA65970066616F /* GAIATConfiger.h */,
+				A4B6B96220AA65970066616F /* GAIATConfiger.m */,
+				A4B6B96820AA68590066616F /* GASpeechIATService.h */,
+				A4B6B96920AA68590066616F /* GASpeechIATService.m */,
+			);
+			name = "ISR （语音识别）";
+			sourceTree = "<group>";
+		};
+		A4B6B96020AA64FB0066616F /* TTS（语音合成） */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "TTS（语音合成）";
+			sourceTree = "<group>";
+		};
+		A4B6B96420AA66950066616F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				A4B6B96520AA67530066616F /* GAXFMscDataHelper.h */,
+				A4B6B96620AA67530066616F /* GAXFMscDataHelper.m */,
+				A4B6B96B20AAC1170066616F /* GAXFMscPcmPlayer.h */,
+				A4B6B96C20AAC1170066616F /* GAXFMscPcmPlayer.m */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		A4B6B96E20AAC1D50066616F /* 提示弹窗 */ = {
+			isa = PBXGroup;
+			children = (
+				A466228C20A9CB6700C282FA /* AlertView.h */,
+				A466229E20A9CB6700C282FA /* AlertView.m */,
+				A46622A320A9CB6700C282FA /* PopupView.h */,
+				A466228D20A9CB6700C282FA /* PopupView.m */,
+			);
+			name = "提示弹窗";
+			sourceTree = "<group>";
+		};
+		A4B6B96F20AAD0100066616F /* 讯飞语音识别设置视图 */ = {
+			isa = PBXGroup;
+			children = (
+				A4B6B97320AADCCD0066616F /* SettingView */,
+				A4B6B97020AAD0480066616F /* XFMscSetUpView.h */,
+				A4B6B97120AAD0480066616F /* XFMscSetUpView.m */,
+			);
+			name = "讯飞语音识别设置视图";
+			sourceTree = "<group>";
+		};
+		A4B6B97320AADCCD0066616F /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				A4B6B97420AADCCD0066616F /* AKPickerView.h */,
+				A4B6B97520AADCCD0066616F /* AKPickerView.m */,
+				A4B6B97620AADCCD0066616F /* SAMath.h */,
+				A4B6B97720AADCCD0066616F /* SAMath.m */,
+				A4B6B97820AADCCD0066616F /* SAMultisectorControl.h */,
+				A4B6B97920AADCCD0066616F /* SAMultisectorControl.m */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
 		A4D2611F20A839660091C587 /* 讯飞语音识别菜单栏 */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,10 +856,10 @@
 		A4F7E9F820A95C88009F486A /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				A4F7E9F220A92E98009F486A /* ISRDataHelper.h */,
-				A4F7E9F320A92E98009F486A /* ISRDataHelper.m */,
-				A466228420A9C64000C282FA /* XFMSCConfiger.h */,
-				A466228520A9C64000C282FA /* XFMSCConfiger.m */,
+				A4B6B95E20AA64430066616F /* SDK */,
+				A4B6B96420AA66950066616F /* Tools */,
+				A4B6B95F20AA64CE0066616F /* ISR （语音识别） */,
+				A4B6B96020AA64FB0066616F /* TTS（语音合成） */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -808,7 +867,6 @@
 		F7F5D7624F364EE582B22D05 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A49FCFA120A43CF7009826E6 /* iflyMSC.framework */,
 				A49FCF9120A3E093009826E6 /* libicucore.tbd */,
 				A49FCF8F20A3E08A009826E6 /* libc++.tbd */,
 				A49FCF8D20A3E07D009826E6 /* CoreGraphics.framework */,
@@ -825,7 +883,6 @@
 				A49FCF7720A3DFDA009826E6 /* libz.tbd */,
 				A41686501FF1F8C400B86842 /* libsqlite3.0.tbd */,
 				A416864E1FF1F8B900B86842 /* libsqlite3.tbd */,
-				8296A4150ED2249C753B13FA /* libPods-Demo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -959,25 +1016,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				A416864D1FF1F6ED00B86842 /* MBProgressHUD+Extension.m in Sources */,
+				A4B6B96720AA67530066616F /* GAXFMscDataHelper.m in Sources */,
+				A4B6B97220AAD0480066616F /* XFMscSetUpView.m in Sources */,
 				A486E6251FECA51600CD848B /* EntranceGuardView.m in Sources */,
 				A4D2612A20A8581B0091C587 /* XFVoiceDictationModel.m in Sources */,
+				A4B6B96A20AA68590066616F /* GASpeechIATService.m in Sources */,
 				A4D2612620A83B420091C587 /* XFVoiceDictationView.m in Sources */,
 				A47C62A71FDE27D400C5C4E9 /* GANetworkService.m in Sources */,
 				A46A21C41FEA2BCC00F43DB6 /* BaseView.m in Sources */,
 				A46A21DD1FEA54C400F43DB6 /* ibeaconPopMenuView.m in Sources */,
 				A4AAC2CA2057A94300DBC435 /* soundWavesVC.m in Sources */,
 				A498EF721FC652ED0081C721 /* BaseVC.m in Sources */,
+				A4B6B97A20AADCCD0066616F /* AKPickerView.m in Sources */,
 				A46A21BC1FEA105D00F43DB6 /* CollapseAnimator.m in Sources */,
-				A4F7E9F420A92E99009F486A /* ISRDataHelper.m in Sources */,
 				A43FD2BC1FE24A4200E3BDB6 /* SideMenuControl.m in Sources */,
 				A47C62A41FDE27B900C5C4E9 /* GANetworkTool.m in Sources */,
 				A4434B081FC3C94C003923A3 /* main.m in Sources */,
+				A4B6B97B20AADCCD0066616F /* SAMath.m in Sources */,
 				A40917601FE7564200DAC1AD /* UIView+FindViewController.m in Sources */,
 				A4EAC43D1FC6DD9800099677 /* UIImage+FaceDetection.m in Sources */,
 				A460497A20A52E4A00A58724 /* XunFeiMscVC.m in Sources */,
 				A4EAC4311FC6B3C900099677 /* TakingFacePicturesView.m in Sources */,
+				A4B6B96D20AAC1170066616F /* GAXFMscPcmPlayer.m in Sources */,
 				A47C62AA1FDE294600C5C4E9 /* NSDate+DateString.m in Sources */,
 				A46622AC20A9CB6700C282FA /* AlertView.m in Sources */,
+				A4B6B97C20AADCCD0066616F /* SAMultisectorControl.m in Sources */,
 				A436BD3B1FEB87BC00FA552D /* UIButton+ImageTitleSpacing.m in Sources */,
 				A43FD2C31FE26D6D00E3BDB6 /* iBeaconVC.m in Sources */,
 				A460498020A536ED00A58724 /* xunFeiMscPopMenuView.m in Sources */,
@@ -997,12 +1060,11 @@
 				A4434B171FC40261003923A3 /* mainVC.m in Sources */,
 				A4A3153D1FC436930060C7DA /* GATouchIDValidationService.m in Sources */,
 				A47C62AD1FDE29A800C5C4E9 /* UIImage+Extension.m in Sources */,
-				A46622AD20A9CB6700C282FA /* PcmPlayer.m in Sources */,
 				A47B00171FF5F07500DCF4BA /* GALocalNoticeService.m in Sources */,
-				A466228620A9C64000C282FA /* XFMSCConfiger.m in Sources */,
 				A44696522002FEA10079CEAB /* GAibeaconModel.m in Sources */,
 				A41B15641FCFD88E007C84C5 /* MovieGuidePage.m in Sources */,
 				A46A21D31FEA359900F43DB6 /* BaseModel.m in Sources */,
+				A4B6B96320AA65970066616F /* GAIATConfiger.m in Sources */,
 				A46A21D71FEA425E00F43DB6 /* BaseCC.m in Sources */,
 				A4EAC42E1FC673A000099677 /* guideAnimationView.m in Sources */,
 			);

@@ -8,17 +8,19 @@
 
 #import "XFVoiceDictationView.h"
 #import "XFVoiceDictationModel.h"
+#import "PopupView.h"
+#import "XFMscSetUpView.h"
 
 #import "GASpeechTextMSCService.h"
 
 #define USERWORDS   @"{\"userword\":[{\"name\":\"我的常用词\",\"words\":[\"中德宏泰\",\"天祥广场\",\"高新区\",\"成都市\"]},{\"name\":\"我的好友\",\"words\":[\"孙二浪\",\"污妖汪\",\"哈哈全\",\"大润发\",\"二姐\",\"YanSY\"]}]}"
 
-@interface XFVoiceDictationView ()<GASpeechTextMSCServiceDelegate>{
-    
-}
+@interface XFVoiceDictationView ()<GASpeechIATServiceDelegate>
 
 /// 标题
 @property (nonatomic , strong) UILabel                    * titleLabel;
+/// 设置按钮
+@property (nonatomic , strong) UIButton                   * setUpBtn;
 /// 语音识别展示视图
 @property (nonatomic , strong) UITextView                 * textView;
 /// 开始识别按钮
@@ -39,8 +41,9 @@
 /// 模型
 @property (nonatomic , strong) XFVoiceDictationModel      * myModel;
 /// 语音听写服务
-@property (nonatomic , strong) GASpeechTextMSCService     * mscService;
-
+@property (nonatomic , strong) GASpeechIATService         * speechService;
+/// 提示视图
+@property (nonatomic , strong) PopupView                  * popUpView;
 
 @end
 
@@ -62,6 +65,8 @@
 - (void)configuration{
     
     self.myModel = [[XFVoiceDictationModel alloc]init];
+    CGPoint center = [UIApplication sharedApplication].keyWindow.center;
+    self.popUpView = [[PopupView alloc]initWithFrame:CGRectMake(center.x, 200, 0, 0) withParentView:self] ;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector (pauseGuideAnimation) name: UIApplicationWillResignActiveNotification object:nil];
 
@@ -71,6 +76,7 @@
 - (void)addUI{
     
     [self addSubview:self.titleLabel];
+    [self addSubview:self.setUpBtn];
     [self addSubview:self.textView];
     
     self.startRecBtn = [self.myModel createButtonWithTitle:@"开始识别"];
@@ -98,50 +104,82 @@
     self.upWordListBtn = [self.myModel createButtonWithTitle:@"上传词表"];
     [self.upWordListBtn addTarget:self action:@selector(upWordListBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.upWordListBtn];
-    
 
 }
 
 #pragma mark -- 事件响应
 - (void)pauseGuideAnimation{
-    //    [self dismissAnimationOnButton];
+    [self.speechService stopASRToListening];
+}
+
+- (void)setUpBtnClick:(UIButton *)sender{
     
+    [XFMscSetUpView disPlaySetUpView:self.speechService.baseConfig WithBlock:^(id configer) {
+        
+    }];
 }
 
 - (void)startRecBtnClick:(UIButton *)sender{
 
-    BOOL ret = [self.mscService startToASR];
+    BOOL ret = [self.speechService startASRToListening];
     if (ret) {
         [_textView setText:@""];
         [_textView resignFirstResponder];
+        [_audioStreamBtn setEnabled:NO];
+        [_upWordListBtn setEnabled:NO];
+        [_upContactBtn setEnabled:NO];
     }else{
-        [_textView setText:@"语音识别开启失败"];
+        [_popUpView showText: @"启动识别服务失败，请稍后重试"];//可能是上次请求未结束，暂不支持多路并发
     }
     
 }
 
 - (void)stopRecBtnClick:(UIButton *)sender{
-    [self.mscService stopToASR];
+    [self.speechService stopASRToListening];
+    [_textView resignFirstResponder];
 }
 
 - (void)cancelRecBtnClick:(UIButton *)sender{
-    [self.mscService cancelToASR];
+    [self.speechService cancelASRToListening];
+    [_popUpView removeFromSuperview];
+    [_textView resignFirstResponder];
 }
 
 - (void)audioStreamBtnClick:(UIButton *)sender{
-    BOOL ret = [self.mscService audioStreamStart];
+    
+    [_startRecBtn setEnabled:NO];
+    [_audioStreamBtn setEnabled:NO];
+    [_upWordListBtn setEnabled:NO];
+    [_upContactBtn setEnabled:NO];
+
+    BOOL ret = [self.speechService startAudioStream];
     if (ret) {
         [_textView setText:@""];
         [_textView resignFirstResponder];
+        [_popUpView showText: @"正在录音"];
     }else{
-        [_textView setText:@"语音识别开启失败"];
+        [_startRecBtn setEnabled:YES];
+        [_audioStreamBtn setEnabled:YES];
+        [_upWordListBtn setEnabled:YES];
+        [_upContactBtn setEnabled:YES];
+        if (self.speechService.baseConfig.haveView) {
+            [_popUpView showText:@"请设置为无界面识别模式"];
+        }else{
+            [_popUpView showText: @"启动失败"];
+        }
     }
 }
 
 - (void)upContactBtnClick:(UIButton *)sender{
     
+    [_startRecBtn setEnabled:NO];
+    [_audioStreamBtn setEnabled:NO];
+    _upContactBtn.enabled = NO;
+    _upWordListBtn.enabled = NO;
+    [_popUpView showText: @"正在上传..."];
+    
     @weakify(self);
-    [self.mscService upContactDataWithBlock:^(NSString *result, IFlySpeechError *error) {
+    [self.speechService upContactDataWithBlock:^(NSString *result, IFlySpeechError *error) {
         @strongify(self);
         if (error.errorCode == 0) {
             self.textView.text = result;
@@ -152,8 +190,14 @@
 
 - (void)upWordListBtnClick:(UIButton *)sender{
     
+    [_startRecBtn setEnabled:NO];
+    [_audioStreamBtn setEnabled:NO];
+    _upContactBtn.enabled = NO;
+    _upWordListBtn.enabled = NO;
+    [_popUpView showText: @"正在上传..."];
+    
     @weakify(self);
-    [self.mscService upUserWordDataWithJson:USERWORDS Block:^(NSString *result, IFlySpeechError *error) {
+    [self.speechService upUserWordDataWithJson:USERWORDS Block:^(NSString *result, IFlySpeechError *error) {
         @strongify(self);
         if (error.errorCode == 0) {
             self.textView.text = result;
@@ -169,10 +213,10 @@
 - (void)onUploadFinished:(IFlySpeechError *)error
 {
     if ([error errorCode] == 0) {
-//        [_popUpView showText: @"上传成功"];
+        [_popUpView showText: @"上传成功"];
     }
     else {
-//        [_popUpView showText: [NSString stringWithFormat:@"上传失败，错误码:%d",error.errorCode]];
+        [_popUpView showText: [NSString stringWithFormat:@"上传失败，错误码:%d",error.errorCode]];
         
     }
     
@@ -182,62 +226,118 @@
     _upContactBtn.enabled = YES;
 }
 
-#pragma mark - GASpeechTextMSCServiceDelegate
+#pragma mark - GASpeechIATServiceDelegate
 /**
- 音量回调函数
+ 音量变化回调函数
  
+ @param service 语音识别服务
  @param volume 0-30
  */
-- (void)onVolumeChanged:(int)volume{
-
+- (void)speechIATService:(GASpeechIATService *)service soundVolumeChanged:(int)volume{
+    if (service.isCanceled) {
+        [_popUpView removeFromSuperview];
+        return;
+    }
+    NSString * vol = [NSString stringWithFormat:@"音量：%d",volume];
+    [_popUpView showText: vol];
 }
 
 /**
- 开始识别回调
+ 开始录音回调
+ 
+ @param service 语音识别服务
+ @param success 是否成功 默认成功，当出现中断时返回失败
  */
-- (void)onBeginOfSpeech{
-
+- (void)speechIATService:(GASpeechIATService *)service onBeginOfSpeech:(BOOL)success{
+    if (service.isStreamRec == NO) {
+        [_popUpView showText: @"正在录音"];
+    }
 }
 
 /**
  停止录音回调
+ 
+ @param service 语音识别服务
+ @param success 是否成功 默认成功，当出现中断时返回失败
  */
-- (void)onEndOfSpeech{
-
+- (void)speechIATService:(GASpeechIATService *)service onEndOfSpeech:(BOOL)success{
+    [_popUpView showText: @"停止录音"];
 }
 
 /**
  听写取消回调
+ 
+ @param service 语音识别服务
+ @param success 是否成功 默认成功，当出现中断时返回失败
  */
-- (void)onCancel{
-
+- (void)speechIATService:(GASpeechIATService *)service onCancel:(BOOL)success{
+    
 }
 
 /**
- 听写结束回调（注：无论听写是否正确都会回调）
+ 听写结束回调（注：无论听写是否正确都会回调
  
+ @param service 语音识别服务
  @param error 0:听写正确 other:听写出错
  */
-- (void)onError:(IFlySpeechError *)error{
-    NSLog(@"%s",__func__);
+- (void)speechIATService:(GASpeechIATService *)service onError:(IFlySpeechError *)error{
+    
+    if (service.baseConfig.haveView == NO) {
+        NSString *text ;
+        if (service.isCanceled) {
+            text = @"识别取消";
+        }else if (error.errorCode == 0){
+            if (_textView.text.length == 0) {
+                text = @"无识别结果";
+            }else{
+                text = @"识别成功";
+            }
+            
+        }else{
+            text = [NSString stringWithFormat:@"发生错误：%d %@", error.errorCode,error.errorDesc];
+        }
+        [_popUpView showText: text];
+    }else{
+        [_popUpView showText:@"识别结束"];
+    }
+    [_startRecBtn setEnabled:YES];
+    [_audioStreamBtn setEnabled:YES];
+    [_upWordListBtn setEnabled:YES];
+    [_upContactBtn setEnabled:YES];
 }
 
-- (void)onResult:(NSString *)resultStr{
-    
-    _textView.text = resultStr;
+/**
+ 听写结果回调
+ 
+ @param service 语音识别服务
+ @param resultDataStr 听写结果
+ */
+- (void)speechIATService:(GASpeechIATService *)service onResult:(NSString *)resultDataStr{
+    _textView.text = resultDataStr;
+    [_startRecBtn setEnabled:YES];
+    [_audioStreamBtn setEnabled:YES];
+    [_upWordListBtn setEnabled:YES];
+    [_upContactBtn setEnabled:YES];
 }
 
 #pragma mark -- 添加约束
 - (void)addConstraint{
   
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).offset(20.f);
+        make.top.equalTo(self.mas_top).offset(25.f);
         make.left.equalTo(self.mas_left).offset(15.f);
         make.right.equalTo(self.mas_right).offset(-15.f);
     }];
     
+    [self.setUpBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_top).offset(5.f);
+        make.right.equalTo(self.mas_right).offset(-15.f);
+        make.bottom.equalTo(self.textView.mas_top).offset(-5);
+        make.width.mas_equalTo(50.f);
+    }];
+    
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(12.f);
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(15.f);
         make.left.equalTo(self.mas_left).offset(15.f);
         make.right.equalTo(self.mas_right).offset(-15.f);
         make.height.mas_greaterThanOrEqualTo(200.f);
@@ -270,7 +370,7 @@
     }];
     
     [self.messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.audioStreamBtn.mas_bottom).offset(40.f);
+        make.top.equalTo(self.audioStreamBtn.mas_bottom).offset(20.f);
         make.left.equalTo(self.mas_left).offset(15.f);
         make.right.equalTo(self.mas_right).offset(-15.f);
     }];
@@ -303,6 +403,15 @@
     return _titleLabel;
 }
 
+- (UIButton *)setUpBtn{
+    if (!_setUpBtn) {
+        _setUpBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_setUpBtn setImage:[UIImage imageNamed:@"setUp"] forState:UIControlStateNormal];
+        [_setUpBtn addTarget:self action:@selector(setUpBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _setUpBtn;
+}
+
 - (UITextView *)textView{
     if (!_textView) {
         _textView = [[UITextView alloc]init];
@@ -332,18 +441,17 @@
     return _messageLabel;
 }
 
-- (GASpeechTextMSCService *)mscService{
-    if (!_mscService) {
-        _mscService = [[GASpeechTextMSCService alloc]init];
-        _mscService.delegate = self;
-        [_mscService initRecognizerWithConfig:nil];
+- (GASpeechIATService *)speechService{
+    if (!_speechService) {
+        _speechService = [GASpeechTextMSCService initSpeechIATServiceWithConfig:nil];
+        _speechService.delegate = self;
     }
-    return _mscService;
+    return _speechService;
 }
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
-    [self.mscService deallocToASR];
+    [self.speechService deallocToASR];
 }
 
 

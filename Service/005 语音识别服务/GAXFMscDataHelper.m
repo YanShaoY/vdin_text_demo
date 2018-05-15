@@ -1,14 +1,14 @@
 //
-//  ISRDataHelper.m
+//  GAXFMscDataHelper.m
 //  Demo
 //
-//  Created by YanSY on 2018/5/10.
+//  Created by YanSY on 2018/5/15.
 //  Copyright © 2018年 YanSY. All rights reserved.
 //
 
-#import "ISRDataHelper.h"
+#import "GAXFMscDataHelper.h"
 
-@implementation ISRDataHelper
+@implementation GAXFMscDataHelper
 
 /**
  解析命令词返回的结果
@@ -87,7 +87,7 @@
     NSMutableString *tempStr = [[NSMutableString alloc] init];
     NSDictionary *resultDic  = [NSJSONSerialization JSONObjectWithData:    //返回的格式必须为utf8的,否则发生未知错误
                                 [params dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-
+    
     if (resultDic!= nil) {
         NSArray *wordArray = [resultDic objectForKey:@"ws"];
         
@@ -119,24 +119,20 @@
                                 [params dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
     
     NSArray *wordArray = [resultDic objectForKey:@"ws"];
-        for (int i = 0; i < [wordArray count]; i++) {
-            NSDictionary *wsDic = [wordArray objectAtIndex: i];
-            NSArray *cwArray = [wsDic objectForKey:@"cw"];
-            
-            for (int j = 0; j < [cwArray count]; j++) {
-                NSDictionary *wDic = [cwArray objectAtIndex:j];
-                NSString *str = [wDic objectForKey:@"w"];
-                NSString *score = [wDic objectForKey:@"sc"];
-                [tempStr appendString: str];
-                [tempStr appendFormat:@" 置信度:%@",score];
-                [tempStr appendString: @"\n"];
-            }
+    for (int i = 0; i < [wordArray count]; i++) {
+        NSDictionary *wsDic = [wordArray objectAtIndex: i];
+        NSArray *cwArray = [wsDic objectForKey:@"cw"];
+        
+        for (int j = 0; j < [cwArray count]; j++) {
+            NSDictionary *wDic = [cwArray objectAtIndex:j];
+            NSString *str = [wDic objectForKey:@"w"];
+            NSString *score = [wDic objectForKey:@"sc"];
+            [tempStr appendString: str];
+            [tempStr appendFormat:@" 置信度:%@",score];
+            [tempStr appendString: @"\n"];
         }
+    }
     return tempStr;
 }
 
 @end
-
-
-
-

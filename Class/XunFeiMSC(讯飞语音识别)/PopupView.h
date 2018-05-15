@@ -10,8 +10,8 @@
 
 @interface PopupView : UIView
 
-@property (nonatomic,strong) UILabel *textLabel;
-@property (nonatomic,strong) UIView*  ParentView;
+@property (nonatomic,strong) UILabel *  textLabel;
+@property (nonatomic,strong) UIView  *  ParentView;
 @property (nonatomic,assign) int queueCount;
 
 
@@ -30,6 +30,6 @@
 /**
  请不要使用下面接口
  ****/
-- (void)setText:(NSString *) text;//deprecated..
+- (void)setText:(NSString *)text;//deprecated..
 
 @end

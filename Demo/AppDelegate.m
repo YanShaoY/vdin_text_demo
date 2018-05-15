@@ -8,9 +8,12 @@
 
 #import "AppDelegate.h"
 #import "ChangeIconService.h"
+#import "GASpeechTextMSCService.h"
+
 #import "guidePage.h"
 #import "MovieGuidePage.h"
 #import "mainVC.h"
+
 
 @interface AppDelegate ()
 

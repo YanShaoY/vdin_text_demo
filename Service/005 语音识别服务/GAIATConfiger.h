@@ -1,18 +1,17 @@
 //
-//  XFMSCConfiger.h
+//  GAIATConfiger.h
 //  Demo
 //
-//  Created by YanSY on 2018/5/14.
+//  Created by YanSY on 2018/5/15.
 //  Copyright © 2018年 YanSY. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 /**
- 讯飞语音配置
+ 语音识别配置文件
  */
-@interface XFMSCConfiger : NSObject
+@interface GAIATConfiger : NSObject
 
-#pragma mark -- 语音识别配置
 /// 普通话
 -(NSString *)mandarin;
 /// 广东话
@@ -33,7 +32,6 @@
 -(NSString *)isDot;
 /// 不加标点
 -(NSString *)noDot;
-
 
 /**
  以下参数，需要通过
@@ -65,32 +63,7 @@
 /// 口音名称数组
 @property (nonatomic, strong) NSArray *accentNickName;
 
-#pragma mark -- 语音合成配置
-
-/**
- 以下参数，需要通过
- iFlySpeechSynthesizer
- 进行设置
- ****/
-
-/// 语速
-@property (nonatomic) NSString *speed;
-/// 音量
-@property (nonatomic) NSString *volume;
-/// 音调
-@property (nonatomic) NSString *pitch;
-/// 发音人
-@property (nonatomic) NSString *vcnName;
-/// 引擎类型,"auto","local","cloud"
-@property (nonatomic) NSString *engineType;
-
-/// 播音员数组
-@property (nonatomic,strong) NSArray *vcnNickNameArray;
-/// 播音员ID数组
-@property (nonatomic,strong) NSArray *vcnIdentiferArray;
-
 @end
-
 
 
 

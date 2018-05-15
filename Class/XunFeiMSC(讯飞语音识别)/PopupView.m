@@ -25,7 +25,7 @@
     if (self) {
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent: 0.5f];
         self.layer.cornerRadius = 5.0f;
-        _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 100, 10)];
+        _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 150, 10)];
         _textLabel.numberOfLines = 0;
         _textLabel.font = [UIFont systemFontOfSize:17];
         _textLabel.textColor = [UIColor whiteColor];
@@ -49,15 +49,12 @@
         self.ParentView = view;
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent: 0.5f];
         self.layer.cornerRadius = 5.0f;
-        _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 100, 10)];
+        _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 150, 10)];
         _textLabel.numberOfLines = 0;
         _textLabel.font = [UIFont systemFontOfSize:17];
-//        _textLabel.textColor = [UIColor whiteColor];
         _textLabel.textColor = [UIColor greenColor];
-        
         _textLabel.textAlignment = ALIGN_CENTER;
-//        _textLabel.backgroundColor = [UIColor clearColor];
-        _textLabel.backgroundColor = [UIColor blackColor];
+        _textLabel.backgroundColor = [UIColor clearColor];
         _textLabel.textAlignment = ALIGN_CENTER;
         [self addSubview:_textLabel];
         _queueCount = 0;
@@ -68,9 +65,9 @@
     return self;
 }
 
-- (void) setText:(NSString *) text
+- (void)setText:(NSString *)text
 {
-    _textLabel.frame = CGRectMake(0, 10, 100, 10);
+    _textLabel.frame = CGRectMake(0, 10, 150, 10);
     _queueCount ++;
     self.alpha = 1.0f;
     _textLabel.text = text;
@@ -82,17 +79,17 @@
     self.frame = frame;
     CGPoint centerPoint = CGPointMake(_parentView.center.x, self.center.y);
     self.center= centerPoint;
-    [UIView animateWithDuration:3.0
+    [UIView animateWithDuration:2.0
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          self.alpha = 0;
                      }
                      completion:^(BOOL finished){
-                         if (_queueCount == 1) {
+                         if (self.queueCount == 1) {
                              [self removeFromSuperview];
                          }
-                         _queueCount--;
+                         self.queueCount--;
                          
                      }
      ];
@@ -100,9 +97,9 @@
 }
 
 
-- (void)showText:(NSString *) text
+- (void)showText:(NSString *)text
 {
-    _textLabel.frame = CGRectMake(0, 10, 100, 10);
+    _textLabel.frame = CGRectMake(0, 10, 150, 10);
     _queueCount ++;
     self.alpha = 1.0f;
     _textLabel.text = text;
@@ -124,17 +121,17 @@
         [_parentView addSubview:self];
     }
     
-    [UIView animateWithDuration:3.0
+    [UIView animateWithDuration:2.0
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          self.alpha = 0;
                      }
                      completion:^(BOOL finished){
-                         if (_queueCount == 1) {
+                         if (self.queueCount == 1) {
                              [self removeFromSuperview];
                          }
-                         _queueCount--;
+                         self.queueCount--;
                          
                      }
      ];

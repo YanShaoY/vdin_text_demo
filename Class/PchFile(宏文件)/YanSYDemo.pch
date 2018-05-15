@@ -19,7 +19,6 @@
 #import "UIImage+FaceDetection.h"
 #import "GANetworkService.h"
 #import "GALocalNoticeService.h"
-#import "GASpeechTextMSCService.h"
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>

@@ -1,12 +1,12 @@
 //
-//  pcmPlayer.m
-//  MSCDemo
+//  GAXFMscPcmPlayer.m
+//  Demo
 //
-//  Created by wangdan on 14-11-4.
-//
+//  Created by YanSY on 2018/5/15.
+//  Copyright © 2018年 YanSY. All rights reserved.
 //
 
-#import "PcmPlayer.h"
+#import "GAXFMscPcmPlayer.h"
 
 typedef struct Wavehead
 {
@@ -30,23 +30,23 @@ typedef struct Wavehead
     long int q;             //语音数据部分长度，不包括文件头的任何部分
 } WaveHead;//定义WAVE文件的文件头结构体
 
+@interface GAXFMscPcmPlayer ()
 
-@interface PcmPlayer ()
-
-@property (nonatomic,strong) AVAudioPlayer *player;
-@property (nonatomic,strong) NSMutableData *pcmData;
-@property (nonatomic,strong) NSTimer *timer;
+/// 播放器
+@property (nonatomic,strong) AVAudioPlayer * player;
+/// 播放数据
+@property (nonatomic,strong) NSMutableData * pcmData;
+/// 时间
+@property (nonatomic,strong) NSTimer       * timer;
 
 @end
 
 
-@implementation PcmPlayer
 
 
+@implementation GAXFMscPcmPlayer
 
-
--(id)initWithFilePath:(NSString *)path sampleRate:(long)sample
-{
+-(id)initWithFilePath:(NSString *)path sampleRate:(long)sample{
     self = [super init];
     
     if (self) {
@@ -57,8 +57,7 @@ typedef struct Wavehead
     return self;
 }
 
--(id)initWithData:(NSData *)data sampleRate:(long)sample
-{
+-(id)initWithData:(NSData *)data sampleRate:(long)sample{
     if (data == nil) {
         return nil;
     }
@@ -68,9 +67,7 @@ typedef struct Wavehead
         NSLog(@"nihao");
     }
     return self;
-    
 }
-
 
 /**
  *
@@ -154,35 +151,33 @@ typedef struct Wavehead
     
 }
 
-- (void)play
-{
+- (void)play{
     
-    if (self.isPlaying)
-    {
+    if (self.isPlaying){
+        
         NSLog(@"pcmPlayer isPlaying");
         return;
     }
-    self.isPlaying = YES;
     
-    self.player.volume=1;
-    if ([self.pcmData length] > 44)
-    {
+    self.isPlaying     = YES;
+    self.player.volume = 1;
+    
+    if ([self.pcmData length] > 44){
+        
         self.player.meteringEnabled = YES;
         NSLog(@"音频持续时间是%f",self.player.duration);
-        
         BOOL ret = [self.player play];
         NSLog(@"play ret=%d",ret);
-    }
-    else
-    {
+        
+    }else{
+        
         self.isPlaying = NO;
         NSLog(@"音频数据为空");
     }
-    
 }
 
-- (void)stop
-{
+- (void)stop{
+    
     if (self.isPlaying) {
         self.isPlaying = NO;
         [self.player stop];
@@ -190,14 +185,21 @@ typedef struct Wavehead
     }
 }
 
-
 #pragma mark speechRecordDelegate
-
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
     NSLog(@"in pcmPlayer audioPlayerDidFinishPlaying");
     self.isPlaying=NO;
 }
 
-
 @end
+
+
+
+
+
+
+
+
+
+
+
