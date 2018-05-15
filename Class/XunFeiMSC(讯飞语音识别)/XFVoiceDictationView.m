@@ -168,8 +168,6 @@
  ****/
 - (void)onUploadFinished:(IFlySpeechError *)error
 {
-    NSLog(@"%d",[error errorCode]);
-    
     if ([error errorCode] == 0) {
 //        [_popUpView showText: @"上传成功"];
     }
@@ -308,7 +306,6 @@
 - (UITextView *)textView{
     if (!_textView) {
         _textView = [[UITextView alloc]init];
-        _textView.scrollEnabled = NO;
         _textView.autoresizingMask= UIViewAutoresizingFlexibleHeight;
         _textView.textContainerInset = UIEdgeInsetsMake(10.f, 3.f, 10.f, 0.f);
         _textView.textAlignment = NSTextAlignmentLeft;
@@ -317,7 +314,8 @@
         _textView.layer.masksToBounds = YES;
         _textView.layer.cornerRadius = 10.f;
         _textView.backgroundColor = UIColorFromRGBA(0xCCFFFF, 1);
-        _textView.userInteractionEnabled = NO;
+        _textView.editable = NO;
+        _textView.showsVerticalScrollIndicator = NO;
     }
     return _textView;
 }

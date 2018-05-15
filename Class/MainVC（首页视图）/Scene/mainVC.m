@@ -31,7 +31,7 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.title = self.dataSourceArr[0].title;
+    self.title = self.dataSourceArr[1].title;
     [self.sideMenuListView scrollTabWithType:SideMenu_Tab_Type_Root toRowNumber:1];
 }
 
