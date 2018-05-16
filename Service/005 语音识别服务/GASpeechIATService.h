@@ -103,7 +103,8 @@
  @param service 语音识别服务
  @param volume 0-30
  */
-- (void)speechIATService:(GASpeechIATService *)service soundVolumeChanged:(int)volume;
+- (void)speechIATService:(GASpeechIATService *)service
+      soundVolumeChanged:(int)volume;
 
 /**
  开始录音回调
@@ -111,7 +112,8 @@
  @param service 语音识别服务
  @param success 是否成功 默认成功，当出现中断时返回失败
  */
-- (void)speechIATService:(GASpeechIATService *)service onBeginOfSpeech:(BOOL)success;
+- (void)speechIATService:(GASpeechIATService *)service
+         onBeginOfSpeech:(BOOL)success;
 
 /**
  停止录音回调
@@ -119,7 +121,8 @@
  @param service 语音识别服务
  @param success 是否成功 默认成功，当出现中断时返回失败
 */
-- (void)speechIATService:(GASpeechIATService *)service onEndOfSpeech:(BOOL)success;
+- (void)speechIATService:(GASpeechIATService *)service
+           onEndOfSpeech:(BOOL)success;
 
 /**
  听写取消回调
@@ -127,17 +130,19 @@
  @param service 语音识别服务
  @param success 是否成功 默认成功，当出现中断时返回失败
  */
-- (void)speechIATService:(GASpeechIATService *)service onCancel:(BOOL)success;
+- (void)speechIATService:(GASpeechIATService *)service
+                onCancel:(BOOL)success;
 
 @required
 
 /**
- 听写结束回调（注：无论听写是否正确都会回调
+ 听写结束回调（注：无论听写是否正确都会回调）
 
  @param service 语音识别服务
  @param error 0:听写正确 other:听写出错
  */
-- (void)speechIATService:(GASpeechIATService *)service onError:(IFlySpeechError *)error;
+- (void)speechIATService:(GASpeechIATService *)service
+                 onError:(IFlySpeechError *)error;
 
 /**
  听写结果回调
@@ -145,7 +150,8 @@
  @param service 语音识别服务
  @param resultDataStr 听写结果
  */
-- (void)speechIATService:(GASpeechIATService *)service onResult:(NSString *)resultDataStr;
+- (void)speechIATService:(GASpeechIATService *)service
+                onResult:(NSString *)resultDataStr;
 
 @end;
 

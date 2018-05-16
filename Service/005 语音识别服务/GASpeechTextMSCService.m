@@ -32,6 +32,13 @@
     return service;
 }
 
++ (GASpeechTTSService *)initSpeechTTSServiceWithConfig:(GATTSConfiger *)configer{
+    GASpeechTTSService * service = [GASpeechTTSService sharedInstance];
+    if (configer) {
+        service.baseConfig = configer;
+    }
+    return service;
+}
 
 @end
 

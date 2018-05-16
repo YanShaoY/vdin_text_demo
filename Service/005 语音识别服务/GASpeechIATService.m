@@ -237,7 +237,6 @@
 
 - (void)onEndOfSpeech{
     
-    self.resultDataStr = [[NSMutableString alloc]init];
     [_pcmRecorder stop];
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(speechIATService:onEndOfSpeech:)]) {
@@ -248,7 +247,6 @@
 }
 
 - (void)onCancel{
-    self.resultDataStr = [[NSMutableString alloc]init];
 
     if (self.delegate && [self.delegate respondsToSelector:@selector(speechIATService:onCancel:)]) {
         [self.delegate speechIATService:self onCancel:YES];
@@ -258,7 +256,7 @@
 }
 
 - (void)onError:(IFlySpeechError *)error{
-    self.resultDataStr = [[NSMutableString alloc]init];
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(speechIATService:onError:)]) {
         [self.delegate speechIATService:self onError:error];
     }else{
@@ -275,7 +273,7 @@
     }
     NSString * resultFromJson = [GAXFMscDataHelper stringFromJson:resultString];
     [self.resultDataStr appendString:resultFromJson];
-    
+    NSLog(@"=====$%@=====",self.resultDataStr);
     if (isLast) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(speechIATService:onResult:)]) {
             [self.delegate speechIATService:self onResult:self.resultDataStr];

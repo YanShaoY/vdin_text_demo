@@ -26,16 +26,13 @@
         _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 100, 10)];
         _textLabel.numberOfLines = 0;
         _textLabel.font = [UIFont systemFontOfSize:17];
-//        _textLabel.textColor = [UIColor whiteColor];
         _textLabel.textColor = [UIColor greenColor];
         _textLabel.textAlignment = IFLY_ALIGN_CENTER;
-//        _textLabel.backgroundColor = [UIColor clearColor];
-        _textLabel.backgroundColor = [UIColor blackColor];
+        _textLabel.backgroundColor = [UIColor clearColor];
         _textLabel.textAlignment = IFLY_ALIGN_CENTER;
         [self addSubview:_textLabel];
         
-        // Create and add the activity indicator  
-        _aiv = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];    
+        _aiv = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [_aiv startAnimating];  
         [self addSubview:_aiv];    
         _queueCount = 0;

@@ -75,12 +75,12 @@
     
     self.configer = configer;
     self.setUpAlertBlock = block;
-    if ([GAIATConfiger createWithId:self.configer]) {
-        GAIATConfiger * instance = [GAIATConfiger createWithId:self.configer];
-        _internalSec.endValue = instance.vadBos.integerValue;
-        _middleSec.endValue   = instance.vadEos.integerValue;
-        _outsideSec.endValue  = instance.speechTimeout.integerValue;
-    }
+//    if ([GAIATConfiger createWithId:self.configer]) {
+//        GAIATConfiger * instance = [GAIATConfiger createWithId:self.configer];
+//        _internalSec.endValue = instance.vadBos.integerValue;
+//        _middleSec.endValue   = instance.vadEos.integerValue;
+//        _outsideSec.endValue  = instance.speechTimeout.integerValue;
+//    }
 
     
     [self showSetUpAlert];
@@ -201,7 +201,10 @@
 }
 
 
-
+- (void)multisectorValueChanged:(id)sender{
+    
+ 
+}
 
 
 

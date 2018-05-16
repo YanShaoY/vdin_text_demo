@@ -7,7 +7,7 @@
 //
 
 #import "XFVoiceDictationView.h"
-#import "XFVoiceDictationModel.h"
+#import "XFMscViewModel.h"
 #import "PopupView.h"
 #import "XFMscSetUpView.h"
 
@@ -39,7 +39,7 @@
 @property (nonatomic , strong) UIButton                   * upWordListBtn;
 
 /// 模型
-@property (nonatomic , strong) XFVoiceDictationModel      * myModel;
+@property (nonatomic , strong) XFMscViewModel             * myModel;
 /// 语音听写服务
 @property (nonatomic , strong) GASpeechIATService         * speechService;
 /// 提示视图
@@ -64,7 +64,7 @@
 #pragma mark -- 配置
 - (void)configuration{
     
-    self.myModel = [[XFVoiceDictationModel alloc]init];
+    self.myModel = [[XFMscViewModel alloc]init];
     CGPoint center = [UIApplication sharedApplication].keyWindow.center;
     self.popUpView = [[PopupView alloc]initWithFrame:CGRectMake(center.x, 200, 0, 0) withParentView:self] ;
     
@@ -313,7 +313,7 @@
  @param resultDataStr 听写结果
  */
 - (void)speechIATService:(GASpeechIATService *)service onResult:(NSString *)resultDataStr{
-    _textView.text = resultDataStr;
+    _textView.text = [NSString stringWithFormat:@"%@%@",_textView.text,resultDataStr];;
     [_startRecBtn setEnabled:YES];
     [_audioStreamBtn setEnabled:YES];
     [_upWordListBtn setEnabled:YES];

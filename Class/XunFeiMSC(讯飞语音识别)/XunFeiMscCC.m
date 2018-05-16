@@ -10,6 +10,7 @@
 
 #import "xunFeiMscPopMenuView.h"
 #import "XFVoiceDictationView.h"
+#import "XFVoiceSyntheticView.h"
 
 @interface XunFeiMscCC (){
     
@@ -73,9 +74,9 @@
             
         case 1:
         {
-//            SingleScanView* singleView = [[SingleScanView alloc]init];
-//            singleView.backgroundColor = [UIColor clearColor];
-//            [_backView addSubview:singleView];
+            XFVoiceSyntheticView * voiceSyntheticView = [[XFVoiceSyntheticView alloc]init];
+            voiceSyntheticView.backgroundColor = [UIColor clearColor];
+            [_backView addSubview:voiceSyntheticView];
         }
             break;
             

@@ -80,8 +80,12 @@
 		A4B6B97A20AADCCD0066616F /* AKPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B97520AADCCD0066616F /* AKPickerView.m */; };
 		A4B6B97B20AADCCD0066616F /* SAMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B97720AADCCD0066616F /* SAMath.m */; };
 		A4B6B97C20AADCCD0066616F /* SAMultisectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B97920AADCCD0066616F /* SAMultisectorControl.m */; };
+		A4BB402920ABB46500B9F808 /* XFVoiceSyntheticView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BB402820ABB46500B9F808 /* XFVoiceSyntheticView.m */; };
+		A4BB402C20ABB59800B9F808 /* XFMscViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BB402B20ABB59800B9F808 /* XFMscViewModel.m */; };
+		A4BB402F20ABB93800B9F808 /* GASpeechTTSService.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BB402E20ABB93800B9F808 /* GASpeechTTSService.m */; };
+		A4BB403220ABB94D00B9F808 /* GATTSConfiger.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BB403120ABB94D00B9F808 /* GATTSConfiger.m */; };
+		A4BB404820AC04EF00B9F808 /* tts64res in Resources */ = {isa = PBXBuildFile; fileRef = A4BB404720AC04EF00B9F808 /* tts64res */; };
 		A4D2612620A83B420091C587 /* XFVoiceDictationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2612520A83B420091C587 /* XFVoiceDictationView.m */; };
-		A4D2612A20A8581B0091C587 /* XFVoiceDictationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2612920A8581B0091C587 /* XFVoiceDictationModel.m */; };
 		A4EAC42E1FC673A000099677 /* guideAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC42D1FC673A000099677 /* guideAnimationView.m */; };
 		A4EAC4311FC6B3C900099677 /* TakingFacePicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC4301FC6B3C900099677 /* TakingFacePicturesView.m */; };
 		A4EAC43D1FC6DD9800099677 /* UIImage+FaceDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC43C1FC6DD9800099677 /* UIImage+FaceDetection.m */; };
@@ -212,10 +216,17 @@
 		A4B6B97720AADCCD0066616F /* SAMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMath.m; sourceTree = "<group>"; };
 		A4B6B97820AADCCD0066616F /* SAMultisectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMultisectorControl.h; sourceTree = "<group>"; };
 		A4B6B97920AADCCD0066616F /* SAMultisectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMultisectorControl.m; sourceTree = "<group>"; };
+		A4BB402720ABB46500B9F808 /* XFVoiceSyntheticView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFVoiceSyntheticView.h; sourceTree = "<group>"; };
+		A4BB402820ABB46500B9F808 /* XFVoiceSyntheticView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFVoiceSyntheticView.m; sourceTree = "<group>"; };
+		A4BB402A20ABB59800B9F808 /* XFMscViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFMscViewModel.h; sourceTree = "<group>"; };
+		A4BB402B20ABB59800B9F808 /* XFMscViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFMscViewModel.m; sourceTree = "<group>"; };
+		A4BB402D20ABB93800B9F808 /* GASpeechTTSService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GASpeechTTSService.h; sourceTree = "<group>"; };
+		A4BB402E20ABB93800B9F808 /* GASpeechTTSService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GASpeechTTSService.m; sourceTree = "<group>"; };
+		A4BB403020ABB94D00B9F808 /* GATTSConfiger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GATTSConfiger.h; sourceTree = "<group>"; };
+		A4BB403120ABB94D00B9F808 /* GATTSConfiger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GATTSConfiger.m; sourceTree = "<group>"; };
+		A4BB404720AC04EF00B9F808 /* tts64res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tts64res; path = Demo/tts64res; sourceTree = SOURCE_ROOT; };
 		A4D2612420A83B420091C587 /* XFVoiceDictationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFVoiceDictationView.h; sourceTree = "<group>"; };
 		A4D2612520A83B420091C587 /* XFVoiceDictationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFVoiceDictationView.m; sourceTree = "<group>"; };
-		A4D2612820A8581B0091C587 /* XFVoiceDictationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFVoiceDictationModel.h; sourceTree = "<group>"; };
-		A4D2612920A8581B0091C587 /* XFVoiceDictationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFVoiceDictationModel.m; sourceTree = "<group>"; };
 		A4D8CFBE206E0E06001206BD /* YanSYDemo.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanSYDemo.pch; sourceTree = "<group>"; };
 		A4EAC42C1FC673A000099677 /* guideAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = guideAnimationView.h; sourceTree = "<group>"; };
 		A4EAC42D1FC673A000099677 /* guideAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = guideAnimationView.m; sourceTree = "<group>"; };
@@ -451,7 +462,8 @@
 		A460497620A52DA800A58724 /* M */ = {
 			isa = PBXGroup;
 			children = (
-				A4D2612720A857F60091C587 /* 语音听写模型 */,
+				A4BB402A20ABB59800B9F808 /* XFMscViewModel.h */,
+				A4BB402B20ABB59800B9F808 /* XFMscViewModel.m */,
 			);
 			name = M;
 			sourceTree = "<group>";
@@ -708,6 +720,7 @@
 		A4B6B95E20AA64430066616F /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				A4BB404720AC04EF00B9F808 /* tts64res */,
 				A49FCFA120A43CF7009826E6 /* iflyMSC.framework */,
 			);
 			name = SDK;
@@ -727,6 +740,10 @@
 		A4B6B96020AA64FB0066616F /* TTS（语音合成） */ = {
 			isa = PBXGroup;
 			children = (
+				A4BB403020ABB94D00B9F808 /* GATTSConfiger.h */,
+				A4BB403120ABB94D00B9F808 /* GATTSConfiger.m */,
+				A4BB402D20ABB93800B9F808 /* GASpeechTTSService.h */,
+				A4BB402E20ABB93800B9F808 /* GASpeechTTSService.m */,
 			);
 			name = "TTS（语音合成）";
 			sourceTree = "<group>";
@@ -802,6 +819,8 @@
 		A4D2612220A83A0B0091C587 /* 语音合成 */ = {
 			isa = PBXGroup;
 			children = (
+				A4BB402720ABB46500B9F808 /* XFVoiceSyntheticView.h */,
+				A4BB402820ABB46500B9F808 /* XFVoiceSyntheticView.m */,
 			);
 			name = "语音合成";
 			sourceTree = "<group>";
@@ -813,15 +832,6 @@
 				A4D2612520A83B420091C587 /* XFVoiceDictationView.m */,
 			);
 			name = "语音听写";
-			sourceTree = "<group>";
-		};
-		A4D2612720A857F60091C587 /* 语音听写模型 */ = {
-			isa = PBXGroup;
-			children = (
-				A4D2612820A8581B0091C587 /* XFVoiceDictationModel.h */,
-				A4D2612920A8581B0091C587 /* XFVoiceDictationModel.m */,
-			);
-			name = "语音听写模型";
 			sourceTree = "<group>";
 		};
 		A4EAC42B1FC6730900099677 /* View */ = {
@@ -964,6 +974,7 @@
 				A460542B1FC5254700C3BABB /* 4圈圈旋转.json in Resources */,
 				A460542A1FC5254700C3BABB /* 3圈圈放大.json in Resources */,
 				A41B15661FCFE749007C84C5 /* guideMovie.mp4 in Resources */,
+				A4BB404820AC04EF00B9F808 /* tts64res in Resources */,
 				A46054291FC5254700C3BABB /* 6矩形波浪.json in Resources */,
 				A460542C1FC5254700C3BABB /* 1指纹识别中.json in Resources */,
 			);
@@ -1023,9 +1034,9 @@
 				A4B6B96720AA67530066616F /* GAXFMscDataHelper.m in Sources */,
 				A4B6B97220AAD0480066616F /* XFMscSetUpView.m in Sources */,
 				A486E6251FECA51600CD848B /* EntranceGuardView.m in Sources */,
-				A4D2612A20A8581B0091C587 /* XFVoiceDictationModel.m in Sources */,
 				A4B6B96A20AA68590066616F /* GASpeechIATService.m in Sources */,
 				A4D2612620A83B420091C587 /* XFVoiceDictationView.m in Sources */,
+				A4BB403220ABB94D00B9F808 /* GATTSConfiger.m in Sources */,
 				A47C62A71FDE27D400C5C4E9 /* GANetworkService.m in Sources */,
 				A46A21C41FEA2BCC00F43DB6 /* BaseView.m in Sources */,
 				A46A21DD1FEA54C400F43DB6 /* ibeaconPopMenuView.m in Sources */,
@@ -1033,6 +1044,7 @@
 				A498EF721FC652ED0081C721 /* BaseVC.m in Sources */,
 				A4B6B97A20AADCCD0066616F /* AKPickerView.m in Sources */,
 				A46A21BC1FEA105D00F43DB6 /* CollapseAnimator.m in Sources */,
+				A4BB402F20ABB93800B9F808 /* GASpeechTTSService.m in Sources */,
 				A43FD2BC1FE24A4200E3BDB6 /* SideMenuControl.m in Sources */,
 				A47C62A41FDE27B900C5C4E9 /* GANetworkTool.m in Sources */,
 				A4434B081FC3C94C003923A3 /* main.m in Sources */,
@@ -1044,6 +1056,7 @@
 				A4B6B96D20AAC1170066616F /* GAXFMscPcmPlayer.m in Sources */,
 				A47C62AA1FDE294600C5C4E9 /* NSDate+DateString.m in Sources */,
 				A46622AC20A9CB6700C282FA /* AlertView.m in Sources */,
+				A4BB402920ABB46500B9F808 /* XFVoiceSyntheticView.m in Sources */,
 				A4B6B97C20AADCCD0066616F /* SAMultisectorControl.m in Sources */,
 				A436BD3B1FEB87BC00FA552D /* UIButton+ImageTitleSpacing.m in Sources */,
 				A43FD2C31FE26D6D00E3BDB6 /* iBeaconVC.m in Sources */,
@@ -1058,6 +1071,7 @@
 				A400A3601FFB21EA00D9F9E7 /* SingleScanView.m in Sources */,
 				A438C9891FFB6E2B00D051A2 /* ManyScanViewOne.m in Sources */,
 				A425378A20045CCA00D9ECB6 /* GAibeaconLocationService.m in Sources */,
+				A4BB402C20ABB59800B9F808 /* XFMscViewModel.m in Sources */,
 				A4A3D33C1FCE8E8900DBFAB2 /* CycleProgressView.m in Sources */,
 				A49FCF9720A3E360009826E6 /* GASpeechTextMSCService.m in Sources */,
 				A4434AFA1FC3C94C003923A3 /* AppDelegate.m in Sources */,

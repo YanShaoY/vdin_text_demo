@@ -31,8 +31,8 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.title = self.dataSourceArr[1].title;
-    [self.sideMenuListView scrollTabWithType:SideMenu_Tab_Type_Root toRowNumber:1];
+    self.title = self.dataSourceArr[0].title;
+    [self.sideMenuListView scrollTabWithType:SideMenu_Tab_Type_Root toRowNumber:0];
 }
 
 #pragma mark -- 所有子类都应该实现的方法

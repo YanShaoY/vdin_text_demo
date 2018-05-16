@@ -29,8 +29,8 @@
 #pragma mark -- 语音识别设置参数
 -(void)defaultIATSetting {
     _speechTimeout = @"30000";
-    _vadEos = @"3000";
-    _vadBos = @"3000";
+    _vadEos = @"2000";
+    _vadBos = @"1000";
     _netWorkWait = @"20000";
     _dot = @"1";
     _sampleRate = @"16000";
@@ -77,19 +77,6 @@
     return @"0";
 }
 
-/**
- 创建配置
- 
- @param config 对应的对象
- @return 返回实例
- */
-+(instancetype)createWithId:(id)config{
-    if ([config isKindOfClass:[self class]]) {
-        GAIATConfiger * configer = (GAIATConfiger *)config;
-        return configer;
-    }
-    return nil;
-}
 @end
 
 
