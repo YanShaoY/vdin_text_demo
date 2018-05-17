@@ -13,11 +13,11 @@
 #pragma mark -- 设置语音服务的APPID
 + (void)setMSCWithAPPId:(NSString *)appid{
     
-    [IFlySetting setLogFile:LVL_LOW];
+    [IFlySetting setLogFile:LVL_NONE];
     [IFlySetting showLogcat:NO];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *cachePath = [paths objectAtIndex:0];
+    NSArray  * paths     = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString * cachePath = [paths objectAtIndex:0];
     [IFlySetting setLogFilePath:cachePath];
     
     NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",appid];

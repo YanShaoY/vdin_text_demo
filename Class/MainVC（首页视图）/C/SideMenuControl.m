@@ -222,6 +222,7 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }else{
         [self.rootTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [self resetShowType:SideMenu_Tab_Type_Root];
     }
     
     if (_delegate && [_delegate respondsToSelector:@selector(didSelectAtRowNumber:forTabType:)]) {
