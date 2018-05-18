@@ -25,19 +25,23 @@
 }
 
 + (GASpeechIATService *)initSpeechIATServiceWithConfig:(GAIATConfiger *)configer{
+    
     GASpeechIATService * service = [GASpeechIATService sharedInstance];
     if (configer) {
         service.baseConfig = configer;
     }
     return service;
+    
 }
 
 + (GASpeechTTSService *)initSpeechTTSServiceWithConfig:(GATTSConfiger *)configer{
+    
     GASpeechTTSService * service = [GASpeechTTSService sharedInstance];
     if (configer) {
         service.baseConfig = configer;
     }
     return service;
+    
 }
 
 @end
