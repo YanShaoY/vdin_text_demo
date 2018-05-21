@@ -28,10 +28,10 @@
 
 #pragma mark -- 语音识别设置参数
 -(void)defaultIATSetting {
-    _speechTimeout = @"30000";
+    _speechTimeout = @"60000";
     _vadEos = @"2000";
     _vadBos = @"1000";
-    _netWorkWait = @"20000";
+    _netWorkWait = @"10000";
     _dot = @"1";
     _sampleRate = @"16000";
     _language = CHINESE;
@@ -41,39 +41,39 @@
 }
 
 
--(NSString *)mandarin {
+-(NSString *)mandarin{
     return PUTONGHUA;
 }
 
--(NSString *)cantonese {
+-(NSString *)cantonese{
     return YUEYU;
 }
 
--(NSString *)chinese {
+-(NSString *)chinese{
     return CHINESE;
 }
 
--(NSString *)english {
+-(NSString *)english{
     return ENGLISH;
 }
 
--(NSString *)sichuanese {
+-(NSString *)sichuanese{
     return SICHUANESE;
 }
 
--(NSString *)lowSampleRate {
+-(NSString *)lowSampleRate{
     return @"8000";
 }
 
--(NSString *)highSampleRate {
+-(NSString *)highSampleRate{
     return @"16000";
 }
 
--(NSString *)isDot {
+-(NSString *)isDot{
     return @"1";
 }
 
--(NSString *)noDot {
+-(NSString *)noDot{
     return @"0";
 }
 

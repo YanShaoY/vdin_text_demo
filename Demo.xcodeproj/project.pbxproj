@@ -50,6 +50,7 @@
 		A47C62A71FDE27D400C5C4E9 /* GANetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = A47C62A61FDE27D400C5C4E9 /* GANetworkService.m */; };
 		A47C62AA1FDE294600C5C4E9 /* NSDate+DateString.m in Sources */ = {isa = PBXBuildFile; fileRef = A47C62A81FDE294600C5C4E9 /* NSDate+DateString.m */; };
 		A47C62AD1FDE29A800C5C4E9 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A47C62AB1FDE29A800C5C4E9 /* UIImage+Extension.m */; };
+		A48361A620B26CF6004EE119 /* GAFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = A48361A520B26CF6004EE119 /* GAFileService.m */; };
 		A486E6251FECA51600CD848B /* EntranceGuardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A486E6241FECA51600CD848B /* EntranceGuardView.m */; };
 		A498EF6E1FC591AC0081C721 /* ChangeIconService.m in Sources */ = {isa = PBXBuildFile; fileRef = A498EF6D1FC591AC0081C721 /* ChangeIconService.m */; };
 		A498EF721FC652ED0081C721 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A498EF711FC652ED0081C721 /* BaseVC.m */; };
@@ -171,6 +172,8 @@
 		A47C62A91FDE294600C5C4E9 /* NSDate+DateString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateString.h"; sourceTree = "<group>"; };
 		A47C62AB1FDE29A800C5C4E9 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		A47C62AC1FDE29A800C5C4E9 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		A48361A420B26CF6004EE119 /* GAFileService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAFileService.h; sourceTree = "<group>"; };
+		A48361A520B26CF6004EE119 /* GAFileService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAFileService.m; sourceTree = "<group>"; };
 		A486E6231FECA51600CD848B /* EntranceGuardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntranceGuardView.h; sourceTree = "<group>"; };
 		A486E6241FECA51600CD848B /* EntranceGuardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntranceGuardView.m; sourceTree = "<group>"; };
 		A498EF6C1FC591AC0081C721 /* ChangeIconService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeIconService.h; sourceTree = "<group>"; };
@@ -594,6 +597,7 @@
 				A4A3153A1FC436760060C7DA /* 003 指纹识别服务 */,
 				A47B00141FF5EB9600DCF4BA /* 004 本地推送服务 */,
 				A49FCF9420A3E1FA009826E6 /* 005 语音识别服务 */,
+				A48361A320B25DAF004EE119 /* 006 文件管理服务 */,
 				A4EAC4351FC6D62100099677 /* 100 CateGorys */,
 			);
 			path = Service;
@@ -616,6 +620,15 @@
 				A47C62A21FDE27B900C5C4E9 /* GANetworkTool.m */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		A48361A320B25DAF004EE119 /* 006 文件管理服务 */ = {
+			isa = PBXGroup;
+			children = (
+				A48361A420B26CF6004EE119 /* GAFileService.h */,
+				A48361A520B26CF6004EE119 /* GAFileService.m */,
+			);
+			path = "006 文件管理服务";
 			sourceTree = "<group>";
 		};
 		A486E61F1FECA49500CD848B /* ibeacon菜单栏 */ = {
@@ -1041,6 +1054,7 @@
 				A46A21C41FEA2BCC00F43DB6 /* BaseView.m in Sources */,
 				A46A21DD1FEA54C400F43DB6 /* ibeaconPopMenuView.m in Sources */,
 				A4AAC2CA2057A94300DBC435 /* soundWavesVC.m in Sources */,
+				A48361A620B26CF6004EE119 /* GAFileService.m in Sources */,
 				A498EF721FC652ED0081C721 /* BaseVC.m in Sources */,
 				A4B6B97A20AADCCD0066616F /* AKPickerView.m in Sources */,
 				A46A21BC1FEA105D00F43DB6 /* CollapseAnimator.m in Sources */,

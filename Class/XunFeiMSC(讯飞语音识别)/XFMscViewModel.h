@@ -10,7 +10,6 @@
 
 @interface XFMscViewModel : BaseModel
 
-
 /**
  创建一个按钮
  

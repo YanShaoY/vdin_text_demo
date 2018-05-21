@@ -7,6 +7,7 @@
 //
 
 #import "GASpeechTextMSCService.h"
+#import "GAFileService.h"
 
 @implementation GASpeechTextMSCService
 
@@ -16,9 +17,8 @@
     [IFlySetting setLogFile:LVL_NONE];
     [IFlySetting showLogcat:NO];
     
-    NSArray  * paths     = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString * cachePath = [paths objectAtIndex:0];
-    [IFlySetting setLogFilePath:cachePath];
+    NSString * path = [GAFileService obtainGADir];
+    [IFlySetting setLogFilePath:path];
     
     NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",appid];
     [IFlySpeechUtility createUtility:initString];
