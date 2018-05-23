@@ -10,4 +10,15 @@
 
 @interface XFVoiceDictationView : BaseView
 
+@property (nonatomic , strong) UILabel                    * titleLabel;
+@property (nonatomic , strong) UIButton                   * setUpBtn;
+@property (nonatomic , strong) UITextView                 * textView;
+@property (nonatomic , strong) UIButton                   * startRecBtn;
+@property (nonatomic , strong) UIButton                   * stopRecBtn;
+@property (nonatomic , strong) UIButton                   * cancelRecBtn;
+@property (nonatomic , strong) UIButton                   * audioStreamBtn;
+@property (nonatomic , strong) UILabel                    * messageLabel;
+@property (nonatomic , strong) UIButton                   * upContactBtn;
+@property (nonatomic , strong) UIButton                   * upWordListBtn;
+
 @end

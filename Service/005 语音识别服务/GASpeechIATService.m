@@ -8,11 +8,6 @@
 
 #import "GASpeechIATService.h"
 
-// 类名声明
-@class IFlyDataUploader;
-@class IFlyPcmRecorder;
-@class IFlySpeechRecognizer;
-
 @interface GASpeechIATService ()<IFlySpeechRecognizerDelegate,IFlyRecognizerViewDelegate,IFlyPcmRecorderDelegate>
 
 @property (nonatomic, strong) IFlySpeechRecognizer  * iFlySpeechRecognizer;   // 不带界面的识别对象
@@ -79,9 +74,8 @@
         }
         
         [_iFlySpeechRecognizer cancel];
-        [_iFlySpeechRecognizer setParameter:IFLY_AUDIO_SOURCE_MIC forKey:@"audio_source"];
+        [_iFlySpeechRecognizer setParameter:IFLY_AUDIO_SOURCE_MIC forKey:[IFlySpeechConstant AUDIO_SOURCE]];
         [_iFlySpeechRecognizer setParameter:@"json" forKey:[IFlySpeechConstant RESULT_TYPE]];
-        [_iFlySpeechRecognizer setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
         [_iFlySpeechRecognizer setDelegate:self];
         
         ret = [_iFlySpeechRecognizer startListening];
@@ -92,9 +86,8 @@
             [self initRecognizer];
         }
         
-        [_iflyRecognizerView setParameter:IFLY_AUDIO_SOURCE_MIC forKey:@"audio_source"];
+        [_iflyRecognizerView setParameter:IFLY_AUDIO_SOURCE_MIC forKey:[IFlySpeechConstant AUDIO_SOURCE]];
         [_iflyRecognizerView setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
-        [_iflyRecognizerView setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
         [_iflyRecognizerView setDelegate:self];
         
         ret = [_iflyRecognizerView start];
@@ -136,7 +129,7 @@
     if(_iFlySpeechRecognizer == nil){
         [self initRecognizer];
     }
-    [_iFlySpeechRecognizer setParameter:IFLY_AUDIO_SOURCE_STREAM forKey:@"audio_source"];
+    [_iFlySpeechRecognizer setParameter:IFLY_AUDIO_SOURCE_STREAM forKey:[IFlySpeechConstant AUDIO_SOURCE]];
     [_iFlySpeechRecognizer setParameter:@"json" forKey:[IFlySpeechConstant RESULT_TYPE]];
     [_iFlySpeechRecognizer setDelegate:self];
     
@@ -171,7 +164,7 @@
 }
 
 #pragma mark -- 上传联系人信息
-- (void)upContactDataWithBlock:(void (^)(NSString *, IFlySpeechError *))block{
+- (void)upContactDataWithBlock:(void(^)(NSString *result, IFlySpeechError *error))block{
     
     [_iFlySpeechRecognizer stopListening];
     
@@ -192,7 +185,7 @@
 }
 
 #pragma mark -- 上传用户词表
-- (void)upUserWordDataWithJson:(NSString *)userWords Block:(void (^)(NSString *, IFlySpeechError *))block{
+- (void)upUserWordDataWithJson:(NSString *)userWords Block:(void(^)(NSString *result, IFlySpeechError *error))block{
 
     [_iFlySpeechRecognizer stopListening];
     IFlyUserWords *iFlyUserWords = [[IFlyUserWords alloc]initWithJson:userWords ];
@@ -273,7 +266,6 @@
     }
     NSString * resultFromJson = [GAXFMscDataHelper stringFromJson:resultString];
     [self.resultDataStr appendString:resultFromJson];
-    NSLog(@"=====$%@=====",self.resultDataStr);
     if (isLast) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(speechIATService:onResult:)]) {
             [self.delegate speechIATService:self onResult:self.resultDataStr];
@@ -449,7 +441,6 @@
 }
 
 - (void)dealloc{
-    
     [self deallocToASR];
 }
 

@@ -10,6 +10,13 @@
 
 @interface XFMscViewModel : BaseModel
 
+#pragma mark -- 数据定义
+/**
+ 默认用户词表字典
+ */
+@property (nonatomic,strong) NSMutableDictionary * userWordsDict;
+
+#pragma mark -- 公共方法
 /**
  创建一个按钮
  
@@ -18,4 +25,20 @@
  */
 - (UIButton *)createButtonWithTitle:(NSString *)title;
 
+/**
+ 字典转json字符串
+
+ @param dict 需要转换的字典
+ @return json字符串
+ */
+-(NSString *)dictionaryToJsonString:(NSDictionary *)dict;
+
 @end
+
+
+
+
+
+
+
+

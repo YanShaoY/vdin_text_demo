@@ -96,7 +96,6 @@
  */
 @protocol GASpeechIATServiceDelegate <NSObject>
 
-@optional
 /**
  音量变化回调函数
 
@@ -132,8 +131,6 @@
  */
 - (void)speechIATService:(GASpeechIATService *)service
                 onCancel:(BOOL)success;
-
-@required
 
 /**
  听写结束回调（注：无论听写是否正确都会回调）

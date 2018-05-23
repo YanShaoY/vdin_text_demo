@@ -35,10 +35,10 @@
         BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:dirPath withIntermediateDirectories:YES attributes:nil error:&error];
         
         if(success == NO)
-            NSLog(@"创建文件失败: %@",error.debugDescription);
+            NSLog(@"%s--创建文件失败: %@",__FUNCTION__,error.debugDescription);
     }
     
-    NSLog(@"%@",dirPath);
+    NSLog(@"%s--%@",__FUNCTION__,dirPath);
     return dirPath;
 }
 

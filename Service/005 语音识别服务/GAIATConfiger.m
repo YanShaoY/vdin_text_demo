@@ -30,13 +30,13 @@
 -(void)defaultIATSetting {
     _speechTimeout = @"60000";
     _vadEos = @"2000";
-    _vadBos = @"1000";
+    _vadBos = @"3000";
     _netWorkWait = @"10000";
     _dot = @"1";
     _sampleRate = @"16000";
     _language = CHINESE;
     _accent = PUTONGHUA;
-    _haveView = YES;
+    _haveView = NO;
     _accentNickName = [[NSArray alloc] initWithObjects:@"粤语",@"普通话",@"英文",@"四川话", nil];
 }
 

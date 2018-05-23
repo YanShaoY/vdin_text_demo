@@ -18,7 +18,7 @@
  iFlySpeechRecgonizer
  进行设置
  ****/
-/// 最长录音时间 单位:ms
+/// 语音输入超时时间 单位:ms 默认:30s
 @property (nonatomic, strong) NSString * speechTimeout;
 /// 后端点静音检测时间。单位:ms 范围:0-10000
 @property (nonatomic, strong) NSString * vadEos;

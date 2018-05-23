@@ -249,7 +249,6 @@
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray<CLBeacon *> *)beacons inRegion:(CLBeaconRegion *)region{
     NSMutableArray * beaconArr = [[NSMutableArray alloc]init];
-    NSLog(@"%@",beacons);
     for (CLBeacon * beacon in beacons) {
         GAibeaconModel * model = [self changeBeaconValue:beacon];
         [beaconArr addObject:model];

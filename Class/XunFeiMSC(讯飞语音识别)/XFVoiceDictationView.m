@@ -14,36 +14,10 @@
 
 #import "GASpeechTextMSCService.h"
 
-#define USERWORDS   @"{\"userword\":[{\"name\":\"我的常用词\",\"words\":[\"中德宏泰\",\"天祥广场\",\"高新区\",\"成都市\"]},{\"name\":\"我的好友\",\"words\":[\"孙二浪\",\"污妖汪\",\"哈哈全\",\"大润发\",\"二姐\",\"YanSY\"]}]}"
-
 @interface XFVoiceDictationView ()<GASpeechIATServiceDelegate>
 
-/// 标题
-@property (nonatomic , strong) UILabel                    * titleLabel;
-/// 设置按钮
-@property (nonatomic , strong) UIButton                   * setUpBtn;
-/// 语音识别展示视图
-@property (nonatomic , strong) UITextView                 * textView;
-/// 开始识别按钮
-@property (nonatomic , strong) UIButton                   * startRecBtn;
-/// 停止识别按钮
-@property (nonatomic , strong) UIButton                   * stopRecBtn;
-/// 取消识别按钮
-@property (nonatomic , strong) UIButton                   * cancelRecBtn;
-/// 音频流识别按钮
-@property (nonatomic , strong) UIButton                   * audioStreamBtn;
-/// 提示信息
-@property (nonatomic , strong) UILabel                    * messageLabel;
-/// 上传联系人按钮
-@property (nonatomic , strong) UIButton                   * upContactBtn;
-/// 上传词表按钮
-@property (nonatomic , strong) UIButton                   * upWordListBtn;
-
-/// 模型
 @property (nonatomic , strong) XFMscViewModel             * myModel;
-/// 语音听写服务
 @property (nonatomic , strong) GASpeechIATService         * speechService;
-/// 提示视图
 @property (nonatomic , strong) PopupView                  * popUpView;
 
 @end
@@ -51,8 +25,8 @@
 @implementation XFVoiceDictationView
 
 #pragma mark -- 初始化
-- (instancetype)init
-{
+- (instancetype)init{
+    
     self = [super init];
     if (self) {
         [self configuration];
@@ -111,6 +85,10 @@
 #pragma mark -- 事件响应
 - (void)pauseGuideAnimation{
     [self.speechService stopASRToListening];
+    [_textView resignFirstResponder];
+    [_audioStreamBtn setEnabled:NO];
+    [_upWordListBtn setEnabled:NO];
+    [_upContactBtn setEnabled:NO];
 }
 
 - (void)setUpBtnClick:(UIButton *)sender{
@@ -198,7 +176,8 @@
     [_popUpView showText: @"正在上传..."];
     
     @weakify(self);
-    [self.speechService upUserWordDataWithJson:USERWORDS Block:^(NSString *result, IFlySpeechError *error) {
+    NSString * userWords = [self.myModel dictionaryToJsonString:self.myModel.userWordsDict];
+    [self.speechService upUserWordDataWithJson:userWords Block:^(NSString *result, IFlySpeechError *error) {
         @strongify(self);
         if (error.errorCode == 0) {
             self.textView.text = result;
