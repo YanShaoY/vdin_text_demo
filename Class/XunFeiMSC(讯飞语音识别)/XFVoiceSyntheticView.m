@@ -41,7 +41,6 @@
 /// 语音合成服务
 @property (nonatomic , strong) GASpeechTTSService         * speechService;
 /// 提示视图
-@property (nonatomic , strong) PopupView                  * popUpView;
 @property (nonatomic , strong) AlertView                  * inidicateView;
 
 
@@ -66,7 +65,6 @@
     
     self.myModel = [[XFMscViewModel alloc]init];
     CGPoint center = [UIApplication sharedApplication].keyWindow.center;
-    self.popUpView = [[PopupView alloc]initWithFrame:CGRectMake(center.x, 200, 0, 0) withParentView:self] ;
     
     self.inidicateView = [[AlertView alloc]initWithFrame:CGRectMake(center.x, 200, 0, 0)];
     self.inidicateView.ParentView = self;
@@ -126,7 +124,7 @@
     
     [_textView resignFirstResponder];
     if ([_textView.text isEqualToString:@""]) {
-        [_popUpView showText:@"无效的文本信息"];
+        [PopupView hudWithText:@"无效的文本信息" toView:self DealyTime:2];
         return;
     }
     
@@ -135,10 +133,10 @@
         
         [_inidicateView setText: @"正在缓冲..."];
         [_inidicateView show];
-        [_popUpView removeFromSuperview];
+        [PopupView removeFromSuperview:self];
         
     }else{
-        [_popUpView showText: @"启动合成服务失败，请稍后重试"];
+        [PopupView hudWithText:@"启动合成服务失败，请稍后重试" toView:self DealyTime:2];
     }
     
 }
@@ -147,7 +145,7 @@
 
     [_textView resignFirstResponder];
     if ([_textView.text isEqualToString:@""]) {
-        [_popUpView showText:@"无效的文本信息"];
+        [PopupView hudWithText:@"无效的文本信息" toView:self DealyTime:2];
         return;
     }
     
@@ -156,10 +154,10 @@
         
         [_inidicateView setText: @"正在缓冲..."];
         [_inidicateView show];
-        [_popUpView removeFromSuperview];
-        
+        [PopupView removeFromSuperview:self];
+
     }else{
-        [_popUpView showText: @"启动合成服务失败，请稍后重试"];
+        [PopupView hudWithText:@"启动合成服务失败，请稍后重试" toView:self DealyTime:2];
     }
 }
 
@@ -195,7 +193,7 @@
     
     [_inidicateView hide];
     if (service.state != Playing) {
-        [_popUpView showText:@"开始播放"];
+        [PopupView hudWithText:@"开始播放" toView:self DealyTime:2];
     }
     
 }
@@ -211,7 +209,7 @@
 - (void)speechTTSService:(GASpeechTTSService *)service
            onSpeakCancel:(BOOL)success{
     [_inidicateView hide];
-    [_popUpView showText:@"播放取消"];
+    [PopupView hudWithText:@"播放取消" toView:self DealyTime:2];
 }
 /**
  暂停合成回调
@@ -225,7 +223,7 @@
            onSpeakPaused:(BOOL)success{
     
     [_inidicateView hide];
-    [_popUpView showText:@"播放暂停"];
+    [PopupView hudWithText:@"播放暂停" toView:self DealyTime:2];
 }
 
 /**
@@ -239,7 +237,7 @@
 - (void)speechTTSService:(GASpeechTTSService *)service
           onSpeakResumed:(BOOL)success{
     [_inidicateView hide];
-    [_popUpView showText:@"继续播放"];
+    [PopupView hudWithText:@"继续播放" toView:self DealyTime:2];
 }
 
 /**
@@ -286,7 +284,7 @@
     
     if (error.errorCode != 0) {
         [_inidicateView hide];
-        [_popUpView showText:[NSString stringWithFormat:@"错误码:%d",error.errorCode]];
+        [PopupView hudWithText:[NSString stringWithFormat:@"错误码:%d",error.errorCode] toView:self DealyTime:2];
         return;
     }
     NSString *text ;
@@ -299,10 +297,10 @@
     }
     
     [_inidicateView hide];
-    [_popUpView showText:text];
-    
+    [PopupView hudWithText:text toView:self DealyTime:2];
+
     if (service.baseConfig.autoPlayURL && service.synType == UriType) {
-        [_popUpView showText:@"uri合成完毕，即将开始播放"];
+        [PopupView hudWithText:@"uri合成完毕，即将开始播放" toView:self DealyTime:2];
     }
 }
 
