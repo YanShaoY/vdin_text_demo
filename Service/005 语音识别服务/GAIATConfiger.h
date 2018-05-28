@@ -20,9 +20,9 @@
  ****/
 /// 语音输入超时时间 单位:ms 默认:30s
 @property (nonatomic, strong) NSString * speechTimeout;
-/// 后端点静音检测时间。单位:ms 范围:0-10000
+/// 后端静音超时时间。单位:ms 范围:0-10000
 @property (nonatomic, strong) NSString * vadEos;
-/// 静音超时时间。单位:ms 范围:0-10000
+/// 前端静音超时时间。单位:ms 范围:0-10000
 @property (nonatomic, strong) NSString * vadBos;
 /// 设置网络等待时间
 @property (nonatomic, strong) NSString * netWorkWait;

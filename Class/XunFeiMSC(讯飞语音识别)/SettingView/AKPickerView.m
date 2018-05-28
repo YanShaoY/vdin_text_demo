@@ -45,8 +45,8 @@
 
 - (void)initialize
 {
-	self.font = self.font ?: [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
-	self.highlightedFont = self.highlightedFont ?: [UIFont fontWithName:@"HelveticaNeue" size:20];
+	self.font = self.font ?: [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
+	self.highlightedFont = self.highlightedFont ?: [UIFont fontWithName:@"HelveticaNeue" size:17];
 	self.textColor = self.textColor ?: [UIColor darkGrayColor];
 	self.highlightedTextColor = self.highlightedTextColor ?: [UIColor blackColor];
 	self.pickerViewStyle = self.pickerViewStyle ?: AKPickerViewStyle3D;

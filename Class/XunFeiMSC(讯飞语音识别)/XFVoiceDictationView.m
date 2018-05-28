@@ -100,9 +100,8 @@
         [_upWordListBtn setEnabled:NO];
         [_upContactBtn setEnabled:NO];
     }else{
-        [PopupView hudWithText:@"启动识别服务失败，请稍后重试" toView:self DealyTime:2];
+        [PopupView showPopWithText:@"启动识别服务失败，请稍后重试" toView:self.textView];
     }
-    
 }
 
 - (void)stopRecBtnClick:(UIButton *)sender{
@@ -112,7 +111,7 @@
 
 - (void)cancelRecBtnClick:(UIButton *)sender{
     [self.speechService cancelASRToListening];
-    [PopupView removeFromSuperview:self];
+    [PopupView hidePopUpForView:self.textView];
     [_textView resignFirstResponder];
 }
 
@@ -127,16 +126,16 @@
     if (ret) {
         [_textView setText:@""];
         [_textView resignFirstResponder];
-        [PopupView hudWithText:@"正在录音" toView:self DealyTime:2];
+        [PopupView showPopWithText:@"正在录音" toView:self.textView];
     }else{
         [_startRecBtn setEnabled:YES];
         [_audioStreamBtn setEnabled:YES];
         [_upWordListBtn setEnabled:YES];
         [_upContactBtn setEnabled:YES];
         if (self.speechService.baseConfig.haveView) {
-            [PopupView hudWithText:@"请设置为无界面识别模式" toView:self DealyTime:2];
+            [PopupView showPopWithText:@"请设置为无界面识别模式" toView:self.textView];
         }else{
-            [PopupView hudWithText:@"启动失败" toView:self DealyTime:2];
+            [PopupView showPopWithText:@"启动失败" toView:self.textView];
         }
     }
 }
@@ -147,7 +146,7 @@
     [_audioStreamBtn setEnabled:NO];
     _upContactBtn.enabled = NO;
     _upWordListBtn.enabled = NO;
-    [PopupView hudWithText:@"正在上传..." toView:self DealyTime:2];
+    [PopupView showPopWithText:@"正在上传..." toView:self.textView];
     
     @weakify(self);
     [self.speechService upContactDataWithBlock:^(NSString *result, IFlySpeechError *error) {
@@ -165,7 +164,7 @@
     [_audioStreamBtn setEnabled:NO];
     _upContactBtn.enabled = NO;
     _upWordListBtn.enabled = NO;
-    [PopupView hudWithText:@"正在上传..." toView:self DealyTime:2];
+    [PopupView showPopWithText:@"正在上传..." toView:self.textView];
 
     @weakify(self);
     NSString * userWords = [self.myModel dictionaryToJsonString:self.myModel.userWordsDict];
@@ -185,10 +184,10 @@
 - (void)onUploadFinished:(IFlySpeechError *)error
 {
     if ([error errorCode] == 0) {
-        [PopupView hudWithText:@"上传成功" toView:self DealyTime:2];
+        [PopupView showPopWithText:@"上传成功" toView:self.textView];
     }
     else {
-        [PopupView hudWithText:[NSString stringWithFormat:@"上传失败，错误码:%d",error.errorCode] toView:self DealyTime:2];
+        [PopupView showPopWithText:[NSString stringWithFormat:@"上传失败，错误码:%d",error.errorCode] toView:self.textView];
     }
     
     [_startRecBtn setEnabled:YES];
@@ -206,11 +205,11 @@
  */
 - (void)speechIATService:(GASpeechIATService *)service soundVolumeChanged:(int)volume{
     if (service.isCanceled) {
-        [PopupView removeFromSuperview:self];
+        [PopupView hidePopUpForView:self.textView];
         return;
     }
     NSString * vol = [NSString stringWithFormat:@"音量：%d",volume];
-    [PopupView hudWithText:vol toView:self DealyTime:2];
+    [PopupView showPopWithText:vol toView:self.textView];
 }
 
 /**
@@ -221,7 +220,7 @@
  */
 - (void)speechIATService:(GASpeechIATService *)service onBeginOfSpeech:(BOOL)success{
     if (service.isStreamRec == NO) {
-        [PopupView hudWithText:@"正在录音" toView:self DealyTime:2];
+        [PopupView showPopWithText:@"正在录音" toView:self.textView];
     }
 }
 
@@ -232,7 +231,7 @@
  @param success 是否成功 默认成功，当出现中断时返回失败
  */
 - (void)speechIATService:(GASpeechIATService *)service onEndOfSpeech:(BOOL)success{
-    [PopupView hudWithText:@"停止录音" toView:self DealyTime:2];
+    [PopupView showPopWithText:@"停止录音" toView:self.textView];
 }
 
 /**
@@ -242,7 +241,7 @@
  @param success 是否成功 默认成功，当出现中断时返回失败
  */
 - (void)speechIATService:(GASpeechIATService *)service onCancel:(BOOL)success{
-    [PopupView hudWithText:@"取消录音" toView:self DealyTime:2];
+    [PopupView showPopWithText:@"取消录音" toView:self.textView];
 }
 
 /**
@@ -267,10 +266,10 @@
         }else{
             text = [NSString stringWithFormat:@"发生错误：%d %@", error.errorCode,error.errorDesc];
         }
-        [PopupView hudWithText:text toView:self DealyTime:2];
+        [PopupView showPopWithText:text toView:self.textView];
         
     }else{
-        [PopupView hudWithText:@"识别结束" toView:self DealyTime:2];
+        [PopupView showPopWithText:@"识别结束" toView:self.textView];
     }
     [_startRecBtn setEnabled:YES];
     [_audioStreamBtn setEnabled:YES];

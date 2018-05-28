@@ -128,10 +128,6 @@ typedef struct{
         
         if([self touchInCircleWithPoint:touchPoint circleCenter:drawInf.startMarkerCenter]){
             return NO;//禁止开始的marker 滑动
-//            trackingSector = sector;
-//            trackingSectorDrawInf = drawInf;
-//            trackingSectorStartMarker = YES;
-//            return YES;
         }
         
     }
@@ -329,15 +325,13 @@ typedef struct{
     drawInf.endMarkerCenter = polarToDecart(drawInf.circleCenter, drawInf.radius, drawInf.circleLineAngle);
     
     CGFloat minMarkerRadius = self.sectorsRadius / 4.0;
-    CGFloat maxMarkerRadius = self.sectorsRadius / 2.0;
+    CGFloat maxMarkerRadius = self.sectorsRadius / 2.2;
     
     drawInf.startMarkerRadius = ((drawInf.circleOffsetAngle/(self.startAngle + 2*M_PI)) * (maxMarkerRadius - minMarkerRadius)) + minMarkerRadius;
     drawInf.endMarkerRadius = ((drawInf.circleLineAngle/(self.startAngle + 2*M_PI)) * (maxMarkerRadius - minMarkerRadius)) + minMarkerRadius;
     
-//    CGFloat minFontSize = 12.0;
-//    CGFloat maxFontSize = 16.0;
-    CGFloat minFontSize = 10.0;
-    CGFloat maxFontSize = 13.0;
+    CGFloat minFontSize = 9.0;
+    CGFloat maxFontSize = 11.0;
     
     drawInf.startMarkerFontSize = ((drawInf.circleOffset/drawInf.fullLine) * (maxFontSize - minFontSize)) + minFontSize;
     drawInf.endMarkerFontize = ((drawInf.circleLine/drawInf.fullLine) * (maxFontSize - minFontSize)) + minFontSize;

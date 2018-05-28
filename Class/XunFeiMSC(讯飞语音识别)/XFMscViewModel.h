@@ -33,6 +33,16 @@
  */
 -(NSString *)dictionaryToJsonString:(NSDictionary *)dict;
 
+/**
+ 初始化一个标签
+
+ @param size 字体大小
+ @param color 字体颜色
+ @param text 文字
+ @return 创建好的标签
+ */
++ (UILabel *)createLabelWithFont:(CGFloat)size andTextColor:(UIColor *)color andText:(NSString *)text;
+
 @end
 
 

@@ -25,7 +25,7 @@
  @param view backView
  @param time 显示时间 若为0 则永久显示
  */
-+ (void)hudWithText:(NSString*)text toView:(UIView*)view DealyTime:(NSInteger)time;
++ (void)showPopWithText:(NSString*)text toView:(UIView*)view DealyTime:(NSInteger)time;
 
 
 #pragma mark -- 隐藏视图

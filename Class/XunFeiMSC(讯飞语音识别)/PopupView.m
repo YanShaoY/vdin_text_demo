@@ -27,14 +27,15 @@
     if (self) {
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent: 0.5f];
         self.layer.cornerRadius = 10.f;
-        self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 150, 10)];
-        _textLabel.numberOfLines = 0;
-        _textLabel.font = [UIFont systemFontOfSize:17];
-        _textLabel.textColor = [UIColor whiteColor];
-        _textLabel.backgroundColor = [UIColor clearColor];
-        _textLabel.textAlignment = NSTextAlignmentCenter;
-        [self addSubview:_textLabel];
+        [self addSubview:self.textLabel];
         _queueCount = 0;
+        
+        [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.mas_top).offset(10.f);
+            make.left.equalTo(self.mas_left).offset(10.f);
+            make.right.equalTo(self.mas_right).offset(-10.f);
+            make.bottom.equalTo(self.mas_bottom).offset(-10.f);
+        }];
     }
     return self;
 }
@@ -48,7 +49,7 @@
  */
 + (void)showPopWithText:(NSString*)text toView:(UIView*)view{
     
-    [self hudWithText:text toView:view DealyTime:2];
+    [self showPopWithText:text toView:view DealyTime:2];
 }
 
 /**
@@ -58,7 +59,7 @@
  @param view backView
  @param time 显示时间
  */
-+ (void)hudWithText:(NSString *)text toView:(UIView *)view DealyTime:(NSInteger)time{
++ (void)showPopWithText:(NSString *)text toView:(UIView *)view DealyTime:(NSInteger)time{
     
     if (view == nil) {
         view = [UIApplication sharedApplication].keyWindow;
@@ -67,33 +68,30 @@
     if (!popView) {
         popView = [[PopupView alloc]init];
     }
-    [popView hudWithText:text toView:view DealyTime:time];
+    [popView showPopWithText:text toView:view DealyTime:time];
 }
 
 
 
-- (void)hudWithText:(NSString*)text toView:(UIView*)view DealyTime:(NSInteger)time{
+- (void)showPopWithText:(NSString*)text toView:(UIView*)view DealyTime:(NSInteger)time{
     
     _queueCount ++;
     self.ParentView = view;
     self.textLabel.text = text;
     self.alpha = 1.0f;
     [_textLabel sizeToFit];
-
-    
-    CGRect frame = CGRectMake(5, 0, _textLabel.frame.size.width, _textLabel.frame.size.height);
-    
-    _textLabel.frame = frame;
-    _textLabel.frame = CGRectMake(_textLabel.frame.origin.x, _textLabel.frame.origin.y+10, _textLabel.frame.size.width, _textLabel.frame.size.height);
-    
-    frame =  CGRectMake((_ParentView.frame.size.width - frame.size.width)/2, self.frame.origin.y, _textLabel.frame.size.width+10, _textLabel.frame.size.height+20);
-    self.frame = frame;
-    
-    CGPoint centerPoint = CGPointMake(self.ParentView.center.x, self.ParentView.center.y);
-    self.center= centerPoint;
     
     if (self.ParentView != nil) {
         [self.ParentView addSubview:self];
+    }
+    
+    [self mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.ParentView.mas_centerX);
+        make.centerY.equalTo(self.ParentView.mas_centerY);
+    }];
+    
+    if (time == 0) {
+        return;
     }
     
     [UIView animateWithDuration:time delay:0.f options:UIViewAnimationOptionCurveEaseIn animations:^{
@@ -162,6 +160,22 @@
     return nil;
 }
 
+#pragma mark -- 懒加载
+- (UILabel *)textLabel{
+    if (!_textLabel) {
+        _textLabel = [[UILabel alloc] init];
+        _textLabel.numberOfLines = 1;
+        _textLabel.font = [UIFont systemFontOfSize:17];
+        _textLabel.textColor = [UIColor greenColor];
+        _textLabel.backgroundColor = [UIColor clearColor];
+        _textLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _textLabel;
+}
 
 @end
+
+
+
+
 
