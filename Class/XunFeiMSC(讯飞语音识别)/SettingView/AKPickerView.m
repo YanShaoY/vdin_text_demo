@@ -480,7 +480,7 @@
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
+	UICollectionViewLayoutAttributes * attributes = [[super layoutAttributesForItemAtIndexPath:indexPath] copy];
 	switch ([self.delegate pickerViewStyleForCollectionViewLayout:self]) {
 		case AKPickerViewStyleFlat: {
 			return attributes; break;
@@ -500,11 +500,12 @@
 	}
 }
 
-- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
-{
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{
+    
 	switch ([self.delegate pickerViewStyleForCollectionViewLayout:self]) {
 		case AKPickerViewStyleFlat: {
-			return [super layoutAttributesForElementsInRect:rect];
+            NSArray * attributesToReturn = [[NSArray alloc]initWithArray:[super layoutAttributesForElementsInRect:rect] copyItems:YES];
+			return attributesToReturn;
 			break;
 		}
 		case AKPickerViewStyle3D: {
@@ -512,6 +513,7 @@
 			if ([self.collectionView numberOfSections]) {
 				for (NSInteger i = 0; i < [self.collectionView numberOfItemsInSection:0]; i++) {
 					NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+                    
 					[attributes addObject:[self layoutAttributesForItemAtIndexPath:indexPath]];
 				}
 			}

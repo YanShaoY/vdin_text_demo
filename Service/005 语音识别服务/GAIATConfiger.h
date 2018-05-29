@@ -70,6 +70,14 @@
 /// 获取不加标点的key
 -(NSString *)noDot;
 
+
+/**
+ 复制拷贝当前配置
+
+ @return 返回拷贝后的配置
+ */
+- (GAIATConfiger *)configerCopy;
+
 @end
 
 

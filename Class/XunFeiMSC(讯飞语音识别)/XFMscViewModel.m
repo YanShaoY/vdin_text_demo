@@ -80,20 +80,6 @@
     return mutStr;
 }
 
-#pragma mark -- 标签初始化
-+ (UILabel *)createLabelWithFont:(CGFloat)size andTextColor:(UIColor *)color andText:(NSString *)text{
-    
-    UILabel * label = [[UILabel alloc]init];
-    label = [[UILabel alloc] init];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont fontWithName:@"HelveticaNeue" size:size];
-    label.textColor = color;
-    label.text = text;
-    return label;
-}
-
-
-
 @end
 
 

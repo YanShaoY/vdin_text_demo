@@ -110,13 +110,17 @@
 
 #pragma mark -- 事件响应
 - (void)pauseGuideAnimation{
-//    [self.speechService stopASRToListening];
+    [_textView resignFirstResponder];
 }
 
 - (void)setUpBtnClick:(UIButton *)sender{
 
-    [XFMscSetUpView disPlaySetUpView:self.speechService.baseConfig WithBlock:^(id configer) {
-
+    [_inidicateView hide];
+    [self.speechService cancelTTSToSpeaking];
+    
+    GATTSConfiger * config = [self.speechService.baseConfig configerCopy];
+    [XFMscSetUpView disPlaySetUpView:config WithBlock:^(id configer) {
+        self.speechService.baseConfig = config;
     }];
 }
 
@@ -402,7 +406,12 @@
         _textView.backgroundColor = UIColorFromRGBA(0xCCFFFF, 1);
         _textView.editable = YES;
         _textView.showsVerticalScrollIndicator = NO;
-        _textView.text = @"      苏州中德宏泰电子科技股份有限公司（前身为玄烨科技，成立于2003年）2012年1月10日正式在昆山成立，现注册资本6001.6617万元，总部位于苏州昆山，在全国拥有多个分公司及控股公司，是人工智能领域集基础研究、应用研发、智能设备制造、能力输出为一体的高新技术企业，专注于人工智能、云计算、大数据+智慧城市、互联网+城市管理、智慧安防及服务领域的应用研发。截至目前，中德宏泰已获得国家授权专利35项，软件著作权8项，行业领先核心技术10项，是中国最早从事人工智能神经网络研究的企业之一，2015年7月，中德宏泰在新三板挂牌上市，证券简称：中德宏泰，证券代码：833067。\n      中德宏泰坚持科技创新，汇聚了一流的研发技术精英，结合多年的市场经验，构筑了高水平的研发技术平台，推出了深度神经网络人工智能算法、大数据智能分析云服务产品以及一系列安全防范软硬件产品，为大家努力创造更舒适、更便利、更安全的生活环境。中德宏泰以人人轻松享有安全的品质生活为愿景，矢志成为受人尊敬、全球卓越的大数据智能分析服务的领导者。\n      中德宏泰（VDIN）服务网络立足国内，面向全球，希望为全球范围内的用户以及合作伙伴提供性能卓越的大数据智能分析服务产品、互联网+安防服务产品。为普及人工智能在公共安全领域的应用、维护社会公共安全贡献自己的力量。";
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+        NSDate *datenow = [NSDate date];
+        NSString *currentTimeString = [formatter stringFromDate:datenow];
+        _textView.text = currentTimeString;
+
     }
     return _textView;
 }

@@ -33,7 +33,7 @@
 @property (nonatomic, strong) NSString     * vcnName;
 /// 编码格式
 @property (nonatomic, strong) NSString     * textEnCoding;
-/// 引擎类型,"auto","local","cloud"
+/// 引擎类型,"auto","local","cloud" 目前只支持云端
 @property (nonatomic, strong) NSString     * engineType;
 /// URL合成是否自动播放 默认YES ,若设置为NO，请在返回代理中获取本地文件
 @property (nonatomic, assign) BOOL           autoPlayURL;
@@ -45,5 +45,18 @@
 /// 发音人ID数组
 @property (nonatomic,strong) NSArray *vcnIdentiferArray;
 
+/**
+ 复制拷贝当前配置
+ 
+ @return 返回拷贝后的配置
+ */
+- (GATTSConfiger *)configerCopy;
+
 @end
+
+
+
+
+
+
 

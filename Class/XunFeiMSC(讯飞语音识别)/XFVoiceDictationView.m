@@ -85,9 +85,14 @@
 
 - (void)setUpBtnClick:(UIButton *)sender{
     
-    [XFMscSetUpView disPlaySetUpView:self.speechService.baseConfig WithBlock:^(id configer) {
-        
+    [self.speechService stopASRToListening];
+    [_textView resignFirstResponder];
+    
+    GAIATConfiger * config = [self.speechService.baseConfig configerCopy];
+    [XFMscSetUpView disPlaySetUpView:config WithBlock:^(id configer) {
+        self.speechService.baseConfig = configer;
     }];
+    
 }
 
 - (void)startRecBtnClick:(UIButton *)sender{
@@ -132,6 +137,7 @@
         [_audioStreamBtn setEnabled:YES];
         [_upWordListBtn setEnabled:YES];
         [_upContactBtn setEnabled:YES];
+
         if (self.speechService.baseConfig.haveView) {
             [PopupView showPopWithText:@"请设置为无界面识别模式" toView:self.textView];
         }else{
@@ -143,9 +149,9 @@
 - (void)upContactBtnClick:(UIButton *)sender{
     
     [_startRecBtn setEnabled:NO];
-    [_audioStreamBtn setEnabled:NO];
     _upContactBtn.enabled = NO;
     _upWordListBtn.enabled = NO;
+
     [PopupView showPopWithText:@"正在上传..." toView:self.textView];
     
     @weakify(self);
@@ -194,6 +200,7 @@
     [_audioStreamBtn setEnabled:YES];
     _upWordListBtn.enabled = YES;
     _upContactBtn.enabled = YES;
+    
 }
 
 #pragma mark - GASpeechIATServiceDelegate

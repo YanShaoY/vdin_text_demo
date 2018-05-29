@@ -7,6 +7,7 @@
 //
 
 #import "GATTSConfiger.h"
+#import "GAFileService.h"
 
 @implementation GATTSConfiger
 
@@ -32,8 +33,8 @@
     _engineType = [IFlySpeechConstant TYPE_CLOUD];
     _autoPlayURL = YES;
     // 若uri设为nil,则默认的音频保存在library/cache下
-    NSString *prePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    _uriPath = [NSString stringWithFormat:@"%@/%@",prePath,@"uri.pcm"];
+    NSString * path = [GAFileService obtainGADir];
+    _uriPath = [NSString stringWithFormat:@"%@/%@",path,@"uri.pcm"];
     
 /*
  
@@ -46,6 +47,23 @@
 */
     _vcnNickNameArray = @[@"小燕", @"小宇", @"小研", @"小琪",@"小峰",@"小新",@"小坤",@"越南语",@"印地语",@"西班牙语",@"俄语",@"法语"];
     _vcnIdentiferArray = @[@"xiaoyan",@"xiaoyu",@"vixy",@"vixq",@"vixf",@"vixx",@"vixk",@"XiaoYun",@"Abha",@"Gabriela",@"Allabent",@"Mariane"];
+}
+
+- (GATTSConfiger *)configerCopy{
+    GATTSConfiger * configer = [[GATTSConfiger alloc]init];
+    configer.speed = self.speed;
+    configer.volume = self.volume;
+    configer.pitch = self.pitch;
+    configer.sampleRate = self.sampleRate;
+    configer.vcnName = self.vcnName;
+    configer.textEnCoding = self.textEnCoding;
+    configer.engineType = self.engineType;
+    configer.autoPlayURL = self.autoPlayURL;
+    configer.uriPath = self.uriPath;
+    configer.vcnNickNameArray = self.vcnNickNameArray;
+    configer.vcnIdentiferArray = self.vcnIdentiferArray;
+
+    return configer;
 }
 
 @end

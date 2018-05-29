@@ -7,43 +7,17 @@
 //
 
 #import "XFMscSetUpView.h"
-
-#import "XFMscViewModel.h"
-
+#import "PopupView.h"
 #import "GASpeechTextMSCService.h"
-#import "SAMultisectorControl.h"
-#import "AKPickerView.h"
 
 @interface XFMscSetUpView ()<AKPickerViewDataSource,AKPickerViewDelegate>
 
-#pragma mark -- 返回block回调
+/// 设置视图block回调
 @property (strong, nonatomic) XFMscSetUpViewBlock setUpAlertBlock;
+/// 传入显示的配置
 @property (strong, nonatomic) id configer;
+/// iPhone X适配顶部距离
 @property (assign, nonatomic) CGFloat marginTop;
-
-#pragma mark -- 显示视图
-@property (strong, nonatomic) UIView  * setUpAlertBackView;   // 设置弹窗背景视图
-@property (strong, nonatomic) UIView  * toolView;             // 工具条
-@property (strong, nonatomic) UILabel * titleLabel;           // 标题
-
-@property (strong, nonatomic) SAMultisectorControl * roundSlider;  // 圆形滑块
-@property (strong, nonatomic) SAMultisectorSector  * internalSec;  // 内部滑动控件
-@property (strong, nonatomic) SAMultisectorSector  * middleSec;    // 中间滑动控件
-@property (strong, nonatomic) SAMultisectorSector  * outsideSec;   // 外部滑动控件
-
-@property (strong, nonatomic) UILabel * leftLabel;           // 左边文字
-@property (strong, nonatomic) UILabel * centerLabel;         // 左边文字
-@property (strong, nonatomic) UILabel * rightLabel;          // 右边文字
-
-@property (strong, nonatomic) UILabel * internalSecShow;     // 内部滑动控件数值显示
-@property (strong, nonatomic) UILabel * middleSecShow;       // 中间滑动控件数值显示
-@property (strong, nonatomic) UILabel * outsideSecShow;      // 外部滑动控件数值显示
-
-@property (strong, nonatomic) UILabel * pickerViewTitle;     // 选择器视图标题
-@property (strong, nonatomic) AKPickerView * accentPicker;   // 选择器视图
-
-@property (strong, nonatomic) UILabel * firstSegTitle;       // 第一个分段选择器标题
-@property (strong, nonatomic) UILabel * secondSegTitle;      // 第二个分段选择器标题
 
 @end
 
@@ -51,16 +25,14 @@
 
 #pragma mark -- 创建弹窗单例
 + (XFMscSetUpView *)sharedCustomAlert{
-    static XFMscSetUpView * customAlert = nil;
     CGRect frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
-    customAlert = [[XFMscSetUpView alloc]initWithFrame:frame];
+    XFMscSetUpView * customAlert = [[XFMscSetUpView alloc]initWithFrame:frame];
     return customAlert;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
     
     if (self == [super initWithFrame:frame]) {
-
         self.backgroundColor = UIColorFromRGBA(0xFFFFFF, .0f);
         self.alpha = 0.f;
         self.marginTop = 20.f;
@@ -69,10 +41,12 @@
         [self setupBackView];
         [self setupToolView];
         [self setupMultisectorControl];
+        [self setupPickerView];
     }
     return self;
 }
 
+#pragma mark -- 适配iPhone X
 - (void)safeAreaInsetsDidChange{
     UIEdgeInsets safeInsets = self.safeAreaInsets;
     self.marginTop = safeInsets.top;
@@ -80,27 +54,359 @@
 
 #pragma mark --实现类方法
 + (void)disPlaySetUpView:(id)configer WithBlock:(XFMscSetUpViewBlock)block{
-    
     [[XFMscSetUpView sharedCustomAlert]disPlaySetUpView:configer WithBlock:block];
-    
 }
 
 - (void)disPlaySetUpView:(id)configer WithBlock:(XFMscSetUpViewBlock)block{
-    
-    self.configer = configer;
+    self.configer = configer ;
     self.setUpAlertBlock = block;
-    
     [self needUpdateView];
-    
-//  [self setupAKPickerView];
-
-
-    
     [self showSetUpAlert];
 }
 
-#pragma mark -- 视图配置
-/// 配置背景视图
+#pragma mark -- 更新视图数据
+-(void)needUpdateView {
+    
+    if (!self.configer) {
+        return;
+    }
+    
+    // 听写设置
+    if ([self.configer isKindOfClass:[GAIATConfiger class]]) {
+        
+        GAIATConfiger * instance = (GAIATConfiger *)self.configer;
+
+        self.titleLabel.text  = @"听写设置";
+        self.leftLabel.text   = @"前端静音超时";
+        self.centerLabel.text = @"后端静音超时";
+        self.rightLabel.text  = @"语音录入超时";
+        
+        self.internalSec.maxValue = 10000;
+        self.middleSec.maxValue   = 10000;
+        self.outsideSec.maxValue  = 60000;
+        
+        self.internalSec.endValue = instance.vadBos.integerValue;
+        self.middleSec.endValue   = instance.vadEos.integerValue;
+        self.outsideSec.endValue  = instance.speechTimeout.integerValue;
+        
+        self.internalSecShow.text = instance.vadBos;
+        self.middleSecShow.text   = instance.vadEos;
+        self.outsideSecShow.text  = instance.speechTimeout;
+        
+        self.pickerViewTitle.text = @"识别语种";
+        if ([instance.language isEqualToString:[IFlySpeechConstant LANGUAGE_CHINESE]]) {
+            if ([instance.accent isEqualToString:[IFlySpeechConstant ACCENT_CANTONESE]]) {
+                [_accentPicker selectItem:0 animated:NO];
+                
+            }else if ([instance.accent isEqualToString:[IFlySpeechConstant ACCENT_MANDARIN]]) {
+                [_accentPicker selectItem:1 animated:NO];
+                
+            }else if ([instance.accent isEqualToString:[IFlySpeechConstant ACCENT_SICHUANESE]]) {
+                [_accentPicker selectItem:3 animated:NO];
+                
+            }
+        }else if ([instance.language isEqualToString:[IFlySpeechConstant LANGUAGE_ENGLISH]]) {
+            [_accentPicker selectItem:2 animated:NO];
+        }
+        
+        self.firstSegTitle.text = @"识别界面";
+        [self.firstSeg removeAllSegments];
+        [self.firstSeg insertSegmentWithTitle:@"无界面" atIndex:0 animated:NO];
+        [self.firstSeg insertSegmentWithTitle:@"有界面" atIndex:1 animated:NO];
+        
+        if (instance.haveView == NO) {
+            self.firstSeg.selectedSegmentIndex = 0;
+        }else{
+            self.firstSeg.selectedSegmentIndex = 1;
+        }
+        
+        self.secondSegTitle.text = @"识别标点";
+        [self.secondSeg removeAllSegments];
+        [self.secondSeg insertSegmentWithTitle:@"无标点" atIndex:0 animated:NO];
+        [self.secondSeg insertSegmentWithTitle:@"有标点" atIndex:1 animated:NO];
+        if ([instance.dot isEqualToString:[IFlySpeechConstant ASR_PTT_NODOT]]) {
+            self.secondSeg.selectedSegmentIndex = 0;
+            
+        }else if ([instance.dot isEqualToString:[IFlySpeechConstant ASR_PTT_HAVEDOT]]) {
+            self.secondSeg.selectedSegmentIndex = 1;
+        }
+        
+    }
+    // 合成设置
+    else if ([self.configer isKindOfClass:[GATTSConfiger class]]){
+        
+        GATTSConfiger * instance = (GATTSConfiger *)self.configer;
+        
+        self.titleLabel.text  = @"合成设置";
+        self.leftLabel.text   = @"音量";
+        self.centerLabel.text = @"语速";
+        self.rightLabel.text  = @"音调";
+        
+        self.internalSec.maxValue = 100;
+        self.middleSec.maxValue   = 100;
+        self.outsideSec.maxValue  = 100;
+        
+        self.internalSec.endValue = instance.volume.integerValue;
+        self.middleSec.endValue   = instance.speed.integerValue;
+        self.outsideSec.endValue  = instance.pitch.integerValue;
+        
+        self.internalSecShow.text = instance.volume;
+        self.middleSecShow.text   = instance.speed;
+        self.outsideSecShow.text  = instance.pitch;
+        
+        self.pickerViewTitle.text = @"发音人";
+        int vcnIndex= 0;
+        if([instance.engineType isEqualToString: [IFlySpeechConstant TYPE_LOCAL]] || [instance.engineType isEqualToString: [IFlySpeechConstant TYPE_AUTO]]){
+            for (int i = 0;i < instance.vcnIdentiferArray.count; i++) {
+                if([[instance.vcnIdentiferArray objectAtIndex:i] isEqualToString:instance.vcnName]){
+                    vcnIndex = i;
+                    break;
+                }
+            }
+            [_accentPicker selectItem:vcnIndex animated:NO];
+        }
+        else{
+            for (int i = 0;i < instance.vcnIdentiferArray.count; i++) {
+                if ([[instance.vcnIdentiferArray objectAtIndex:i] isEqualToString:instance.vcnName]) {
+                    vcnIndex=i;
+                    break;
+                }
+            }
+            [_accentPicker selectItem:vcnIndex animated:NO];
+        }
+        
+        self.firstSegTitle.text = @"采样率";
+        [self.firstSeg removeAllSegments];
+        [self.firstSeg insertSegmentWithTitle:@"16K" atIndex:0 animated:NO];
+        [self.firstSeg insertSegmentWithTitle:@"8K" atIndex:1 animated:NO];
+        
+        NSString *sampleRate = instance.sampleRate;//采样率
+        if ([sampleRate isEqualToString:[IFlySpeechConstant SAMPLE_RATE_16K]]) {
+            self.firstSeg.selectedSegmentIndex = 0;
+            
+        }else if ([sampleRate isEqualToString:[IFlySpeechConstant SAMPLE_RATE_8K]]) {
+            self.firstSeg.selectedSegmentIndex = 1;
+            
+        }
+        
+        self.secondSegTitle.text = @"引擎类型";
+        [self.secondSeg removeAllSegments];
+        [self.secondSeg insertSegmentWithTitle:@"自动" atIndex:0 animated:NO];
+        [self.secondSeg insertSegmentWithTitle:@"云端" atIndex:1 animated:NO];
+        [self.secondSeg insertSegmentWithTitle:@"本地" atIndex:2 animated:NO];
+
+        NSString *type = instance.engineType;
+        if ([type isEqualToString:[IFlySpeechConstant TYPE_AUTO]]) {
+            self.secondSeg.selectedSegmentIndex = 0;
+            
+        }else if ([type isEqualToString:[IFlySpeechConstant TYPE_CLOUD]]) {
+            self.secondSeg.selectedSegmentIndex = 1;
+            
+        }else if ([type isEqualToString:[IFlySpeechConstant TYPE_LOCAL]]) {
+            self.secondSeg.selectedSegmentIndex = 2;
+        }
+        
+    }
+    
+}
+
+
+#pragma mark - 按钮点击响应
+- (void)saveBtnClick {
+    [self dismissSetUpAlert];
+    if (self.setUpAlertBlock && self.configer) {
+        self.setUpAlertBlock(self.configer);
+    }
+}
+
+- (void)cancelBtnClick {
+    [self dismissSetUpAlert];
+}
+
+
+- (void)multisectorValueChanged:(id)sender{
+
+    if ([self.configer isKindOfClass:[GAIATConfiger class]]) {
+        
+        GAIATConfiger * instance = (GAIATConfiger *)self.configer;
+        instance.vadBos =  [NSString stringWithFormat:@"%ld", (long)_internalSec.endValue];
+        instance.vadEos =  [NSString stringWithFormat:@"%ld", (long)_middleSec.endValue];
+        instance.speechTimeout =  [NSString stringWithFormat:@"%ld", (long)_outsideSec.endValue];
+        
+        self.internalSecShow.text = instance.vadBos;
+        self.middleSecShow.text   = instance.vadEos;
+        self.outsideSecShow.text  = instance.speechTimeout;
+        
+        _internalSec.endValue = [instance.vadBos integerValue];
+        _middleSec.endValue   = [instance.vadEos integerValue];
+        _outsideSec.endValue  = [instance.speechTimeout integerValue];
+        
+        self.configer = instance;
+        
+    }else if ([self.configer isKindOfClass:[GATTSConfiger class]]){
+        GATTSConfiger * instance = (GATTSConfiger *)self.configer;
+        instance.volume = [NSString stringWithFormat:@"%d", (int)_internalSec.endValue];
+        instance.speed = [NSString stringWithFormat:@"%d", (int)_middleSec.endValue];
+        instance.pitch = [NSString stringWithFormat:@"%d", (int)_outsideSec.endValue];
+        
+        self.internalSecShow.text = instance.volume;
+        self.middleSecShow.text   = instance.speed;
+        self.outsideSecShow.text  = instance.pitch;
+        
+        _internalSec.endValue = [instance.volume integerValue];
+        _middleSec.endValue   = [instance.speed integerValue];
+        _outsideSec.endValue  = [instance.pitch integerValue];
+        
+        self.configer = instance;
+        
+    }
+
+}
+
+- (void)firstSegChange:(UISegmentedControl *)sender{
+    
+    if ([self.configer isKindOfClass:[GAIATConfiger class]]) {
+        GAIATConfiger * instance = (GAIATConfiger *)self.configer;
+        if (sender.selectedSegmentIndex == 0 ) {
+            instance.haveView = NO;
+        }else if (sender.selectedSegmentIndex == 1 ){
+            instance.haveView = YES;
+        }
+        self.configer = instance;
+        
+    }else if ([self.configer isKindOfClass:[GATTSConfiger class]]){
+        GATTSConfiger * instance = (GATTSConfiger *)self.configer;
+        if (sender.selectedSegmentIndex == 0) {
+            instance.sampleRate = [IFlySpeechConstant SAMPLE_RATE_16K];
+            
+        }else if (sender.selectedSegmentIndex == 1) {
+            
+            if (instance.engineType == [IFlySpeechConstant TYPE_LOCAL] || instance.engineType == [IFlySpeechConstant TYPE_AUTO]){
+                
+                [PopupView showPopWithText:@"本地合成仅支持16K采样率" toView:nil];
+                self.firstSeg.selectedSegmentIndex = 0;
+
+            }else{
+                instance.sampleRate = [IFlySpeechConstant SAMPLE_RATE_8K];
+            }
+            
+        }
+        self.configer = instance;
+
+    }
+    
+}
+
+- (void)secondSegChange:(UISegmentedControl *)sender{
+    
+    if ([self.configer isKindOfClass:[GAIATConfiger class]]) {
+        GAIATConfiger * instance = (GAIATConfiger *)self.configer;
+        if (sender.selectedSegmentIndex == 0 ) {
+            instance.dot = [IFlySpeechConstant ASR_PTT_NODOT];
+        }else if (sender.selectedSegmentIndex == 1 ){
+            instance.dot = [IFlySpeechConstant ASR_PTT_HAVEDOT];
+        }
+        self.configer = instance;
+        
+    }else if ([self.configer isKindOfClass:[GATTSConfiger class]]){
+        GATTSConfiger * instance = (GATTSConfiger *)self.configer;
+        if (sender.selectedSegmentIndex == 0 ) {
+            [PopupView showPopWithText:@"暂不支持自动合成项" toView:nil];
+            self.secondSeg.selectedSegmentIndex = 1;
+            
+        }else if (sender.selectedSegmentIndex == 1 ){
+            instance.engineType = [IFlySpeechConstant TYPE_CLOUD];
+            
+        }else if (sender.selectedSegmentIndex == 2 ){
+            [PopupView showPopWithText:@"本地合成需购买" toView:nil];
+            self.secondSeg.selectedSegmentIndex = 1;
+        }
+        
+        self.configer = instance;
+        
+    }
+    
+}
+
+
+#pragma mark - 识别语言选择器数据源
+- (NSUInteger)numberOfItemsInPickerView:(AKPickerView *)pickerView{
+
+    if ([self.configer isKindOfClass:[GAIATConfiger class]]) {
+        GAIATConfiger * instance = (GAIATConfiger *)self.configer;
+        return instance.accentNickName.count;
+        
+    }else if ([self.configer isKindOfClass:[GATTSConfiger class]]){
+        GATTSConfiger * instance = (GATTSConfiger *)self.configer;
+        if(instance.engineType == [IFlySpeechConstant TYPE_LOCAL] || instance.engineType == [IFlySpeechConstant TYPE_AUTO]){
+
+        }
+        else{
+            return instance.vcnIdentiferArray.count;
+        }
+        
+
+    }
+    return 0;
+
+}
+
+- (NSString *)pickerView:(AKPickerView *)pickerView titleForItem:(NSInteger)item{
+
+    if ([self.configer isKindOfClass:[GAIATConfiger class]]) {
+        GAIATConfiger * instance = (GAIATConfiger *)self.configer;
+        return [instance.accentNickName objectAtIndex:item];
+        
+    }else if ([self.configer isKindOfClass:[GATTSConfiger class]]){
+        GATTSConfiger * instance = (GATTSConfiger *)self.configer;
+        if(instance.engineType == [IFlySpeechConstant TYPE_LOCAL] || instance.engineType == [IFlySpeechConstant TYPE_AUTO]){
+
+        }
+        else{
+            if(instance.vcnNickNameArray.count > item){
+                return [instance.vcnNickNameArray objectAtIndex:item];
+            }
+        }
+    }
+    return @"未知";
+}
+
+#pragma mark - 识别语言选择器事件回调
+- (void)pickerView:(AKPickerView *)pickerView didSelectItem:(NSInteger)item{
+    
+    if ([self.configer isKindOfClass:[GAIATConfiger class]]) {
+        GAIATConfiger * instance = (GAIATConfiger *)self.configer;
+        if (item == 0) { //粤语
+            instance.language = [IFlySpeechConstant LANGUAGE_CHINESE];
+            instance.accent = [IFlySpeechConstant ACCENT_CANTONESE];
+        }else if (item == 1) {//普通话
+            instance.language = [IFlySpeechConstant LANGUAGE_CHINESE];
+            instance.accent = [IFlySpeechConstant ACCENT_MANDARIN];
+        }else if (item == 3) {//四川话
+            instance.language = [IFlySpeechConstant LANGUAGE_CHINESE];
+            instance.accent = [IFlySpeechConstant ACCENT_SICHUANESE];
+        }else if (item == 2) {//英文
+            instance.language = [IFlySpeechConstant LANGUAGE_ENGLISH];
+            instance.accent = @"";
+        }
+        self.configer = instance;
+        
+    }else if ([self.configer isKindOfClass:[GATTSConfiger class]]){
+        GATTSConfiger * instance = (GATTSConfiger *)self.configer;
+        //离线模式
+        if(instance.engineType == [IFlySpeechConstant TYPE_LOCAL] || instance.engineType == [IFlySpeechConstant TYPE_AUTO]){
+            
+        }else {
+            
+            instance.vcnName = [instance.vcnIdentiferArray objectAtIndex:item];
+        }
+        self.configer = instance;
+    }
+
+}
+
+#pragma mark -- 视图设置
+/// 设置背景视图
 - (void)setupBackView{
     if (!_setUpAlertBackView) {
         CGRect frame = CGRectMake(SCREENWIDTH, 0, SCREENWIDTH, SCREENHEIGHT);
@@ -117,7 +423,7 @@
     }];
 }
 
-/// 配置工具条
+/// 设置工具条
 - (void)setupToolView {
     
     self.toolView = [[UIView alloc] init];
@@ -134,7 +440,7 @@
     [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
     [cancelBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
-    self.titleLabel = [XFMscViewModel createLabelWithFont:18 andTextColor:UIColorFromRGBA(0xFFFFFF, 1) andText:@"听写设置"];
+    self.titleLabel = [self createLabelWithFont:18 andTextColor:UIColorFromRGBA(0xFFFFFF, 1) andText:@"听写设置"];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     
     UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -196,25 +502,24 @@
     [self.roundSlider addSector:self.outsideSec];
     
     // 标题
-    self.leftLabel = [XFMscViewModel createLabelWithFont:13 andTextColor:redColor andText:@"内部滑块"];
+    self.leftLabel = [self createLabelWithFont:13 andTextColor:redColor andText:@"内部滑块"];
     self.leftLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.centerLabel = [XFMscViewModel createLabelWithFont:13 andTextColor:blueColor andText:@"中间滑块"];
+    self.centerLabel = [self createLabelWithFont:13 andTextColor:blueColor andText:@"中间滑块"];
     self.centerLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.rightLabel = [XFMscViewModel createLabelWithFont:13 andTextColor:greenColor andText:@"外部滑块"];
+    self.rightLabel = [self createLabelWithFont:13 andTextColor:greenColor andText:@"外部滑块"];
     self.rightLabel.textAlignment = NSTextAlignmentCenter;
     
     // 数值
-    self.internalSecShow = [XFMscViewModel createLabelWithFont:15 andTextColor:UIColorFromRGBA(0xFFFFFF, 1) andText:@"100"];
+    self.internalSecShow = [self createLabelWithFont:15 andTextColor:UIColorFromRGBA(0x00A8FF, 1) andText:@"100"];
     self.internalSecShow.textAlignment = NSTextAlignmentCenter;
     
-    self.middleSecShow = [XFMscViewModel createLabelWithFont:15 andTextColor:UIColorFromRGBA(0xFFFFFF, 1) andText:@"100"];
+    self.middleSecShow = [self createLabelWithFont:15 andTextColor:UIColorFromRGBA(0x00A8FF, 1) andText:@"100"];
     self.middleSecShow.textAlignment = NSTextAlignmentCenter;
     
-    self.outsideSecShow = [XFMscViewModel createLabelWithFont:15 andTextColor:UIColorFromRGBA(0xFFFFFF, 1) andText:@"100"];
+    self.outsideSecShow = [self createLabelWithFont:15 andTextColor:UIColorFromRGBA(0x00A8FF, 1) andText:@"100"];
     self.outsideSecShow.textAlignment = NSTextAlignmentCenter;
-    
     // 添加视图
     [self.setUpAlertBackView addSubview:self.roundSlider];
     
@@ -234,7 +539,7 @@
     }];
     
     [self.leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.roundSlider.mas_bottom);
+        make.top.equalTo(self.roundSlider.mas_bottom).offset(20.f);
         make.left.equalTo(self.setUpAlertBackView.mas_left);
     }];
     
@@ -271,42 +576,37 @@
     
 }
 
-
 // 设置选择器视图
-- (void)setupAKPickerView{
+- (void)setupPickerView{
     
     // 选择器标题
-    self.pickerViewTitle = [XFMscViewModel createLabelWithFont:17 andTextColor:UIColorFromRGBA(0x22A419, 1) andText:@"识别语种"];
+    self.pickerViewTitle = [self createLabelWithFont:17 andTextColor:UIColorFromRGBA(0x22A419, 1) andText:@"识别语种"];
     self.pickerViewTitle.textAlignment = NSTextAlignmentRight;
-    
-    // 选择器
-    self.accentPicker = [[AKPickerView alloc]init];
-    _accentPicker.delegate = self;
-    _accentPicker.dataSource = self;
-    _accentPicker.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _accentPicker.textColor = [UIColor whiteColor];
-    _accentPicker.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
-    _accentPicker.highlightedFont = [UIFont fontWithName:@"HelveticaNeue" size:17];
-    _accentPicker.highlightedTextColor = [UIColor colorWithRed:0.0 green:168.0/255.0 blue:255.0/255.0 alpha:1.0];
-    _accentPicker.interitemSpacing = 20.0;
-    _accentPicker.fisheyeFactor = 0.001;
-    _accentPicker.pickerViewStyle = AKPickerViewStyle3D;
-    _accentPicker.maskDisabled = false;
-    
+
     // 第一个分段控制器标题
-    self.firstSegTitle = [XFMscViewModel createLabelWithFont:17 andTextColor:UIColorFromRGBA(0x22A419, 1) andText:@"识别界面"];
+    self.firstSegTitle = [self createLabelWithFont:17 andTextColor:UIColorFromRGBA(0x22A419, 1) andText:@"识别界面"];
     self.firstSegTitle.textAlignment = NSTextAlignmentRight;
     
+    // 第一个分段控制器
+    self.firstSeg = [[UISegmentedControl alloc]init];
+    [self.firstSeg addTarget:self action:@selector(firstSegChange:) forControlEvents:UIControlEventValueChanged];
+    
     // 第二个分段控制器标题
-    self.secondSegTitle = [XFMscViewModel createLabelWithFont:17 andTextColor:UIColorFromRGBA(0x22A419, 1) andText:@"识别标点"];
+    self.secondSegTitle = [self createLabelWithFont:17 andTextColor:UIColorFromRGBA(0x22A419, 1) andText:@"识别标点"];
     self.secondSegTitle.textAlignment = NSTextAlignmentRight;
+    
+    // 第二个分段控制器
+    self.secondSeg = [[UISegmentedControl alloc]init];
+    [self.secondSeg addTarget:self action:@selector(secondSegChange:) forControlEvents:UIControlEventValueChanged];
     
     // 添加视图
     [self.setUpAlertBackView addSubview:self.pickerViewTitle];
     [self.setUpAlertBackView addSubview:self.accentPicker];
     [self.setUpAlertBackView addSubview:self.firstSegTitle];
+    [self.setUpAlertBackView addSubview:self.firstSeg];
     [self.setUpAlertBackView addSubview:self.secondSegTitle];
-
+    [self.setUpAlertBackView addSubview:self.secondSeg];
+    
     
     [self.pickerViewTitle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.internalSecShow.mas_bottom).offset(20.f);
@@ -319,110 +619,35 @@
         make.centerY.equalTo(self.pickerViewTitle.mas_centerY);
         make.height.mas_equalTo(self.pickerViewTitle);
         make.left.equalTo(self.pickerViewTitle.mas_right).offset(20.f);
-        make.right.equalTo(self.setUpAlertBackView.mas_right);
+        make.right.equalTo(self.setUpAlertBackView.mas_right).offset(-20);
     }];
     
     [self.firstSegTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.pickerViewTitle.mas_bottom).offset(20.f);
+        make.top.equalTo(self.pickerViewTitle.mas_bottom).offset(10.f);
         make.left.equalTo(self.setUpAlertBackView.mas_left).offset(5.f);
         make.width.height.mas_equalTo(self.pickerViewTitle);
+    }];
+    
+    [self.firstSeg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.firstSegTitle.mas_centerY);
+        make.height.mas_equalTo(30);
+        make.left.equalTo(self.firstSegTitle.mas_right).offset(20.f);
+        make.right.equalTo(self.setUpAlertBackView.mas_right).offset(-20.f);
     }];
     
     [self.secondSegTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.firstSegTitle.mas_bottom).offset(20.f);
+        make.top.equalTo(self.firstSegTitle.mas_bottom).offset(10.f);
         make.left.equalTo(self.setUpAlertBackView.mas_left).offset(5.f);
         make.width.height.mas_equalTo(self.pickerViewTitle);
     }];
-}
-
-
-#pragma mark - 按钮点击响应
-- (void)saveBtnClick {
-    [self dismissSetUpAlert];
     
-//    if (self.fuelAlertBlock && self.selectFuelTypeStr) {
-//        self.fuelAlertBlock(self.selectFuelTypeStr);
-//    }
+    [self.secondSeg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.secondSegTitle.mas_centerY);
+        make.height.mas_equalTo(30);
+        make.left.equalTo(self.secondSegTitle.mas_right).offset(20.f);
+        make.right.equalTo(self.setUpAlertBackView.mas_right).offset(-20.f);
+    }];
 }
-
-- (void)cancelBtnClick {
-    [self dismissSetUpAlert];
-}
-
-
-- (void)multisectorValueChanged:(id)sender{
-    [self updateDataView];
-}
-
-#pragma mark -- 更新视图数据
-- (void)updateDataView{
-    
-    if ([self.configer isKindOfClass:[GAIATConfiger class]]) {
-        
-        GAIATConfiger * instance = (GAIATConfiger *)self.configer;
-        instance.vadBos =  [NSString stringWithFormat:@"%ld", (long)_internalSec.endValue];
-        instance.vadEos =  [NSString stringWithFormat:@"%ld", (long)_middleSec.endValue];
-        instance.speechTimeout =  [NSString stringWithFormat:@"%ld", (long)_outsideSec.endValue];
-
-        self.internalSecShow.text = instance.vadBos;
-        self.middleSecShow.text   = instance.vadEos;
-        self.outsideSecShow.text  = instance.speechTimeout;
-        
-        _internalSec.endValue = [instance.vadBos integerValue];
-        _middleSec.endValue = [instance.vadEos integerValue];
-        _outsideSec.endValue = [instance.speechTimeout integerValue];
-        
-        self.configer = instance;
-        
-    }else{
-        
-        
-    }
-    
-}
-
-
--(void)needUpdateView {
-    
-    if (!self.configer) {
-        return;
-    }
-    
-    if ([self.configer isKindOfClass:[GAIATConfiger class]]) {
- 
-        self.titleLabel.text = @"听写设置";
-
-        GAIATConfiger * instance = (GAIATConfiger *)self.configer;
-        
-        self.leftLabel.text   = @"前端静音超时";
-        self.centerLabel.text = @"后端静音超时";
-        self.rightLabel.text  = @"语音输入超时";
-
-        self.internalSec.maxValue = 10000;
-        self.middleSec.maxValue   = 10000;
-        self.outsideSec.maxValue  = 60000;
-        
-        self.internalSec.endValue = instance.vadBos.integerValue;
-        self.middleSec.endValue   = instance.vadEos.integerValue;
-        self.outsideSec.endValue  = instance.speechTimeout.integerValue;
-        
-        self.internalSecShow.text = instance.vadBos;
-        self.middleSecShow.text   = instance.vadEos;
-        self.outsideSecShow.text  = instance.speechTimeout;
-        
-        
-
-    }else{
-
-        self.titleLabel.text = @"合成设置";
-
-        
-    }
-    
-}
-
-
-
 
 
 #pragma mark -- 显示隐藏视图
@@ -454,7 +679,36 @@
     
 }
 
+#pragma mark -- 创建基本视图
+/// 标签初始化
+- (UILabel *)createLabelWithFont:(CGFloat)size andTextColor:(UIColor *)color andText:(NSString *)text{
+    
+    UILabel * label = [[UILabel alloc]init];
+    label = [[UILabel alloc] init];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont fontWithName:@"HelveticaNeue" size:size];
+    label.textColor = color;
+    label.text = text;
+    return label;
+}
 
+- (AKPickerView *)accentPicker{
+    if (!_accentPicker) {
+        _accentPicker = [[AKPickerView alloc]init];
+        _accentPicker.delegate = self;
+        _accentPicker.dataSource = self;
+        _accentPicker.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _accentPicker.textColor = [UIColor grayColor];
+        _accentPicker.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
+        _accentPicker.highlightedFont = [UIFont fontWithName:@"HelveticaNeue" size:17];
+        _accentPicker.highlightedTextColor = [UIColor colorWithRed:0.0 green:168.0/255.0 blue:255.0/255.0 alpha:1.0];
+        _accentPicker.interitemSpacing = 20.0;
+        _accentPicker.fisheyeFactor = 0.001;
+        _accentPicker.pickerViewStyle = AKPickerViewStyle3D;
+        _accentPicker.maskDisabled = false;
+    }
+    return _accentPicker;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

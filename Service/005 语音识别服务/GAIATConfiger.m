@@ -77,6 +77,23 @@
     return @"0";
 }
 
+- (GAIATConfiger *)configerCopy{
+    
+    GAIATConfiger * configer = [[GAIATConfiger alloc]init];
+    configer.speechTimeout = self.speechTimeout;
+    configer.vadEos = self.vadEos;
+    configer.vadBos = self.vadBos;
+    configer.netWorkWait = self.netWorkWait;
+    configer.language = self.language;
+    configer.accent = self.accent;
+    configer.dot = self.dot;
+    configer.sampleRate = self.sampleRate;
+    configer.haveView = self.haveView;
+    configer.accentNickName = self.accentNickName;
+
+    return configer;
+}
+
 @end
 
 

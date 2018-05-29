@@ -34,11 +34,11 @@
         NSError* error = nil;
         BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:dirPath withIntermediateDirectories:YES attributes:nil error:&error];
         
-        if(success == NO)
-            NSLog(@"%s--创建文件失败: %@",__FUNCTION__,error.debugDescription);
+        if(success == NO){
+            
+        }
     }
     
-    NSLog(@"%s--%@",__FUNCTION__,dirPath);
     return dirPath;
 }
 
