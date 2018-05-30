@@ -45,8 +45,8 @@
  
  对于网络TTS的发音人角色，不同引擎类型支持的发音人不同，使用中请注意选择。
 */
-    _vcnNickNameArray = @[@"小燕", @"小宇", @"小研", @"小琪",@"小峰",@"小新",@"小坤",@"越南语",@"印地语",@"西班牙语",@"俄语",@"法语"];
-    _vcnIdentiferArray = @[@"xiaoyan",@"xiaoyu",@"vixy",@"vixq",@"vixf",@"vixx",@"vixk",@"XiaoYun",@"Abha",@"Gabriela",@"Allabent",@"Mariane"];
+    _vcnNickNameArray = @[@"小燕",@"小宇",@"凯瑟琳",@"亨利",@"玛丽",@"小研", @"小琪",@"小蓉(四川话)",@"小峰",@"小新",@"小坤",@"越南语",@"印地语",@"西班牙语",@"俄语",@"法语"];
+    _vcnIdentiferArray = @[@"xiaoyan",@"xiaoyu",@"Catherine",@"henry",@"vimary",@"vixy",@"vixq",@"vixr",@"vixf",@"vixx",@"vixk",@"XiaoYun",@"Abha",@"Gabriela",@"Allabent",@"Mariane"];
 }
 
 - (GATTSConfiger *)configerCopy{

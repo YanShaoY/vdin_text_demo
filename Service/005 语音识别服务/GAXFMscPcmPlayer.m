@@ -52,7 +52,6 @@ typedef struct Wavehead
     if (self) {
         NSData *audioData = [NSData dataWithContentsOfFile:path];
         [self writeWaveHead:audioData sampleRate:sample];
-        NSLog(@"nihao");
     }
     return self;
 }
@@ -64,7 +63,6 @@ typedef struct Wavehead
     self = [super init];
     if (self) {
         [self writeWaveHead:data sampleRate:sample];
-        NSLog(@"nihao");
     }
     return self;
 }
@@ -187,7 +185,6 @@ typedef struct Wavehead
 
 #pragma mark speechRecordDelegate
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    NSLog(@"in pcmPlayer audioPlayerDidFinishPlaying");
     self.isPlaying=NO;
 }
 

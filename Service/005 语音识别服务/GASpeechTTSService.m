@@ -263,7 +263,7 @@
     [_iFlySpeechSynthesizer setParameter:self.baseConfig.vcnName forKey:[IFlySpeechConstant VOICE_NAME]];
     [_iFlySpeechSynthesizer setParameter:self.baseConfig.textEnCoding forKey:[IFlySpeechConstant TEXT_ENCODING]];
     [_iFlySpeechSynthesizer setParameter:self.baseConfig.engineType forKey:[IFlySpeechConstant ENGINE_TYPE]];
-    
+    [_iFlySpeechSynthesizer setParameter:nil forKey: [IFlySpeechConstant TTS_AUDIO_PATH]];
 }
 
 - (void)dealloc{

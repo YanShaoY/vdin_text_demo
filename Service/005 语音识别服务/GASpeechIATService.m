@@ -76,6 +76,7 @@
         [_iFlySpeechRecognizer cancel];
         [_iFlySpeechRecognizer setParameter:IFLY_AUDIO_SOURCE_MIC forKey:[IFlySpeechConstant AUDIO_SOURCE]];
         [_iFlySpeechRecognizer setParameter:@"json" forKey:[IFlySpeechConstant RESULT_TYPE]];
+        [_iFlySpeechRecognizer setParameter:nil forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
         [_iFlySpeechRecognizer setDelegate:self];
         
         ret = [_iFlySpeechRecognizer startListening];
@@ -88,6 +89,7 @@
         
         [_iflyRecognizerView setParameter:IFLY_AUDIO_SOURCE_MIC forKey:[IFlySpeechConstant AUDIO_SOURCE]];
         [_iflyRecognizerView setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
+        [_iflyRecognizerView setParameter:nil forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
         [_iflyRecognizerView setDelegate:self];
         
         ret = [_iflyRecognizerView start];
@@ -131,6 +133,7 @@
     }
     [_iFlySpeechRecognizer setParameter:IFLY_AUDIO_SOURCE_STREAM forKey:[IFlySpeechConstant AUDIO_SOURCE]];
     [_iFlySpeechRecognizer setParameter:@"json" forKey:[IFlySpeechConstant RESULT_TYPE]];
+    [_iFlySpeechRecognizer setParameter:nil forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
     [_iFlySpeechRecognizer setDelegate:self];
     
     BOOL ret  = [_iFlySpeechRecognizer startListening];
