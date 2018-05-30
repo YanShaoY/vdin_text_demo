@@ -67,6 +67,15 @@
 - (BOOL)startAudioStream;
 
 /**
+ 写入音频流
+ 注：1.在音频流识别且配置项-autoWriteAudio == No情况下写入
+    2.建议分段写入，写入完成后调用- (void)stopASRToListening方法开始识别
+ @param audioBuffer 音频数据
+ @return 写入成功返回YES，写入失败返回NO
+ */
+- (BOOL)audioStreamWriteAudio:(NSData *)audioBuffer;
+
+/**
  注销语音识别（注：在界面消失时调用）
  */
 - (void)deallocToASR;
@@ -150,7 +159,7 @@
 - (void)speechIATService:(GASpeechIATService *)service
                 onResult:(NSString *)resultDataStr;
 
-@end;
+@end
 
 
 

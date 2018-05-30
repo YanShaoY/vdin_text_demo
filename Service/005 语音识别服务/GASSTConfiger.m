@@ -1,20 +1,15 @@
 //
-//  GAIATConfiger.m
+//  GASSTConfiger.m
 //  Demo
 //
-//  Created by YanSY on 2018/5/15.
+//  Created by YanSY on 2018/5/30.
 //  Copyright © 2018年 YanSY. All rights reserved.
 //
 
-#define PUTONGHUA   @"mandarin"
-#define YUEYU       @"cantonese"
-#define ENGLISH     @"en_us"
-#define CHINESE     @"zh_cn";
-#define SICHUANESE  @"lmz";
 
-#import "GAIATConfiger.h"
+#import "GASSTConfiger.h"
 
-@implementation GAIATConfiger
+@implementation GASSTConfiger
 
 #pragma mark -- 初始化
 - (id)init{
@@ -34,32 +29,8 @@
     _netWorkWait = @"10000";
     _dot = @"1";
     _sampleRate = @"16000";
-    _language = CHINESE;
-    _accent = PUTONGHUA;
     _haveView = NO;
-    _accentNickName = [[NSArray alloc] initWithObjects:@"粤语",@"普通话",@"英文",@"四川话", nil];
-    _autoWriteAudio = YES;
-}
-
-
--(NSString *)mandarin{
-    return PUTONGHUA;
-}
-
--(NSString *)cantonese{
-    return YUEYU;
-}
-
--(NSString *)chinese{
-    return CHINESE;
-}
-
--(NSString *)english{
-    return ENGLISH;
-}
-
--(NSString *)sichuanese{
-    return SICHUANESE;
+    _sstType = SST_Type_ZhToEn;
 }
 
 -(NSString *)lowSampleRate{
@@ -78,35 +49,20 @@
     return @"0";
 }
 
-- (GAIATConfiger *)configerCopy{
+- (GASSTConfiger *)configerCopy{
     
-    GAIATConfiger * configer = [[GAIATConfiger alloc]init];
+    GASSTConfiger * configer = [[GASSTConfiger alloc]init];
     configer.speechTimeout = self.speechTimeout;
     configer.vadEos = self.vadEos;
     configer.vadBos = self.vadBos;
     configer.netWorkWait = self.netWorkWait;
-    configer.language = self.language;
-    configer.accent = self.accent;
     configer.dot = self.dot;
     configer.sampleRate = self.sampleRate;
     configer.haveView = self.haveView;
-    configer.accentNickName = self.accentNickName;
-
+    configer.sstType = self.sstType;
+    
     return configer;
 }
 
+
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-

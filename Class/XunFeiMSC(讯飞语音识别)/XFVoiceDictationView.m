@@ -421,7 +421,7 @@
 
 - (GASpeechIATService *)speechService{
     if (!_speechService) {
-        _speechService = [GASpeechTextMSCService initSpeechIATServiceWithConfig:nil];
+        _speechService = [GASpeechIATService sharedInstance];
         _speechService.delegate = self;
     }
     return _speechService;

@@ -16,6 +16,8 @@
 		A41B15641FCFD88E007C84C5 /* MovieGuidePage.m in Sources */ = {isa = PBXBuildFile; fileRef = A41B15631FCFD88E007C84C5 /* MovieGuidePage.m */; };
 		A41B15661FCFE749007C84C5 /* guideMovie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A41B15651FCFE749007C84C5 /* guideMovie.mp4 */; };
 		A425378A20045CCA00D9ECB6 /* GAibeaconLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A425378920045CCA00D9ECB6 /* GAibeaconLocationService.m */; };
+		A425ACB620BE792100D2579F /* GASSTConfiger.m in Sources */ = {isa = PBXBuildFile; fileRef = A425ACB520BE792100D2579F /* GASSTConfiger.m */; };
+		A425ACB920BE7AB600D2579F /* GASpeechSSTService.m in Sources */ = {isa = PBXBuildFile; fileRef = A425ACB820BE7AB600D2579F /* GASpeechSSTService.m */; };
 		A436BD3B1FEB87BC00FA552D /* UIButton+ImageTitleSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = A436BD3A1FEB87BC00FA552D /* UIButton+ImageTitleSpacing.m */; };
 		A436BD3E1FEBCBFF00FA552D /* iBeaconCC.m in Sources */ = {isa = PBXBuildFile; fileRef = A436BD3D1FEBCBFF00FA552D /* iBeaconCC.m */; };
 		A438C9891FFB6E2B00D051A2 /* ManyScanViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = A438C9881FFB6E2B00D051A2 /* ManyScanViewOne.m */; };
@@ -113,6 +115,10 @@
 		A425378820045CCA00D9ECB6 /* GAibeaconLocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAibeaconLocationService.h; sourceTree = "<group>"; };
 		A425378920045CCA00D9ECB6 /* GAibeaconLocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAibeaconLocationService.m; sourceTree = "<group>"; };
 		A425378B20046BA700D9ECB6 /* GAibeaconModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAibeaconModel.h; sourceTree = "<group>"; };
+		A425ACB420BE792100D2579F /* GASSTConfiger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GASSTConfiger.h; sourceTree = "<group>"; };
+		A425ACB520BE792100D2579F /* GASSTConfiger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GASSTConfiger.m; sourceTree = "<group>"; };
+		A425ACB720BE7AB600D2579F /* GASpeechSSTService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GASpeechSSTService.h; sourceTree = "<group>"; };
+		A425ACB820BE7AB600D2579F /* GASpeechSSTService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GASpeechSSTService.m; sourceTree = "<group>"; };
 		A436BD391FEB87BC00FA552D /* UIButton+ImageTitleSpacing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTitleSpacing.h"; sourceTree = "<group>"; };
 		A436BD3A1FEB87BC00FA552D /* UIButton+ImageTitleSpacing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleSpacing.m"; sourceTree = "<group>"; };
 		A436BD3C1FEBCBFF00FA552D /* iBeaconCC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBeaconCC.h; sourceTree = "<group>"; };
@@ -282,6 +288,24 @@
 				A4AAC2C42057A85B00DBC435 /* Scene */,
 			);
 			path = "SoundWaves(声波通讯)";
+			sourceTree = "<group>";
+		};
+		A425ACB220BE71AE00D2579F /* SST（语音翻译） */ = {
+			isa = PBXGroup;
+			children = (
+				A425ACB420BE792100D2579F /* GASSTConfiger.h */,
+				A425ACB520BE792100D2579F /* GASSTConfiger.m */,
+				A425ACB720BE7AB600D2579F /* GASpeechSSTService.h */,
+				A425ACB820BE7AB600D2579F /* GASpeechSSTService.m */,
+			);
+			name = "SST（语音翻译）";
+			sourceTree = "<group>";
+		};
+		A425ACB320BE762C00D2579F /* ASR（语法识别） */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "ASR（语法识别）";
 			sourceTree = "<group>";
 		};
 		A43FD2BD1FE26D2800E3BDB6 /* C */ = {
@@ -886,6 +910,8 @@
 				A4B6B96420AA66950066616F /* Tools */,
 				A4B6B95F20AA64CE0066616F /* ISR （语音识别） */,
 				A4B6B96020AA64FB0066616F /* TTS（语音合成） */,
+				A425ACB320BE762C00D2579F /* ASR（语法识别） */,
+				A425ACB220BE71AE00D2579F /* SST（语音翻译） */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -1087,9 +1113,11 @@
 				A425378A20045CCA00D9ECB6 /* GAibeaconLocationService.m in Sources */,
 				A4BB402C20ABB59800B9F808 /* XFMscViewModel.m in Sources */,
 				A4A3D33C1FCE8E8900DBFAB2 /* CycleProgressView.m in Sources */,
+				A425ACB620BE792100D2579F /* GASSTConfiger.m in Sources */,
 				A49FCF9720A3E360009826E6 /* GASpeechTextMSCService.m in Sources */,
 				A4434AFA1FC3C94C003923A3 /* AppDelegate.m in Sources */,
 				A4434B171FC40261003923A3 /* mainVC.m in Sources */,
+				A425ACB920BE7AB600D2579F /* GASpeechSSTService.m in Sources */,
 				A4A3153D1FC436930060C7DA /* GATouchIDValidationService.m in Sources */,
 				A47C62AD1FDE29A800C5C4E9 /* UIImage+Extension.m in Sources */,
 				A47B00171FF5F07500DCF4BA /* GALocalNoticeService.m in Sources */,

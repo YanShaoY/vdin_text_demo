@@ -139,12 +139,24 @@
     BOOL ret  = [_iFlySpeechRecognizer startListening];
     if (ret) {
         self.isCanceled = NO;
-        [IFlyAudioSession initRecordingAudioSession];
-        _pcmRecorder.delegate = self;
-        ret = [_pcmRecorder start];
+        if (self.baseConfig.autoWriteAudio == YES) {
+            [IFlyAudioSession initRecordingAudioSession];
+            _pcmRecorder.delegate = self;
+            ret = [_pcmRecorder start];
+        }
     }
     return ret;
     
+}
+
+#pragma mark -- 写入音频流识别的音频数据
+- (BOOL)audioStreamWriteAudio:(NSData *)audioBuffer{
+    BOOL ret = NO;
+    ret = [self.iFlySpeechRecognizer writeAudio:audioBuffer];
+    if (!ret){
+        [self.iFlySpeechRecognizer stopListening];
+    }
+    return ret;
 }
 
 #pragma mark -- 注销语音识别（注：在界面消失时调用）
@@ -359,8 +371,16 @@
             [_iFlySpeechRecognizer setParameter:self.baseConfig.vadBos forKey:[IFlySpeechConstant VAD_BOS]];
             [_iFlySpeechRecognizer setParameter:self.baseConfig.netWorkWait forKey:[IFlySpeechConstant NET_TIMEOUT]];
             [_iFlySpeechRecognizer setParameter:self.baseConfig.sampleRate forKey:[IFlySpeechConstant SAMPLE_RATE]];
-            [_iFlySpeechRecognizer setParameter:self.baseConfig.language forKey:[IFlySpeechConstant LANGUAGE]];
-            [_iFlySpeechRecognizer setParameter:self.baseConfig.accent forKey:[IFlySpeechConstant ACCENT]];
+            
+            if ([self.baseConfig.language isEqualToString:self.baseConfig.chinese]) {
+                
+                [_iFlySpeechRecognizer setParameter:self.baseConfig.language forKey:[IFlySpeechConstant LANGUAGE]];
+                [_iFlySpeechRecognizer setParameter:self.baseConfig.accent forKey:[IFlySpeechConstant ACCENT]];
+                
+            }else if ([self.baseConfig.language isEqualToString:self.baseConfig.english]) {
+                [_iFlySpeechRecognizer setParameter:self.baseConfig.language forKey:[IFlySpeechConstant LANGUAGE]];
+            }
+            
             [_iFlySpeechRecognizer setParameter:self.baseConfig.dot forKey:[IFlySpeechConstant ASR_PTT]];
         }
         
