@@ -44,6 +44,16 @@
     
 }
 
++ (GASpeechSSTService *)initSpeechSSTServiceWithConfig:(GASSTConfiger *)configer{
+    
+    GASpeechSSTService * service = [GASpeechSSTService sharedInstance];
+    if (configer) {
+        service.baseConfig = configer;
+    }
+    return service;
+}
+
+
 @end
 
 

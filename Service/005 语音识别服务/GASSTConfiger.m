@@ -26,7 +26,7 @@
     _speechTimeout = @"30000";
     _vadEos = @"2000";
     _vadBos = @"3000";
-    _netWorkWait = @"10000";
+    _netWorkWait = @"60000";
     _dot = @"1";
     _sampleRate = @"16000";
     _haveView = NO;

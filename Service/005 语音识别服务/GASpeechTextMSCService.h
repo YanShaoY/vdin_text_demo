@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "GASpeechIATService.h"
 #import "GASpeechTTSService.h"
+#import "GASpeechSSTService.h"
 
 /**
  语音文字识别服务
@@ -41,6 +43,14 @@
  */
 + (GASpeechTTSService *)initSpeechTTSServiceWithConfig:(GATTSConfiger *)configer;
 
+#pragma mark -- 创建语音翻译
+/**
+ 初始化语音翻译服务
+ 
+ @param configer 需要设置的配置 nil:默认
+ @return 返回语音翻译服务
+ */
++ (GASpeechSSTService *)initSpeechSSTServiceWithConfig:(GASSTConfiger *)configer;
 
 @end
 

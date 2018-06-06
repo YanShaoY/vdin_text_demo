@@ -28,6 +28,11 @@
 		A4434B051FC3C94C003923A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4434B031FC3C94C003923A3 /* LaunchScreen.storyboard */; };
 		A4434B081FC3C94C003923A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4434B071FC3C94C003923A3 /* main.m */; };
 		A4434B171FC40261003923A3 /* mainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4434B151FC40260003923A3 /* mainVC.m */; };
+		A446366D20C76EE00069B411 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446366C20C76EE00069B411 /* Speech.framework */; };
+		A446367120C771640069B411 /* GASpeechiOSService.m in Sources */ = {isa = PBXBuildFile; fileRef = A446367020C771640069B411 /* GASpeechiOSService.m */; };
+		A446367420C775D80069B411 /* GAiOSConfiger.m in Sources */ = {isa = PBXBuildFile; fileRef = A446367320C775D80069B411 /* GAiOSConfiger.m */; };
+		A446367620C7B7F40069B411 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446367520C7B7F40069B411 /* CoreAudio.framework */; };
+		A446367920C7B9570069B411 /* GAiOSAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = A446367820C7B9570069B411 /* GAiOSAudioRecorder.m */; };
 		A44696522002FEA10079CEAB /* GAibeaconModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A44696502002FEA10079CEAB /* GAibeaconModel.m */; };
 		A460497A20A52E4A00A58724 /* XunFeiMscVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A460497920A52E4A00A58724 /* XunFeiMscVC.m */; };
 		A460497D20A52E7C00A58724 /* XunFeiMscCC.m in Sources */ = {isa = PBXBuildFile; fileRef = A460497C20A52E7C00A58724 /* XunFeiMscCC.m */; };
@@ -54,6 +59,7 @@
 		A47C62AD1FDE29A800C5C4E9 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A47C62AB1FDE29A800C5C4E9 /* UIImage+Extension.m */; };
 		A48361A620B26CF6004EE119 /* GAFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = A48361A520B26CF6004EE119 /* GAFileService.m */; };
 		A486E6251FECA51600CD848B /* EntranceGuardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A486E6241FECA51600CD848B /* EntranceGuardView.m */; };
+		A49200E120C5075200D67983 /* XFVoiceTranslationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A49200E020C5075200D67983 /* XFVoiceTranslationView.m */; };
 		A498EF6E1FC591AC0081C721 /* ChangeIconService.m in Sources */ = {isa = PBXBuildFile; fileRef = A498EF6D1FC591AC0081C721 /* ChangeIconService.m */; };
 		A498EF721FC652ED0081C721 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A498EF711FC652ED0081C721 /* BaseVC.m */; };
 		A49FCF7820A3DFDB009826E6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A49FCF7720A3DFDA009826E6 /* libz.tbd */; };
@@ -138,6 +144,14 @@
 		A4434B071FC3C94C003923A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4434B151FC40260003923A3 /* mainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainVC.m; sourceTree = "<group>"; };
 		A4434B161FC40261003923A3 /* mainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainVC.h; sourceTree = "<group>"; };
+		A446366C20C76EE00069B411 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		A446366F20C771640069B411 /* GASpeechiOSService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GASpeechiOSService.h; sourceTree = "<group>"; };
+		A446367020C771640069B411 /* GASpeechiOSService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GASpeechiOSService.m; sourceTree = "<group>"; };
+		A446367220C775D80069B411 /* GAiOSConfiger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAiOSConfiger.h; sourceTree = "<group>"; };
+		A446367320C775D80069B411 /* GAiOSConfiger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAiOSConfiger.m; sourceTree = "<group>"; };
+		A446367520C7B7F40069B411 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		A446367720C7B9570069B411 /* GAiOSAudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAiOSAudioRecorder.h; sourceTree = "<group>"; };
+		A446367820C7B9570069B411 /* GAiOSAudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAiOSAudioRecorder.m; sourceTree = "<group>"; };
 		A44696502002FEA10079CEAB /* GAibeaconModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAibeaconModel.m; sourceTree = "<group>"; };
 		A460497820A52E4A00A58724 /* XunFeiMscVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XunFeiMscVC.h; sourceTree = "<group>"; };
 		A460497920A52E4A00A58724 /* XunFeiMscVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XunFeiMscVC.m; sourceTree = "<group>"; };
@@ -182,6 +196,8 @@
 		A48361A520B26CF6004EE119 /* GAFileService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAFileService.m; sourceTree = "<group>"; };
 		A486E6231FECA51600CD848B /* EntranceGuardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntranceGuardView.h; sourceTree = "<group>"; };
 		A486E6241FECA51600CD848B /* EntranceGuardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntranceGuardView.m; sourceTree = "<group>"; };
+		A49200DF20C5075200D67983 /* XFVoiceTranslationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFVoiceTranslationView.h; sourceTree = "<group>"; };
+		A49200E020C5075200D67983 /* XFVoiceTranslationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFVoiceTranslationView.m; sourceTree = "<group>"; };
 		A498EF6C1FC591AC0081C721 /* ChangeIconService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeIconService.h; sourceTree = "<group>"; };
 		A498EF6D1FC591AC0081C721 /* ChangeIconService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeIconService.m; sourceTree = "<group>"; };
 		A498EF701FC652ED0081C721 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -251,6 +267,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A446367620C7B7F40069B411 /* CoreAudio.framework in Frameworks */,
+				A446366D20C76EE00069B411 /* Speech.framework in Frameworks */,
 				A49FCF9220A3E093009826E6 /* libicucore.tbd in Frameworks */,
 				A49FCF9020A3E08A009826E6 /* libc++.tbd in Frameworks */,
 				A49FCF8E20A3E07D009826E6 /* CoreGraphics.framework in Frameworks */,
@@ -452,6 +470,17 @@
 			path = File;
 			sourceTree = "<group>";
 		};
+		A446366E20C770FA0069B411 /* iOS （原生识别） */ = {
+			isa = PBXGroup;
+			children = (
+				A446367220C775D80069B411 /* GAiOSConfiger.h */,
+				A446367320C775D80069B411 /* GAiOSConfiger.m */,
+				A446366F20C771640069B411 /* GASpeechiOSService.h */,
+				A446367020C771640069B411 /* GASpeechiOSService.m */,
+			);
+			name = "iOS （原生识别）";
+			sourceTree = "<group>";
+		};
 		A460497320A52CBA00A58724 /* XunFeiMSC(讯飞语音识别) */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,8 +509,8 @@
 				A4B6B96E20AAC1D50066616F /* 提示弹窗 */,
 				A4D2612320A83A150091C587 /* 语音听写 */,
 				A4D2612220A83A0B0091C587 /* 语音合成 */,
-				A4D2612120A83A040091C587 /* 语法识别 */,
-				A4D2612020A839AA0091C587 /* 语音评测 */,
+				A4D2612120A83A040091C587 /* 语音翻译 */,
+				A4D2612020A839AA0091C587 /* 原生语音识别 */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -792,6 +821,8 @@
 				A4B6B96620AA67530066616F /* GAXFMscDataHelper.m */,
 				A4B6B96B20AAC1170066616F /* GAXFMscPcmPlayer.h */,
 				A4B6B96C20AAC1170066616F /* GAXFMscPcmPlayer.m */,
+				A446367720C7B9570069B411 /* GAiOSAudioRecorder.h */,
+				A446367820C7B9570069B411 /* GAiOSAudioRecorder.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -839,18 +870,20 @@
 			name = "讯飞语音识别菜单栏";
 			sourceTree = "<group>";
 		};
-		A4D2612020A839AA0091C587 /* 语音评测 */ = {
+		A4D2612020A839AA0091C587 /* 原生语音识别 */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "语音评测";
+			name = "原生语音识别";
 			sourceTree = "<group>";
 		};
-		A4D2612120A83A040091C587 /* 语法识别 */ = {
+		A4D2612120A83A040091C587 /* 语音翻译 */ = {
 			isa = PBXGroup;
 			children = (
+				A49200DF20C5075200D67983 /* XFVoiceTranslationView.h */,
+				A49200E020C5075200D67983 /* XFVoiceTranslationView.m */,
 			);
-			name = "语法识别";
+			name = "语音翻译";
 			sourceTree = "<group>";
 		};
 		A4D2612220A83A0B0091C587 /* 语音合成 */ = {
@@ -912,6 +945,7 @@
 				A4B6B96020AA64FB0066616F /* TTS（语音合成） */,
 				A425ACB320BE762C00D2579F /* ASR（语法识别） */,
 				A425ACB220BE71AE00D2579F /* SST（语音翻译） */,
+				A446366E20C770FA0069B411 /* iOS （原生识别） */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -919,6 +953,8 @@
 		F7F5D7624F364EE582B22D05 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A446367520C7B7F40069B411 /* CoreAudio.framework */,
+				A446366C20C76EE00069B411 /* Speech.framework */,
 				A49FCF9120A3E093009826E6 /* libicucore.tbd */,
 				A49FCF8F20A3E08A009826E6 /* libc++.tbd */,
 				A49FCF8D20A3E07D009826E6 /* CoreGraphics.framework */,
@@ -1072,6 +1108,7 @@
 				A416864D1FF1F6ED00B86842 /* MBProgressHUD+Extension.m in Sources */,
 				A4B6B96720AA67530066616F /* GAXFMscDataHelper.m in Sources */,
 				A4B6B97220AAD0480066616F /* XFMscSetUpView.m in Sources */,
+				A49200E120C5075200D67983 /* XFVoiceTranslationView.m in Sources */,
 				A486E6251FECA51600CD848B /* EntranceGuardView.m in Sources */,
 				A4B6B96A20AA68590066616F /* GASpeechIATService.m in Sources */,
 				A4D2612620A83B420091C587 /* XFVoiceDictationView.m in Sources */,
@@ -1084,6 +1121,8 @@
 				A498EF721FC652ED0081C721 /* BaseVC.m in Sources */,
 				A4B6B97A20AADCCD0066616F /* AKPickerView.m in Sources */,
 				A46A21BC1FEA105D00F43DB6 /* CollapseAnimator.m in Sources */,
+				A446367920C7B9570069B411 /* GAiOSAudioRecorder.m in Sources */,
+				A446367420C775D80069B411 /* GAiOSConfiger.m in Sources */,
 				A4BB402F20ABB93800B9F808 /* GASpeechTTSService.m in Sources */,
 				A43FD2BC1FE24A4200E3BDB6 /* SideMenuControl.m in Sources */,
 				A47C62A41FDE27B900C5C4E9 /* GANetworkTool.m in Sources */,
@@ -1107,6 +1146,7 @@
 				A416864A1FF1F35A00B86842 /* ibeaconNetWorkManager.m in Sources */,
 				A47B4F701FC41D1800E34638 /* guidePage.m in Sources */,
 				A460497D20A52E7C00A58724 /* XunFeiMscCC.m in Sources */,
+				A446367120C771640069B411 /* GASpeechiOSService.m in Sources */,
 				A498EF6E1FC591AC0081C721 /* ChangeIconService.m in Sources */,
 				A400A3601FFB21EA00D9F9E7 /* SingleScanView.m in Sources */,
 				A438C9891FFB6E2B00D051A2 /* ManyScanViewOne.m in Sources */,
@@ -1270,7 +1310,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu89;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Class/PchFile(宏文件)/YanSYDemo.pch";
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vdin.mengjin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1298,7 +1338,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu89;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Class/PchFile(宏文件)/YanSYDemo.pch";
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vdin.mengjin;
 				PRODUCT_NAME = "$(TARGET_NAME)";

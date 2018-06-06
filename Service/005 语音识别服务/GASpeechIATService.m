@@ -459,7 +459,14 @@
 
     NSURL * VdinRrl = [NSURL URLWithString:@"http://www.vdin.com.cn/"];
     if ([[UIApplication sharedApplication]canOpenURL:VdinRrl]) {
-        [[UIApplication sharedApplication]openURL:VdinRrl];
+
+        if (@available(iOS 10.0, *)) {
+            [[UIApplication sharedApplication] openURL:VdinRrl options:@{} completionHandler:nil];
+        }else{
+            [[UIApplication sharedApplication] openURL:VdinRrl];
+
+        }
+        
     }
 }
 

@@ -217,32 +217,37 @@
         
         if (_iFlySpeechRecognizer == nil) {
             _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];
-            [_iFlySpeechRecognizer setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
-            [_iFlySpeechRecognizer setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
-            [_iFlySpeechRecognizer setParameter: @"1" forKey: [IFlySpeechConstant ASR_SCH]];
-            [_iFlySpeechRecognizer setParameter: @"translate" forKey: @"addcap"];
+//            [_iFlySpeechRecognizer setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
+//            [_iFlySpeechRecognizer setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
+////            [_iFlySpeechRecognizer setParameter: @"1" forKey: [IFlySpeechConstant ASR_SCH]];
+//            [_iFlySpeechRecognizer setParameter: @"translate" forKey: @"addcap"];
         }
         
         _iFlySpeechRecognizer.delegate = self;
         
         if (_iFlySpeechRecognizer != nil) {
+            
+            [_iFlySpeechRecognizer setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
+            [_iFlySpeechRecognizer setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
+            [_iFlySpeechRecognizer setParameter: @"1" forKey: [IFlySpeechConstant ASR_SCH]];
+            [_iFlySpeechRecognizer setParameter: @"translate" forKey: @"addcap"];
             [_iFlySpeechRecognizer setParameter:self.baseConfig.speechTimeout forKey:[IFlySpeechConstant SPEECH_TIMEOUT]];
             [_iFlySpeechRecognizer setParameter:self.baseConfig.vadEos forKey:[IFlySpeechConstant VAD_EOS]];
             [_iFlySpeechRecognizer setParameter:self.baseConfig.vadBos forKey:[IFlySpeechConstant VAD_BOS]];
             [_iFlySpeechRecognizer setParameter:self.baseConfig.netWorkWait forKey:[IFlySpeechConstant NET_TIMEOUT]];
             [_iFlySpeechRecognizer setParameter:self.baseConfig.sampleRate forKey:[IFlySpeechConstant SAMPLE_RATE]];
             [_iFlySpeechRecognizer setParameter:self.baseConfig.dot forKey:[IFlySpeechConstant ASR_PTT]];
-            
+
             if (self.baseConfig.sstType == SST_Type_ZhToEn) {
-                
+
                 [_iFlySpeechRecognizer setParameter: @"zh" forKey: @"orilang"];
                 [_iFlySpeechRecognizer setParameter: @"en" forKey: @"translang"];
-                
+
             }else{
-                
+
                 [_iFlySpeechRecognizer setParameter: @"en" forKey: @"orilang"];
                 [_iFlySpeechRecognizer setParameter: @"zh" forKey: @"translang"];
-                
+
             }
         }
         

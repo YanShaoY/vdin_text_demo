@@ -11,6 +11,7 @@
 #import "xunFeiMscPopMenuView.h"
 #import "XFVoiceDictationView.h"
 #import "XFVoiceSyntheticView.h"
+#import "XFVoiceTranslationView.h"
 
 @interface XunFeiMscCC (){
     
@@ -77,6 +78,14 @@
             XFVoiceSyntheticView * voiceSyntheticView = [[XFVoiceSyntheticView alloc]init];
             voiceSyntheticView.backgroundColor = [UIColor clearColor];
             [_backView addSubview:voiceSyntheticView];
+        }
+            break;
+            
+        case 2:
+        {
+            XFVoiceTranslationView * voiceTranslationView = [[XFVoiceTranslationView alloc]init];
+            voiceTranslationView.backgroundColor = [UIColor clearColor];
+            [_backView addSubview:voiceTranslationView];
         }
             break;
             

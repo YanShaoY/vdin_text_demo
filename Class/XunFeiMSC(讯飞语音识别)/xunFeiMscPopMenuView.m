@@ -63,8 +63,8 @@
     
     nameList = @[@"听写",
                  @"合成",
-                 @"语法",
-                 @"评测",
+                 @"翻译",
+                 @"原生",
                  @"取消"];
     
     self.buttonList = [NSMutableArray arrayWithCapacity:imageList.count];
