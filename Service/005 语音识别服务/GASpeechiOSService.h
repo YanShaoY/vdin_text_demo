@@ -13,9 +13,9 @@ typedef NS_ENUM(NSUInteger , SpeechiOS_Error_Code) {
     /// 识别参数错误
     Error_Code_Parameter        = -10001,
     /// 系统权限错误
-    Error_Code_GPS              = -10002,
+    Error_Code_Author           = -10002,
     /// 识别出错
-    Error_Code_Beacon           = -10003,
+    Error_Code_Speech           = -10003,
     /// 其他类型错误
     Error_Code_Other            = -10004,
 };
@@ -38,8 +38,8 @@ typedef NS_ENUM(NSUInteger , SpeechiOS_Error_Code) {
 #pragma mark -- iOS原生语音识别服务状态获取方法
 /// 是否是音频流识别
 - (BOOL)isStreamRec;
-/// 是否返回BeginOfSpeech回调
-- (BOOL)isBeginOfSpeech;
+/// 是否返回Begin回调
+- (BOOL)isBegin;
 /// 是否取消
 - (BOOL)isCanceled;
 
@@ -58,14 +58,48 @@ typedef NS_ENUM(NSUInteger , SpeechiOS_Error_Code) {
  */
 - (BOOL)startiOSToListening;
 
+/**
+ 停止语音识别
+ */
+- (void)stopiOSToListening;
+
+/**
+ 识别本地音频文件
+
+ @param url 本地音频文件URL路径
+ @return 返回启动状态
+ */
+- (BOOL)startLocalAudioStreamWithUrl:(NSURL *)url;
+
+
+/**
+ 注销语音识别（注：在界面消失时调用）
+ */
+- (void)deallocToiOS;
+
 
 @end
 
 
+#pragma mark -- iOS原生语音识别服务代理
+/**
+ iOS原生语音识别服务代理
+ */
+@protocol GASpeechiOSServiceDelegate <NSObject>
 
 
 
 
+/**
+ 错误回调
+
+ @param service 语音识别服务
+ @param error 错误信息
+ */
+- (void)speechiOSService:(GASpeechiOSService *)service
+                 onError:(NSError *)error;
+
+@end
 
 
 

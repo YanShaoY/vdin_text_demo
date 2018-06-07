@@ -34,6 +34,8 @@
 #define SCREENHEIGHT ([UIScreen mainScreen].bounds.size.height)     // 屏幕高度
 #define KEYWINDOW ([UIApplication sharedApplication].keyWindow)     // 主窗口
 
+#define ChangeMainVCTitle   @"ChangeMainVCTitle"
+
 /**************************************************************************************************/
 #pragma mark -- 通用方法
 /**

@@ -29,7 +29,6 @@
     [self addConstraint];
     [self registerNotification];
     [self fetchData];
-    [self removeNotification];
     
     //避免同时产生多个按钮事件
     [self setExclusiveTouchForButtons:self.view];
@@ -88,6 +87,7 @@
 }
 
 - (void)dealloc{
+    [self removeNotification];
     NSLog(@"%@ dealloc", NSStringFromClass([self class]));
 }
 #pragma mark -- 所有子类都应该实现的方法

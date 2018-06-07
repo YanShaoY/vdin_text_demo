@@ -12,6 +12,7 @@
 		A40917601FE7564200DAC1AD /* UIView+FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A409175F1FE7564200DAC1AD /* UIView+FindViewController.m */; };
 		A416864A1FF1F35A00B86842 /* ibeaconNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41686491FF1F35A00B86842 /* ibeaconNetWorkManager.m */; };
 		A416864D1FF1F6ED00B86842 /* MBProgressHUD+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A416864C1FF1F6ED00B86842 /* MBProgressHUD+Extension.m */; };
+		A419C01D20C91BCF00F73075 /* iOSVoiceDictationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A419C01C20C91BCF00F73075 /* iOSVoiceDictationView.m */; };
 		A41B155E1FCFD662007C84C5 /* BaseNav.m in Sources */ = {isa = PBXBuildFile; fileRef = A41B155D1FCFD662007C84C5 /* BaseNav.m */; };
 		A41B15641FCFD88E007C84C5 /* MovieGuidePage.m in Sources */ = {isa = PBXBuildFile; fileRef = A41B15631FCFD88E007C84C5 /* MovieGuidePage.m */; };
 		A41B15661FCFE749007C84C5 /* guideMovie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A41B15651FCFE749007C84C5 /* guideMovie.mp4 */; };
@@ -113,6 +114,8 @@
 		A416864C1FF1F6ED00B86842 /* MBProgressHUD+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Extension.m"; sourceTree = "<group>"; };
 		A416864E1FF1F8B900B86842 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A41686501FF1F8C400B86842 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		A419C01B20C91BCF00F73075 /* iOSVoiceDictationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSVoiceDictationView.h; sourceTree = "<group>"; };
+		A419C01C20C91BCF00F73075 /* iOSVoiceDictationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSVoiceDictationView.m; sourceTree = "<group>"; };
 		A41B155C1FCFD662007C84C5 /* BaseNav.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNav.h; sourceTree = "<group>"; };
 		A41B155D1FCFD662007C84C5 /* BaseNav.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNav.m; sourceTree = "<group>"; };
 		A41B15621FCFD88E007C84C5 /* MovieGuidePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieGuidePage.h; sourceTree = "<group>"; };
@@ -873,6 +876,8 @@
 		A4D2612020A839AA0091C587 /* 原生语音识别 */ = {
 			isa = PBXGroup;
 			children = (
+				A419C01B20C91BCF00F73075 /* iOSVoiceDictationView.h */,
+				A419C01C20C91BCF00F73075 /* iOSVoiceDictationView.m */,
 			);
 			name = "原生语音识别";
 			sourceTree = "<group>";
@@ -1164,6 +1169,7 @@
 				A44696522002FEA10079CEAB /* GAibeaconModel.m in Sources */,
 				A41B15641FCFD88E007C84C5 /* MovieGuidePage.m in Sources */,
 				A46A21D31FEA359900F43DB6 /* BaseModel.m in Sources */,
+				A419C01D20C91BCF00F73075 /* iOSVoiceDictationView.m in Sources */,
 				A4B6B96320AA65970066616F /* GAIATConfiger.m in Sources */,
 				A46A21D71FEA425E00F43DB6 /* BaseCC.m in Sources */,
 				A4EAC42E1FC673A000099677 /* guideAnimationView.m in Sources */,

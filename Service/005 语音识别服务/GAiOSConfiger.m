@@ -22,8 +22,12 @@
 
 #pragma mark -- 语音识别设置参数
 -(void)defaultIATSetting {
-    
+    _speechTimeout = @"30000";
+    _vadEos = @"2000";
+    _vadBos = @"3000";
     _language = @"简体中文";
+    _dot = @"1";
+    _isReportPartialResults = YES;    
 }
 
 - (NSDictionary *)languageDictKey{

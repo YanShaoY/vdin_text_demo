@@ -1,27 +1,27 @@
 //
-//  XFVoiceTranslationView.m
+//  iOSVoiceDictationView.m
 //  Demo
 //
-//  Created by YanSY on 2018/6/4.
+//  Created by YanSY on 2018/6/7.
 //  Copyright © 2018年 YanSY. All rights reserved.
 //
 
-#import "XFVoiceTranslationView.h"
+#import "iOSVoiceDictationView.h"
 
 #import "XFMscViewModel.h"
 #import "PopupView.h"
 #import "XFMscSetUpView.h"
 
-#import "GASpeechTextMSCService.h"
+#import "GASpeechiOSService.h"
 
-@interface XFVoiceTranslationView ()<GASpeechSSTServiceDelegate>
+@interface iOSVoiceDictationView ()<GASpeechiOSServiceDelegate>
 
 @property (nonatomic , strong) XFMscViewModel             * myModel;
-@property (nonatomic , strong) GASpeechSSTService         * speechService;
+@property (nonatomic , strong) GASpeechiOSService         * speechService;
 
 @end
 
-@implementation XFVoiceTranslationView
+@implementation iOSVoiceDictationView
 
 #pragma mark -- 初始化
 - (instancetype)init{
@@ -50,17 +50,17 @@
     self.setUpBtn.hidden = YES;
     [self addSubview:self.textView];
     
-    self.startRecBtn = [self.myModel createButtonWithTitle:@"开始翻译"];
+    self.startRecBtn = [self.myModel createButtonWithTitle:@"开始识别"];
     [self.startRecBtn addTarget:self action:@selector(startRecBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.startRecBtn];
     
-    self.stopRecBtn = [self.myModel createButtonWithTitle:@"停止翻译"];
+    self.stopRecBtn = [self.myModel createButtonWithTitle:@"停止识别"];
     [self.stopRecBtn addTarget:self action:@selector(stopRecBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.stopRecBtn];
     
-    self.cancelRecBtn = [self.myModel createButtonWithTitle:@"取消翻译"];
-    [self.cancelRecBtn addTarget:self action:@selector(cancelRecBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:self.cancelRecBtn];
+    self.audioStreamBtn = [self.myModel createButtonWithTitle:@"本地音频文件翻译"];
+    [self.audioStreamBtn addTarget:self action:@selector(audioStreamBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.audioStreamBtn];
     
 }
 
@@ -71,10 +71,10 @@
 
 - (void)setUpBtnClick:(UIButton *)sender{
     
-    [self.speechService stopSSTToTranslation];
+    [self.speechService stopiOSToListening];
     [_textView resignFirstResponder];
     
-    GASSTConfiger * config = [self.speechService.baseConfig configerCopy];
+    GAiOSConfiger * config = [self.speechService.baseConfig configerCopy];
     [XFMscSetUpView disPlaySetUpView:config WithBlock:^(id configer) {
         self.speechService.baseConfig = configer;
     }];
@@ -82,7 +82,7 @@
 
 - (void)startRecBtnClick:(UIButton *)sender{
     
-    BOOL ret = [self.speechService startSSTToTranslation];
+    BOOL ret = [self.speechService startiOSToListening];
     if (ret) {
         [_textView setText:@""];
         [_textView resignFirstResponder];
@@ -92,112 +92,26 @@
 }
 
 - (void)stopRecBtnClick:(UIButton *)sender{
-    [self.speechService stopSSTToTranslation];
+    [self.speechService stopiOSToListening];
     [_textView resignFirstResponder];
 }
 
-- (void)cancelRecBtnClick:(UIButton *)sender{
-    [self.speechService cancelSSTToTranslation];
+- (void)audioStreamBtnClick:(UIButton *)sender{
+    [self.speechService startLocalAudioStreamWithUrl:nil];
     [PopupView hidePopUpForView:self.textView];
     [_textView resignFirstResponder];
 }
 
-#pragma mark - GASpeechSSTServiceDelegate
+#pragma mark - GASpeechiOSServiceDelegate
 /**
- 音量变化回调函数
+ 错误回调
  
- @param service 语音翻译服务
- @param volume 0-30
+ @param service 语音识别服务
+ @param error 错误信息
  */
-- (void)speechSSTService:(GASpeechSSTService *)service
-      soundVolumeChanged:(int)volume{
-    
-    if (service.isCanceled) {
-        [PopupView hidePopUpForView:self.textView];
-        return;
-    }
-    NSString * vol = [NSString stringWithFormat:@"音量：%d",volume];
-    [PopupView showPopWithText:vol toView:self.textView];
-}
-
-/**
- 开始录音回调
- 
- @param service 语音翻译服务
- @param success 是否成功 默认成功，当出现中断时返回失败
- */
-- (void)speechSSTService:(GASpeechSSTService *)service
-         onBeginOfSpeech:(BOOL)success{
-    
-    [PopupView showPopWithText:@"正在录音" toView:self.textView];
-}
-
-/**
- 停止录音回调
- 
- @param service 语音翻译服务
- @param success 是否成功 默认成功，当出现中断时返回失败
- */
-- (void)speechSSTService:(GASpeechSSTService *)service
-           onEndOfSpeech:(BOOL)success{
-    [PopupView showPopWithText:@"停止录音" toView:self.textView];
-
-}
-
-/**
- 翻译取消回调
- 
- @param service 语音翻译服务
- @param success 是否成功 默认成功，当出现中断时返回失败
- */
-- (void)speechSSTService:(GASpeechSSTService *)service
-                onCancel:(BOOL)success{
-    
-    [PopupView showPopWithText:@"取消录音" toView:self.textView];
-}
-
-/**
- 翻译结束回调（注：无论翻译是否正确都会回调）
- 
- @param service 语音翻译服务
- @param error 0:翻译正确 other:翻译出错
- */
-- (void)speechSSTService:(GASpeechSSTService *)service
-                 onError:(IFlySpeechError *)error{
-    
-    if (service.baseConfig.haveView == NO) {
-        NSString *text ;
-        if (service.isCanceled) {
-            text = @"识别取消";
-        }else if (error.errorCode == 0){
-            if (_textView.text.length == 0) {
-                text = @"无识别结果";
-            }else{
-                text = @"识别成功";
-            }
-            
-        }else{
-            text = [NSString stringWithFormat:@"发生错误：%d %@", error.errorCode,error.errorDesc];
-        }
-        [PopupView showPopWithText:text toView:self.textView];
-        
-    }else{
-        [PopupView showPopWithText:@"识别结束" toView:self.textView];
-    }
-    [_startRecBtn setEnabled:YES];
-    
-}
-
-/**
- 翻译结果回调
- 
- @param service 语音翻译服务
- @param resultDataStr 翻译结果
- */
-- (void)speechSSTService:(GASpeechSSTService *)service
-                onResult:(NSString *)resultDataStr{
-    _textView.text = [NSString stringWithFormat:@"%@%@",_textView.text,resultDataStr];;
-    [_startRecBtn setEnabled:YES];
+- (void)speechiOSService:(GASpeechiOSService *)service
+                 onError:(NSError *)error{
+    NSLog(@"%s----%@",__FUNCTION__,error);
 }
 
 #pragma mark -- 添加约束
@@ -236,14 +150,14 @@
         make.width.height.mas_equalTo(self.startRecBtn);
     }];
     
-    [self.cancelRecBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.audioStreamBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.stopRecBtn.mas_bottom).offset(20.f);
         make.centerX.equalTo(self.startRecBtn.mas_centerX);
         make.width.height.mas_equalTo(self.startRecBtn);
         make.bottom.equalTo(self.mas_bottom).offset(-50);
     }];
     
-
+    
     
 }
 
@@ -285,9 +199,9 @@
     return _textView;
 }
 
-- (GASpeechSSTService *)speechService{
+- (GASpeechiOSService *)speechService{
     if (!_speechService) {
-        _speechService = [GASpeechSSTService sharedInstance];
+        _speechService = [GASpeechiOSService sharedInstance];
         _speechService.delegate = self;
     }
     return _speechService;
@@ -295,7 +209,7 @@
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
-    [self.speechService deallocToSST];
+    [self.speechService deallocToiOS];
 }
 
 /*
@@ -307,8 +221,6 @@
 */
 
 @end
-
-
 
 
 

@@ -61,6 +61,16 @@
     [self.view addSubview:self.sideMenuListView];
 }
 
+- (void)registerNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeSelfTitle:) name:ChangeMainVCTitle object:nil];
+}
+
+- (void)changeSelfTitle:(NSNotification *)not{
+    if (not.userInfo && [not.userInfo valueForKey:@"title"]) {
+        self.title = [not.userInfo valueForKey:@"title"];
+    }
+}
+
 #pragma mark - SideMenuViewController delegate
 - (NSInteger)numberOfListForTab:(SideMenu_Tab_Type)tableType{
     return self.dataSourceArr.count;
@@ -110,6 +120,10 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)removeNotification{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 /*
 #pragma mark - Navigation

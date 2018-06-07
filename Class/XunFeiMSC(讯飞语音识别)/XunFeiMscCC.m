@@ -12,6 +12,7 @@
 #import "XFVoiceDictationView.h"
 #import "XFVoiceSyntheticView.h"
 #import "XFVoiceTranslationView.h"
+#import "iOSVoiceDictationView.h"
 
 @interface XunFeiMscCC (){
     
@@ -70,6 +71,7 @@
             XFVoiceDictationView * voiceDictationView = [[XFVoiceDictationView alloc]init];
             voiceDictationView.backgroundColor = [UIColor clearColor];
             [_backView addSubview:voiceDictationView];
+//            [[NSNotificationCenter defaultCenter]postNotificationName:ChangeMainVCTitle object:nil userInfo:@{@"title":@"讯飞语音听写"}];
         }
             break;
             
@@ -78,6 +80,8 @@
             XFVoiceSyntheticView * voiceSyntheticView = [[XFVoiceSyntheticView alloc]init];
             voiceSyntheticView.backgroundColor = [UIColor clearColor];
             [_backView addSubview:voiceSyntheticView];
+//            [[NSNotificationCenter defaultCenter]postNotificationName:ChangeMainVCTitle object:nil userInfo:@{@"title":@"讯飞语音合成"}];
+
         }
             break;
             
@@ -86,6 +90,17 @@
             XFVoiceTranslationView * voiceTranslationView = [[XFVoiceTranslationView alloc]init];
             voiceTranslationView.backgroundColor = [UIColor clearColor];
             [_backView addSubview:voiceTranslationView];
+//            [[NSNotificationCenter defaultCenter]postNotificationName:ChangeMainVCTitle object:nil userInfo:@{@"title":@"讯飞语音翻译"}];
+        }
+            break;
+            
+        case 3:
+        {
+            iOSVoiceDictationView * voiceDictationView = [[iOSVoiceDictationView alloc]init];
+            voiceDictationView.backgroundColor = [UIColor clearColor];
+            [_backView addSubview:voiceDictationView];
+//            [[NSNotificationCenter defaultCenter]postNotificationName:ChangeMainVCTitle object:nil userInfo:@{@"title":@"iOS原生语音听写"}];
+
         }
             break;
             
