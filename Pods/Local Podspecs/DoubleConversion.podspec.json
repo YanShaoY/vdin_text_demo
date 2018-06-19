@@ -1,0 +1,21 @@
+{
+  "name": "DoubleConversion",
+  "version": "3.0.0",
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "https://github.com/google/double-conversion",
+  "summary": "Efficient binary-decimal and decimal-binary conversion routines for IEEE doubles",
+  "authors": "Google",
+  "source": {
+    "git": "https://github.com/google/double-conversion.git",
+    "tag": "v3.0.0"
+  },
+  "module_name": "DoubleConversion",
+  "source_files": "double-conversion/*.{h,cc}",
+  "libraries": "stdc++",
+  "compiler_flags": "-std=c++1y",
+  "platforms": {
+    "ios": "8.0"
+  }
+}

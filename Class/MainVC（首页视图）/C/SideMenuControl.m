@@ -79,7 +79,7 @@
     [self.centerViewController.view removeGestureRecognizer:self.screenEdgePan];
     [self.centerViewController.view removeGestureRecognizer:self.pan];
     [self.centerViewController.view removeGestureRecognizer:self.tap];
-
+    
     [self.centerViewController.view addGestureRecognizer:self.screenEdgePan];
 }
 
@@ -97,7 +97,7 @@
     [self.centerViewController.view removeGestureRecognizer:self.screenEdgePan];
     [self.centerViewController.view removeGestureRecognizer:self.pan];
     [self.centerViewController.view removeGestureRecognizer:self.tap];
-
+    
     [self.centerViewController.view addGestureRecognizer:self.pan];
     [self.centerViewController.view addGestureRecognizer:self.tap];
 }
@@ -190,7 +190,7 @@
         
         SideMenu_Tab_Type type = (tableView == self.rootTableView) ? SideMenu_Tab_Type_Root : SideMenu_Tab_Type_menu;
         NSString * identifier = (tableView == self.rootTableView) ? rootCellIdentifier : menuCellIdentifier;
-
+        
         UIView * showView = [_delegate viewForTabType:type andTabRow:indexPath.row];
         cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         
@@ -198,6 +198,7 @@
         cell.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:0.50];
         
         cell.backgroundColor = [UIColor clearColor];
+        [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         [cell.contentView addSubview:showView];
         
         [showView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -221,8 +222,8 @@
     if (tableView == self.rootTableView) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }else{
-        [self.rootTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
         [self resetShowType:SideMenu_Tab_Type_Root];
+        [self.rootTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }
     
     if (_delegate && [_delegate respondsToSelector:@selector(didSelectAtRowNumber:forTabType:)]) {
@@ -244,49 +245,50 @@
     lastOffsetY = scrollView.contentOffset.y;
     
     NSUInteger sorollY = (NSUInteger)lastOffsetY % (NSUInteger)SCREENHEIGHT;
-
+    
     NSUInteger indexRow = 0;
+    
     if (sorollY >= SCREENHEIGHT/2) {
-        indexRow = sorollY/SCREENHEIGHT+1;
+        indexRow = lastOffsetY/SCREENHEIGHT+1;
     }else{
-        indexRow = sorollY/SCREENHEIGHT;
+        indexRow = lastOffsetY/SCREENHEIGHT;
     }
-    // 用户拖拽向下滑动
-//    if (_isScrollDown) {
-//        // ==
-//        if (sorollY >= SCREENHEIGHT/2) {
-//            indexRow = sorollY/SCREENHEIGHT+1;
-//        }else{
-//            indexRow = sorollY/SCREENHEIGHT;
-//        }
-//        BaseLog(@"应该滑动到的行数%ld",indexRow);
-//
-//    }
-//
-//    // 用户拖拽向上滑动
-//    if (!_isScrollDown) {
-//        // +1
-//        if (sorollY >= SCREENHEIGHT/2) {
-//            indexRow = sorollY/SCREENHEIGHT+1;
-//        }else{
-//            indexRow = sorollY/SCREENHEIGHT;
-//        }
-//        BaseLog(@"应该滑动到的行数%ld",indexRow);
-//
-//    }
     
     
     NSIndexPath * moveToIndexPath = [NSIndexPath indexPathForRow:indexRow inSection:0];
     [self.menuTableView selectRowAtIndexPath:moveToIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     [self.rootTableView scrollToRowAtIndexPath:moveToIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-
-//    NSIndexPath * path =  [self.rootTableView indexPathForRowAtPoint:CGPointMake(scrollView.contentOffset.x, scrollView.contentOffset.y)];
+    
+    //    NSIndexPath * path =  [self.rootTableView indexPathForRowAtPoint:CGPointMake(scrollView.contentOffset.x, scrollView.contentOffset.y)];
     if (_delegate && [_delegate respondsToSelector:@selector(didScrollAtRowNumber:forTabType:)]) {
         [_delegate didScrollAtRowNumber:indexRow forTabType:SideMenu_Tab_Type_Root];
     }else{
         return;
- }
+    }
     
+    // 用户拖拽向下滑动
+    //    if (_isScrollDown) {
+    //        // ==
+    //        if (sorollY >= SCREENHEIGHT/2) {
+    //            indexRow = sorollY/SCREENHEIGHT+1;
+    //        }else{
+    //            indexRow = sorollY/SCREENHEIGHT;
+    //        }
+    //        BaseLog(@"应该滑动到的行数%ld",indexRow);
+    //
+    //    }
+    //
+    //    // 用户拖拽向上滑动
+    //    if (!_isScrollDown) {
+    //        // +1
+    //        if (sorollY >= SCREENHEIGHT/2) {
+    //            indexRow = sorollY/SCREENHEIGHT+1;
+    //        }else{
+    //            indexRow = sorollY/SCREENHEIGHT;
+    //        }
+    //        BaseLog(@"应该滑动到的行数%ld",indexRow);
+    //
+    //    }
 }
 
 #pragma mark -- public methods
@@ -328,7 +330,7 @@
     UITableView * tableView = (tableType == SideMenu_Tab_Type_Root) ? self.rootTableView : self.menuTableView;
     
     [tableView scrollToRowAtIndexPath:moveToIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-
+    
     if (tableType == SideMenu_Tab_Type_Root) {
         [tableView deselectRowAtIndexPath:moveToIndexPath animated:YES];
     }else{
@@ -368,20 +370,20 @@
     if (!_menuTableView) {
         _menuTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         [_menuTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:menuCellIdentifier];
-  
+        
         _menuTableView.dataSource = self;
         _menuTableView.delegate = self;
         
         _menuTableView.backgroundColor = [UIColor whiteColor];
         _menuTableView.tableFooterView = [[UIView alloc] init];
-
+        
         _menuTableView.bounces                       = NO;
         _menuTableView.scrollEnabled                 = YES;
         _menuTableView.showsVerticalScrollIndicator  = NO;
         [_menuTableView setSeparatorColor:UIColorFromRGBA(0xD0EBF9, 1)];
         
         _menuTableView.backgroundView = [[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"cloud"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-
+        
         [KEYWINDOW addSubview:_menuTableView];
         [KEYWINDOW sendSubviewToBack:_menuTableView];
         

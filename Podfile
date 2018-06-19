@@ -1,5 +1,8 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '9.2'
+
+#platform :ios, '9.2'
+#swift_version = '4.1'
+
 # Uncomment this line if you're using Swift
 # use_frameworks!
 

@@ -12,6 +12,7 @@
 		A40917601FE7564200DAC1AD /* UIView+FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A409175F1FE7564200DAC1AD /* UIView+FindViewController.m */; };
 		A416864A1FF1F35A00B86842 /* ibeaconNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41686491FF1F35A00B86842 /* ibeaconNetWorkManager.m */; };
 		A416864D1FF1F6ED00B86842 /* MBProgressHUD+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A416864C1FF1F6ED00B86842 /* MBProgressHUD+Extension.m */; };
+		A41819AE20D8937D003E0140 /* WeiSuMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A41819AD20D8937D003E0140 /* WeiSuMainVC.m */; };
 		A419C01D20C91BCF00F73075 /* iOSVoiceDictationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A419C01C20C91BCF00F73075 /* iOSVoiceDictationView.m */; };
 		A41B155E1FCFD662007C84C5 /* BaseNav.m in Sources */ = {isa = PBXBuildFile; fileRef = A41B155D1FCFD662007C84C5 /* BaseNav.m */; };
 		A41B15641FCFD88E007C84C5 /* MovieGuidePage.m in Sources */ = {isa = PBXBuildFile; fileRef = A41B15631FCFD88E007C84C5 /* MovieGuidePage.m */; };
@@ -96,6 +97,8 @@
 		A4BB403220ABB94D00B9F808 /* GATTSConfiger.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BB403120ABB94D00B9F808 /* GATTSConfiger.m */; };
 		A4BB404820AC04EF00B9F808 /* tts64res in Resources */ = {isa = PBXBuildFile; fileRef = A4BB404720AC04EF00B9F808 /* tts64res */; };
 		A4D2612620A83B420091C587 /* XFVoiceDictationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2612520A83B420091C587 /* XFVoiceDictationView.m */; };
+		A4D3EA9D20D8D44A000B5906 /* GAWorkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D3EA9C20D8D44A000B5906 /* GAWorkVC.m */; };
+		A4D3EAA020D8D542000B5906 /* WeiSuWorkCC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D3EA9F20D8D542000B5906 /* WeiSuWorkCC.m */; };
 		A4EAC42E1FC673A000099677 /* guideAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC42D1FC673A000099677 /* guideAnimationView.m */; };
 		A4EAC4311FC6B3C900099677 /* TakingFacePicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC4301FC6B3C900099677 /* TakingFacePicturesView.m */; };
 		A4EAC43D1FC6DD9800099677 /* UIImage+FaceDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC43C1FC6DD9800099677 /* UIImage+FaceDetection.m */; };
@@ -114,6 +117,8 @@
 		A416864C1FF1F6ED00B86842 /* MBProgressHUD+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Extension.m"; sourceTree = "<group>"; };
 		A416864E1FF1F8B900B86842 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A41686501FF1F8C400B86842 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		A41819AC20D8937D003E0140 /* WeiSuMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiSuMainVC.h; sourceTree = "<group>"; };
+		A41819AD20D8937D003E0140 /* WeiSuMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiSuMainVC.m; sourceTree = "<group>"; };
 		A419C01B20C91BCF00F73075 /* iOSVoiceDictationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSVoiceDictationView.h; sourceTree = "<group>"; };
 		A419C01C20C91BCF00F73075 /* iOSVoiceDictationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSVoiceDictationView.m; sourceTree = "<group>"; };
 		A41B155C1FCFD662007C84C5 /* BaseNav.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNav.h; sourceTree = "<group>"; };
@@ -255,6 +260,10 @@
 		A4BB404720AC04EF00B9F808 /* tts64res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tts64res; path = Demo/tts64res; sourceTree = SOURCE_ROOT; };
 		A4D2612420A83B420091C587 /* XFVoiceDictationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFVoiceDictationView.h; sourceTree = "<group>"; };
 		A4D2612520A83B420091C587 /* XFVoiceDictationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFVoiceDictationView.m; sourceTree = "<group>"; };
+		A4D3EA9B20D8D44A000B5906 /* GAWorkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAWorkVC.h; sourceTree = "<group>"; };
+		A4D3EA9C20D8D44A000B5906 /* GAWorkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAWorkVC.m; sourceTree = "<group>"; };
+		A4D3EA9E20D8D542000B5906 /* WeiSuWorkCC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiSuWorkCC.h; sourceTree = "<group>"; };
+		A4D3EA9F20D8D542000B5906 /* WeiSuWorkCC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiSuWorkCC.m; sourceTree = "<group>"; };
 		A4D8CFBE206E0E06001206BD /* YanSYDemo.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanSYDemo.pch; sourceTree = "<group>"; };
 		A4EAC42C1FC673A000099677 /* guideAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = guideAnimationView.h; sourceTree = "<group>"; };
 		A4EAC42D1FC673A000099677 /* guideAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = guideAnimationView.m; sourceTree = "<group>"; };
@@ -301,6 +310,32 @@
 				68FD094C289516BCE4FB7CF0 /* Pods-Demo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A41819A920D8903D003E0140 /* WeiSuApp(为宿APP) */ = {
+			isa = PBXGroup;
+			children = (
+				A41819AF20D8B25A003E0140 /* Work(工作) */,
+				A41819AB20D891D8003E0140 /* MainVC */,
+			);
+			path = "WeiSuApp(为宿APP)";
+			sourceTree = "<group>";
+		};
+		A41819AB20D891D8003E0140 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				A41819AC20D8937D003E0140 /* WeiSuMainVC.h */,
+				A41819AD20D8937D003E0140 /* WeiSuMainVC.m */,
+			);
+			name = MainVC;
+			sourceTree = "<group>";
+		};
+		A41819AF20D8B25A003E0140 /* Work(工作) */ = {
+			isa = PBXGroup;
+			children = (
+				A4D3EA9620D8D3ED000B5906 /* 工作主界面 */,
+			);
+			name = "Work(工作)";
 			sourceTree = "<group>";
 		};
 		A41A08AA202060BC002740D4 /* SoundWaves(声波通讯) */ = {
@@ -404,6 +439,7 @@
 				A4434B101FC3D8A9003923A3 /* iBeaconDemo(蓝牙信标测试) */,
 				A41A08AA202060BC002740D4 /* SoundWaves(声波通讯) */,
 				A460497320A52CBA00A58724 /* XunFeiMSC(讯飞语音识别) */,
+				A41819A920D8903D003E0140 /* WeiSuApp(为宿APP) */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -909,6 +945,49 @@
 			name = "语音听写";
 			sourceTree = "<group>";
 		};
+		A4D3EA9620D8D3ED000B5906 /* 工作主界面 */ = {
+			isa = PBXGroup;
+			children = (
+				A4D3EA9A20D8D418000B5906 /* Scene */,
+				A4D3EA9920D8D410000B5906 /* M */,
+				A4D3EA9820D8D40A000B5906 /* V */,
+				A4D3EA9720D8D403000B5906 /* C */,
+			);
+			name = "工作主界面";
+			sourceTree = "<group>";
+		};
+		A4D3EA9720D8D403000B5906 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				A4D3EA9E20D8D542000B5906 /* WeiSuWorkCC.h */,
+				A4D3EA9F20D8D542000B5906 /* WeiSuWorkCC.m */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		A4D3EA9820D8D40A000B5906 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		A4D3EA9920D8D410000B5906 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		A4D3EA9A20D8D418000B5906 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				A4D3EA9B20D8D44A000B5906 /* GAWorkVC.h */,
+				A4D3EA9C20D8D44A000B5906 /* GAWorkVC.m */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
 		A4EAC42B1FC6730900099677 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1146,6 +1225,7 @@
 				A43FD2C31FE26D6D00E3BDB6 /* iBeaconVC.m in Sources */,
 				A460498020A536ED00A58724 /* xunFeiMscPopMenuView.m in Sources */,
 				A436BD3E1FEBCBFF00FA552D /* iBeaconCC.m in Sources */,
+				A4D3EA9D20D8D44A000B5906 /* GAWorkVC.m in Sources */,
 				A41B155E1FCFD662007C84C5 /* BaseNav.m in Sources */,
 				A46622A420A9CB6700C282FA /* PopupView.m in Sources */,
 				A416864A1FF1F35A00B86842 /* ibeaconNetWorkManager.m in Sources */,
@@ -1161,6 +1241,7 @@
 				A425ACB620BE792100D2579F /* GASSTConfiger.m in Sources */,
 				A49FCF9720A3E360009826E6 /* GASpeechTextMSCService.m in Sources */,
 				A4434AFA1FC3C94C003923A3 /* AppDelegate.m in Sources */,
+				A41819AE20D8937D003E0140 /* WeiSuMainVC.m in Sources */,
 				A4434B171FC40261003923A3 /* mainVC.m in Sources */,
 				A425ACB920BE7AB600D2579F /* GASpeechSSTService.m in Sources */,
 				A4A3153D1FC436930060C7DA /* GATouchIDValidationService.m in Sources */,
@@ -1172,6 +1253,7 @@
 				A419C01D20C91BCF00F73075 /* iOSVoiceDictationView.m in Sources */,
 				A4B6B96320AA65970066616F /* GAIATConfiger.m in Sources */,
 				A46A21D71FEA425E00F43DB6 /* BaseCC.m in Sources */,
+				A4D3EAA020D8D542000B5906 /* WeiSuWorkCC.m in Sources */,
 				A4EAC42E1FC673A000099677 /* guideAnimationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

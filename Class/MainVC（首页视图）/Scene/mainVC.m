@@ -11,6 +11,7 @@
 
 #import "iBeaconVC.h"
 #import "XunFeiMscVC.h"
+#import "WeiSuMainVC.h"
 
 @interface mainVC ()<SideMenuControlDelegate>
 
@@ -23,16 +24,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.title = self.dataSourceArr[0].title;
-    [self.sideMenuListView scrollTabWithType:SideMenu_Tab_Type_Root toRowNumber:0];
+    self.title = self.dataSourceArr[2].title;
+    [self.sideMenuListView scrollTabWithType:SideMenu_Tab_Type_Root toRowNumber:2];
+    [self.sideMenuListView scrollTabWithType:SideMenu_Tab_Type_menu toRowNumber:2];
+
 }
 
 #pragma mark -- 所有子类都应该实现的方法
@@ -47,10 +53,16 @@
     [self addChildViewController:mscVC];
     [self.dataSourceArr addObject:mscVC];
     
+    // 003
+    WeiSuMainVC * wsMainVC = [[WeiSuMainVC alloc]init];
+    [self addChildViewController:wsMainVC];
+    [self.dataSourceArr addObject:wsMainVC];
+    
     CGFloat height = 44+20;
     if (@available(iOS 11.0, *)) {
         height += self.view.safeAreaInsets.bottom;
     }
+    
     self.sideMenuListView = [[SideMenuControl alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT-height) withSource:self.navigationController percentageToMenu:0.75];
     self.sideMenuListView.userInteractionEnabled = YES;
     self.sideMenuListView.delegate = self;
@@ -125,6 +137,7 @@
 - (void)removeNotification{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
+
 /*
 #pragma mark - Navigation
 
