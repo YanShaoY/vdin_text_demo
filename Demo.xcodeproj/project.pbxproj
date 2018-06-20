@@ -20,6 +20,7 @@
 		A425378A20045CCA00D9ECB6 /* GAibeaconLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A425378920045CCA00D9ECB6 /* GAibeaconLocationService.m */; };
 		A425ACB620BE792100D2579F /* GASSTConfiger.m in Sources */ = {isa = PBXBuildFile; fileRef = A425ACB520BE792100D2579F /* GASSTConfiger.m */; };
 		A425ACB920BE7AB600D2579F /* GASpeechSSTService.m in Sources */ = {isa = PBXBuildFile; fileRef = A425ACB820BE7AB600D2579F /* GASpeechSSTService.m */; };
+		A42FD98C20D9E43D00487FB5 /* WSTopSlidMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A42FD98B20D9E43D00487FB5 /* WSTopSlidMenuView.m */; };
 		A436BD3B1FEB87BC00FA552D /* UIButton+ImageTitleSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = A436BD3A1FEB87BC00FA552D /* UIButton+ImageTitleSpacing.m */; };
 		A436BD3E1FEBCBFF00FA552D /* iBeaconCC.m in Sources */ = {isa = PBXBuildFile; fileRef = A436BD3D1FEBCBFF00FA552D /* iBeaconCC.m */; };
 		A438C9891FFB6E2B00D051A2 /* ManyScanViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = A438C9881FFB6E2B00D051A2 /* ManyScanViewOne.m */; };
@@ -133,6 +134,8 @@
 		A425ACB520BE792100D2579F /* GASSTConfiger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GASSTConfiger.m; sourceTree = "<group>"; };
 		A425ACB720BE7AB600D2579F /* GASpeechSSTService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GASpeechSSTService.h; sourceTree = "<group>"; };
 		A425ACB820BE7AB600D2579F /* GASpeechSSTService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GASpeechSSTService.m; sourceTree = "<group>"; };
+		A42FD98A20D9E43D00487FB5 /* WSTopSlidMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSTopSlidMenuView.h; sourceTree = "<group>"; };
+		A42FD98B20D9E43D00487FB5 /* WSTopSlidMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSTopSlidMenuView.m; sourceTree = "<group>"; };
 		A436BD391FEB87BC00FA552D /* UIButton+ImageTitleSpacing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTitleSpacing.h"; sourceTree = "<group>"; };
 		A436BD3A1FEB87BC00FA552D /* UIButton+ImageTitleSpacing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleSpacing.m"; sourceTree = "<group>"; };
 		A436BD3C1FEBCBFF00FA552D /* iBeaconCC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBeaconCC.h; sourceTree = "<group>"; };
@@ -362,6 +365,15 @@
 			children = (
 			);
 			name = "ASR（语法识别）";
+			sourceTree = "<group>";
+		};
+		A42FD98920D9E3D500487FB5 /* 顶部菜单栏视图 */ = {
+			isa = PBXGroup;
+			children = (
+				A42FD98A20D9E43D00487FB5 /* WSTopSlidMenuView.h */,
+				A42FD98B20D9E43D00487FB5 /* WSTopSlidMenuView.m */,
+			);
+			name = "顶部菜单栏视图";
 			sourceTree = "<group>";
 		};
 		A43FD2BD1FE26D2800E3BDB6 /* C */ = {
@@ -968,6 +980,7 @@
 		A4D3EA9820D8D40A000B5906 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				A42FD98920D9E3D500487FB5 /* 顶部菜单栏视图 */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -1242,6 +1255,7 @@
 				A49FCF9720A3E360009826E6 /* GASpeechTextMSCService.m in Sources */,
 				A4434AFA1FC3C94C003923A3 /* AppDelegate.m in Sources */,
 				A41819AE20D8937D003E0140 /* WeiSuMainVC.m in Sources */,
+				A42FD98C20D9E43D00487FB5 /* WSTopSlidMenuView.m in Sources */,
 				A4434B171FC40261003923A3 /* mainVC.m in Sources */,
 				A425ACB920BE7AB600D2579F /* GASpeechSSTService.m in Sources */,
 				A4A3153D1FC436930060C7DA /* GATouchIDValidationService.m in Sources */,

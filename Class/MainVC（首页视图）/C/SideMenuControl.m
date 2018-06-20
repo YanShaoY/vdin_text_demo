@@ -7,7 +7,6 @@
 //
 
 #import "SideMenuControl.h"
-#import "UIView+FindViewController.h"
 
 #define menuCellIdentifier  @"menuCellIdentifier"
 #define rootCellIdentifier  @"rootCellIdentifier"

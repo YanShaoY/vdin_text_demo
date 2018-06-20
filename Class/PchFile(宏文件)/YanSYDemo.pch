@@ -19,6 +19,7 @@
 #import "UIImage+FaceDetection.h"
 #import "GANetworkService.h"
 #import "GALocalNoticeService.h"
+#import "UIView+FindViewController.h"
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>

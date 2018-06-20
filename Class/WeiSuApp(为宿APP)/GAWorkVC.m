@@ -30,8 +30,6 @@
     [self configuration];
     [self addUI];
     [self addConstraint];
-    [self fetchData];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -40,15 +38,10 @@
     self.tabBarController.tabBar.hidden = NO;
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    self.navigationController.navigationBar.hidden = NO;
-    self.tabBarController.tabBar.hidden = YES;
-}
 
 - (void)viewSafeAreaInsetsDidChange {
     [super viewSafeAreaInsetsDidChange];
-    [self.workCC fetchData];
+    [self fetchData];
 }
 
 #pragma mark -- 配置
@@ -67,6 +60,7 @@
 #pragma mark -- 添加 UI
 - (void)addUI{
     [self.view addSubview:self.workCC.workCCbackView];
+
 }
 
 #pragma mark -- 添加约束
