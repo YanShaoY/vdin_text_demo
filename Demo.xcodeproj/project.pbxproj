@@ -63,6 +63,9 @@
 		A48361A620B26CF6004EE119 /* GAFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = A48361A520B26CF6004EE119 /* GAFileService.m */; };
 		A486E6251FECA51600CD848B /* EntranceGuardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A486E6241FECA51600CD848B /* EntranceGuardView.m */; };
 		A49200E120C5075200D67983 /* XFVoiceTranslationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A49200E020C5075200D67983 /* XFVoiceTranslationView.m */; };
+		A496968920DB65E5001454AB /* WSRoomStateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A496968820DB65E5001454AB /* WSRoomStateVC.m */; };
+		A496968C20DB660C001454AB /* WSOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A496968B20DB660C001454AB /* WSOrderVC.m */; };
+		A496968F20DB664B001454AB /* WSStatistcalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A496968E20DB664B001454AB /* WSStatistcalVC.m */; };
 		A498EF6E1FC591AC0081C721 /* ChangeIconService.m in Sources */ = {isa = PBXBuildFile; fileRef = A498EF6D1FC591AC0081C721 /* ChangeIconService.m */; };
 		A498EF721FC652ED0081C721 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A498EF711FC652ED0081C721 /* BaseVC.m */; };
 		A49FCF7820A3DFDB009826E6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A49FCF7720A3DFDA009826E6 /* libz.tbd */; };
@@ -209,6 +212,12 @@
 		A486E6241FECA51600CD848B /* EntranceGuardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntranceGuardView.m; sourceTree = "<group>"; };
 		A49200DF20C5075200D67983 /* XFVoiceTranslationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFVoiceTranslationView.h; sourceTree = "<group>"; };
 		A49200E020C5075200D67983 /* XFVoiceTranslationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFVoiceTranslationView.m; sourceTree = "<group>"; };
+		A496968720DB65E5001454AB /* WSRoomStateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSRoomStateVC.h; sourceTree = "<group>"; };
+		A496968820DB65E5001454AB /* WSRoomStateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSRoomStateVC.m; sourceTree = "<group>"; };
+		A496968A20DB660C001454AB /* WSOrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSOrderVC.h; sourceTree = "<group>"; };
+		A496968B20DB660C001454AB /* WSOrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSOrderVC.m; sourceTree = "<group>"; };
+		A496968D20DB664B001454AB /* WSStatistcalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSStatistcalVC.h; sourceTree = "<group>"; };
+		A496968E20DB664B001454AB /* WSStatistcalVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSStatistcalVC.m; sourceTree = "<group>"; };
 		A498EF6C1FC591AC0081C721 /* ChangeIconService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeIconService.h; sourceTree = "<group>"; };
 		A498EF6D1FC591AC0081C721 /* ChangeIconService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeIconService.m; sourceTree = "<group>"; };
 		A498EF701FC652ED0081C721 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -337,6 +346,9 @@
 			isa = PBXGroup;
 			children = (
 				A4D3EA9620D8D3ED000B5906 /* 工作主界面 */,
+				A496967820DB64D2001454AB /* 房态界面 */,
+				A496967A20DB64F1001454AB /* 订单界面 */,
+				A496967920DB64E3001454AB /* 统计界面 */,
 			);
 			name = "Work(工作)";
 			sourceTree = "<group>";
@@ -600,6 +612,7 @@
 			children = (
 				A46A21BA1FEA105D00F43DB6 /* CollapseAnimator.h */,
 				A46A21BB1FEA105D00F43DB6 /* CollapseAnimator.m */,
+				A46A21CE1FEA353500F43DB6 /* BaseNav */,
 			);
 			path = "转场动画";
 			sourceTree = "<group>";
@@ -608,7 +621,6 @@
 			isa = PBXGroup;
 			children = (
 				A46A21CB1FEA311300F43DB6 /* 转场动画 */,
-				A46A21CE1FEA353500F43DB6 /* BaseNav */,
 				A498EF701FC652ED0081C721 /* BaseVC.h */,
 				A498EF711FC652ED0081C721 /* BaseVC.m */,
 			);
@@ -769,6 +781,129 @@
 				A486E6241FECA51600CD848B /* EntranceGuardView.m */,
 			);
 			path = "公司门禁";
+			sourceTree = "<group>";
+		};
+		A496967820DB64D2001454AB /* 房态界面 */ = {
+			isa = PBXGroup;
+			children = (
+				A496967E20DB6532001454AB /* Scene */,
+				A496967D20DB652F001454AB /* M */,
+				A496967C20DB652B001454AB /* V */,
+				A496967B20DB6526001454AB /* C */,
+			);
+			name = "房态界面";
+			sourceTree = "<group>";
+		};
+		A496967920DB64E3001454AB /* 统计界面 */ = {
+			isa = PBXGroup;
+			children = (
+				A496968620DB6570001454AB /* Scene */,
+				A496968520DB656C001454AB /* M */,
+				A496968420DB6566001454AB /* V */,
+				A496968320DB655D001454AB /* C */,
+			);
+			name = "统计界面";
+			sourceTree = "<group>";
+		};
+		A496967A20DB64F1001454AB /* 订单界面 */ = {
+			isa = PBXGroup;
+			children = (
+				A496968220DB654B001454AB /* Scene */,
+				A496968120DB6546001454AB /* M */,
+				A496968020DB6541001454AB /* V */,
+				A496967F20DB653D001454AB /* C */,
+			);
+			name = "订单界面";
+			sourceTree = "<group>";
+		};
+		A496967B20DB6526001454AB /* C */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		A496967C20DB652B001454AB /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		A496967D20DB652F001454AB /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		A496967E20DB6532001454AB /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				A496968720DB65E5001454AB /* WSRoomStateVC.h */,
+				A496968820DB65E5001454AB /* WSRoomStateVC.m */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		A496967F20DB653D001454AB /* C */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		A496968020DB6541001454AB /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		A496968120DB6546001454AB /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		A496968220DB654B001454AB /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				A496968A20DB660C001454AB /* WSOrderVC.h */,
+				A496968B20DB660C001454AB /* WSOrderVC.m */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		A496968320DB655D001454AB /* C */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		A496968420DB6566001454AB /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		A496968520DB656C001454AB /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		A496968620DB6570001454AB /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				A496968D20DB664B001454AB /* WSStatistcalVC.h */,
+				A496968E20DB664B001454AB /* WSStatistcalVC.m */,
+			);
+			name = Scene;
 			sourceTree = "<group>";
 		};
 		A498748820A5DCF900B20014 /* M */ = {
@@ -1239,6 +1374,7 @@
 				A460498020A536ED00A58724 /* xunFeiMscPopMenuView.m in Sources */,
 				A436BD3E1FEBCBFF00FA552D /* iBeaconCC.m in Sources */,
 				A4D3EA9D20D8D44A000B5906 /* GAWorkVC.m in Sources */,
+				A496968C20DB660C001454AB /* WSOrderVC.m in Sources */,
 				A41B155E1FCFD662007C84C5 /* BaseNav.m in Sources */,
 				A46622A420A9CB6700C282FA /* PopupView.m in Sources */,
 				A416864A1FF1F35A00B86842 /* ibeaconNetWorkManager.m in Sources */,
@@ -1253,9 +1389,11 @@
 				A4A3D33C1FCE8E8900DBFAB2 /* CycleProgressView.m in Sources */,
 				A425ACB620BE792100D2579F /* GASSTConfiger.m in Sources */,
 				A49FCF9720A3E360009826E6 /* GASpeechTextMSCService.m in Sources */,
+				A496968920DB65E5001454AB /* WSRoomStateVC.m in Sources */,
 				A4434AFA1FC3C94C003923A3 /* AppDelegate.m in Sources */,
 				A41819AE20D8937D003E0140 /* WeiSuMainVC.m in Sources */,
 				A42FD98C20D9E43D00487FB5 /* WSTopSlidMenuView.m in Sources */,
+				A496968F20DB664B001454AB /* WSStatistcalVC.m in Sources */,
 				A4434B171FC40261003923A3 /* mainVC.m in Sources */,
 				A425ACB920BE7AB600D2579F /* GASpeechSSTService.m in Sources */,
 				A4A3153D1FC436930060C7DA /* GATouchIDValidationService.m in Sources */,

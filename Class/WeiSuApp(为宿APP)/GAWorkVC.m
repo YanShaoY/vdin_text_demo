@@ -9,6 +9,10 @@
 #import "GAWorkVC.h"
 #import "WeiSuWorkCC.h"
 
+#import "WSRoomStateVC.h"
+#import "WSOrderVC.h"
+#import "WSStatistcalVC.h"
+
 @interface GAWorkVC ()
 
 @property (nonatomic , strong) WeiSuWorkCC * workCC;
@@ -41,7 +45,7 @@
 
 - (void)viewSafeAreaInsetsDidChange {
     [super viewSafeAreaInsetsDidChange];
-    [self fetchData];
+//    [self fetchData];
 }
 
 #pragma mark -- 配置
@@ -73,7 +77,12 @@
 
 #pragma mark -- 获取数据
 - (void)fetchData{
-    [self.workCC fetchData];
+    
+    WSRoomStateVC * roomVC = [[WSRoomStateVC alloc]init];
+    WSOrderVC * orderVC = [[WSOrderVC alloc]init];
+    WSStatistcalVC * statistcalVC = [[WSStatistcalVC alloc]init];
+    NSArray * viewArr = [NSArray arrayWithObjects:roomVC.view,orderVC.view,statistcalVC.view, nil];
+    [self.workCC fetchDataWithViews:viewArr];
 }
 
 #pragma mark -- 懒加载

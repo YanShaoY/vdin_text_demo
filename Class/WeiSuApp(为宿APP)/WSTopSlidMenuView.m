@@ -11,10 +11,13 @@
 #define SelectColor UIColorFromRGBA(0xFFFFFF, 1.f)
 #define NormalColor UIColorFromRGBA(0xDDDDDD, 1.f)
 
-#define SelectFont 19
-#define NormalFont 18
+#define SelectFont 18
+#define NormalFont 17
 
 @interface WSTopSlidMenuView ()
+
+/// 选中按钮 0:房态 1:订单 2:统计
+@property (nonatomic , assign) NSUInteger selectBtCount;
 
 /// 背景图片
 @property (nonatomic , strong) UIImageView * backImageView;
@@ -44,7 +47,7 @@
         [self configuration];
         [self addUI];
         [self addConstraint];
-        [self buttonClickAction:self.roomStateBt];
+        [self setSlidMenuViewSelectWithCount:self.selectBtCount];
     }
     return self;
 }
@@ -75,26 +78,71 @@
 #pragma mark -- 事件响应
 - (void)buttonClickAction:(UIButton *)sender{
     
-    // 重置菜单按钮状态
-    [self resetMenuButtonState];
-    
-    // 更新选中按钮状态
-    sender.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:SelectFont];
-    sender.selected = YES;
-    sender.userInteractionEnabled = NO;
-    
     // 记录选中按钮
     if ([sender isEqual:self.roomStateBt]) {
         self.selectBtCount = 0;
-    }else if ([sender isEqual:self.roomStateBt]){
+    }else if ([sender isEqual:self.orderButton]){
         self.selectBtCount = 1;
     }else{
         self.selectBtCount = 2;
     }
+    
+    // 设置菜单栏选中状态
+    [self setSlidMenuViewSelectWithCount:self.selectBtCount];
+    
+    // 返回选中代理
+    if (self.delegate && [self.delegate respondsToSelector:@selector(WSTopSlidMenuView:ClickWithButtonCount:)]) {
+        [self.delegate WSTopSlidMenuView:self ClickWithButtonCount:self.selectBtCount];
+    }
+}
 
-    // TODO 切换左边视图控件显示
+- (void)searchButtonAction:(UIButton *)sender{
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(WSTopSlidMenuView:searchButtonAction:)]) {
+        [self.delegate WSTopSlidMenuView:self searchButtonAction:sender];
+    }
+}
 
-    // 移动下划线坐标并加载动画效果
+
+- (void)addButtonAction:(UIButton *)sender{
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(WSTopSlidMenuView:addButtonAction:)]) {
+        [self.delegate WSTopSlidMenuView:self addButtonAction:sender];
+    }
+}
+
+#pragma mark -- 设置菜单栏选中状态
+- (void)setSlidMenuViewSelectWithCount:(NSUInteger)selectCount{
+    
+    self.selectBtCount = selectCount;
+    
+    [self resetMenuButtonState];
+    
+    UIButton * sender;
+    switch (self.selectBtCount) {
+        case 0:
+            sender = self.roomStateBt;
+            break;
+            
+        case 1:
+            sender = self.orderButton;
+            break;
+            
+        case 2:
+            sender = self.statisticalBt;
+            break;
+            
+        default:
+            sender = self.roomStateBt;
+            break;
+    }
+    
+    sender.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:SelectFont];
+    sender.selected = YES;
+    sender.userInteractionEnabled = NO;
+    
+    [self animateWithSearchAndAddButton];
+    
     [self.underLineView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(SCREENWIDTH/2/3/4);
         make.height.mas_equalTo(2.f);
@@ -106,16 +154,6 @@
         CGPoint centerSender = sender.center;
         self.underLineView.center = CGPointMake(centerSender.x, self.underLineView.center.y);
     }];
-    
-}
-
-- (void)searchButtonAction:(UIButton *)sender{
-    
-}
-
-
-- (void)addButtonAction:(UIButton *)sender{
-    
 }
 
 #pragma mark -- 重置菜单按钮状态
@@ -133,6 +171,93 @@
     self.orderButton.userInteractionEnabled   = YES;
     self.statisticalBt.userInteractionEnabled = YES;
 }
+
+#pragma mark -- 切换右边视图控件显示
+- (void)animateWithSearchAndAddButton{
+    
+    [self.addButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(self.roomStateBt);
+        make.right.equalTo(self.mas_right).offset(-10);
+        make.width.mas_equalTo(44.f);
+    }];
+    
+    [self.searchButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(self.roomStateBt);
+        make.right.equalTo(self.mas_right).offset(-10);
+        make.width.mas_equalTo(44.f);
+    }];
+    
+    switch (self.selectBtCount) {
+            
+        case 0:
+        {
+            self.searchButton.hidden = NO;
+            self.addButton.hidden = NO;
+            
+            [self.addButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.bottom.equalTo(self.roomStateBt);
+                make.right.equalTo(self.mas_right).offset(-10);
+                make.width.mas_equalTo(44.f);
+            }];
+            
+            [self.searchButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.bottom.equalTo(self.roomStateBt);
+                make.right.equalTo(self.addButton.mas_left).offset(0.f);
+                make.width.mas_equalTo(self.addButton);
+            }];
+            
+            [UIView animateWithDuration:0.25 animations:^{
+                CGPoint buttonCenter = self.addButton.center;
+                self.searchButton.center = CGPointMake(buttonCenter.x - 44.f, buttonCenter.y);
+                self.searchButton.alpha = 1.f;
+                self.addButton.alpha = 1.f;
+            }];
+        }
+            break;
+            
+        case 1:
+        {
+            self.searchButton.hidden = NO;
+            self.addButton.hidden = YES;
+            
+            [self.addButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.bottom.equalTo(self.roomStateBt);
+                make.right.equalTo(self.mas_right).offset(-10);
+                make.width.mas_equalTo(44.f);
+            }];
+            
+            [self.searchButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.bottom.equalTo(self.roomStateBt);
+                make.right.equalTo(self.mas_right).offset(-10);
+                make.width.mas_equalTo(44.f);
+            }];
+            
+            [UIView animateWithDuration:0.25 animations:^{
+                CGPoint buttonCenter = self.addButton.center;
+                self.searchButton.center = CGPointMake(buttonCenter.x, buttonCenter.y);
+                self.searchButton.alpha= 1.f;
+                self.addButton.alpha = 0.f;
+            }];
+        }
+            break;
+            
+        case 2:
+        {
+            self.searchButton.hidden = YES;
+            self.addButton.hidden = YES;
+            
+            [UIView animateWithDuration:0.25 animations:^{
+                self.searchButton.alpha= 0.f;
+                self.addButton.alpha = 0.f;
+            }];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 
 #pragma mark -- 懒加载
 - (UIImageView *)backImageView{
@@ -214,18 +339,6 @@
         make.top.bottom.equalTo(self.roomStateBt);
         make.left.equalTo(self.orderButton.mas_right);
         make.width.mas_equalTo(self.roomStateBt);
-    }];
-    
-    [self.addButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(self.roomStateBt);
-        make.right.equalTo(self.mas_right).offset(-10);
-        make.width.mas_equalTo(44.f);
-    }];
-    
-    [self.searchButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(self.roomStateBt);
-        make.right.equalTo(self.addButton.mas_left).offset(0.f);
-        make.width.mas_equalTo(self.addButton);
     }];
     
 }

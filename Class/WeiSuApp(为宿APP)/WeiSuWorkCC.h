@@ -14,7 +14,7 @@
 
 - (UIView *)workCCbackView;
 
-- (void)fetchData;
+- (void)fetchDataWithViews:(NSArray *)views;
 
 - (void)setVCGenerator:(UIViewController * (^)(id params))VCGenerator;
 
