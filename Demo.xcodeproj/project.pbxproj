@@ -10,6 +10,14 @@
 		85DAF2A6E038BC6BA63A9AA9 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 475D7984F5A46BEEEFCDFD52 /* libPods-Demo.a */; };
 		A400A3601FFB21EA00D9F9E7 /* SingleScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = A400A35F1FFB21EA00D9F9E7 /* SingleScanView.m */; };
 		A40917601FE7564200DAC1AD /* UIView+FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A409175F1FE7564200DAC1AD /* UIView+FindViewController.m */; };
+		A4117D0820DCEDA600D8A1C4 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4117D0620DCEDA600D8A1C4 /* Interface.storyboard */; };
+		A4117D0A20DCEDB400D8A1C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4117D0920DCEDB400D8A1C4 /* Assets.xcassets */; };
+		A4117D1120DCEDB400D8A1C4 /* VdinMengjin Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A4117D1020DCEDB400D8A1C4 /* VdinMengjin Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A4117D1720DCEDB500D8A1C4 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4117D1620DCEDB500D8A1C4 /* InterfaceController.m */; };
+		A4117D1A20DCEDB500D8A1C4 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4117D1920DCEDB500D8A1C4 /* ExtensionDelegate.m */; };
+		A4117D1D20DCEDB500D8A1C4 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4117D1C20DCEDB500D8A1C4 /* NotificationController.m */; };
+		A4117D1F20DCEDB500D8A1C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4117D1E20DCEDB500D8A1C4 /* Assets.xcassets */; };
+		A4117D2420DCEDB500D8A1C4 /* VdinMengjin.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A4117D0420DCEDA600D8A1C4 /* VdinMengjin.app */; };
 		A416864A1FF1F35A00B86842 /* ibeaconNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41686491FF1F35A00B86842 /* ibeaconNetWorkManager.m */; };
 		A416864D1FF1F6ED00B86842 /* MBProgressHUD+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A416864C1FF1F6ED00B86842 /* MBProgressHUD+Extension.m */; };
 		A41819AE20D8937D003E0140 /* WeiSuMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A41819AD20D8937D003E0140 /* WeiSuMainVC.m */; };
@@ -108,6 +116,48 @@
 		A4EAC43D1FC6DD9800099677 /* UIImage+FaceDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC43C1FC6DD9800099677 /* UIImage+FaceDetection.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A4117D1220DCEDB400D8A1C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4434AED1FC3C94C003923A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4117D0F20DCEDB400D8A1C4;
+			remoteInfo = "VdinMengjin Extension";
+		};
+		A4117D2220DCEDB500D8A1C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4434AED1FC3C94C003923A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4117D0320DCEDA600D8A1C4;
+			remoteInfo = VdinMengjin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A4117D2820DCEDB500D8A1C4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A4117D1120DCEDB400D8A1C4 /* VdinMengjin Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4639D2120DCC18B0085FFF2 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				A4117D2420DCEDB500D8A1C4 /* VdinMengjin.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		475D7984F5A46BEEEFCDFD52 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68FD094C289516BCE4FB7CF0 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +165,20 @@
 		A400A35F1FFB21EA00D9F9E7 /* SingleScanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleScanView.m; sourceTree = "<group>"; };
 		A409175E1FE7564200DAC1AD /* UIView+FindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FindViewController.h"; sourceTree = "<group>"; };
 		A409175F1FE7564200DAC1AD /* UIView+FindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FindViewController.m"; sourceTree = "<group>"; };
+		A4117D0420DCEDA600D8A1C4 /* VdinMengjin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VdinMengjin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4117D0720DCEDA600D8A1C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		A4117D0920DCEDB400D8A1C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4117D0B20DCEDB400D8A1C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4117D1020DCEDB400D8A1C4 /* VdinMengjin Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "VdinMengjin Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4117D1520DCEDB500D8A1C4 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		A4117D1620DCEDB500D8A1C4 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		A4117D1820DCEDB500D8A1C4 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		A4117D1920DCEDB500D8A1C4 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		A4117D1B20DCEDB500D8A1C4 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		A4117D1C20DCEDB500D8A1C4 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		A4117D1E20DCEDB500D8A1C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4117D2020DCEDB500D8A1C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4117D2120DCEDB500D8A1C4 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		A41686481FF1F35A00B86842 /* ibeaconNetWorkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ibeaconNetWorkManager.h; sourceTree = "<group>"; };
 		A41686491FF1F35A00B86842 /* ibeaconNetWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ibeaconNetWorkManager.m; sourceTree = "<group>"; };
 		A416864B1FF1F6ED00B86842 /* MBProgressHUD+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Extension.h"; sourceTree = "<group>"; };
@@ -287,6 +351,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A4117D0D20DCEDB400D8A1C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4434AF21FC3C94C003923A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,6 +393,32 @@
 				68FD094C289516BCE4FB7CF0 /* Pods-Demo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A4117D0520DCEDA600D8A1C4 /* VdinMengjin */ = {
+			isa = PBXGroup;
+			children = (
+				A4117D0620DCEDA600D8A1C4 /* Interface.storyboard */,
+				A4117D0920DCEDB400D8A1C4 /* Assets.xcassets */,
+				A4117D0B20DCEDB400D8A1C4 /* Info.plist */,
+			);
+			path = VdinMengjin;
+			sourceTree = "<group>";
+		};
+		A4117D1420DCEDB400D8A1C4 /* VdinMengjin Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A4117D1520DCEDB500D8A1C4 /* InterfaceController.h */,
+				A4117D1620DCEDB500D8A1C4 /* InterfaceController.m */,
+				A4117D1820DCEDB500D8A1C4 /* ExtensionDelegate.h */,
+				A4117D1920DCEDB500D8A1C4 /* ExtensionDelegate.m */,
+				A4117D1B20DCEDB500D8A1C4 /* NotificationController.h */,
+				A4117D1C20DCEDB500D8A1C4 /* NotificationController.m */,
+				A4117D1E20DCEDB500D8A1C4 /* Assets.xcassets */,
+				A4117D2020DCEDB500D8A1C4 /* Info.plist */,
+				A4117D2120DCEDB500D8A1C4 /* PushNotificationPayload.apns */,
+			);
+			path = "VdinMengjin Extension";
 			sourceTree = "<group>";
 		};
 		A41819A920D8903D003E0140 /* WeiSuApp(为宿APP) */ = {
@@ -425,6 +522,8 @@
 				A47C629C1FDE273000C5C4E9 /* Service */,
 				A4434B0E1FC3D842003923A3 /* Class */,
 				A4434AF71FC3C94C003923A3 /* Demo */,
+				A4117D0520DCEDA600D8A1C4 /* VdinMengjin */,
+				A4117D1420DCEDB400D8A1C4 /* VdinMengjin Extension */,
 				A4434AF61FC3C94C003923A3 /* Products */,
 				18D3E221AA193CE77AC59864 /* Pods */,
 				F7F5D7624F364EE582B22D05 /* Frameworks */,
@@ -435,6 +534,8 @@
 			isa = PBXGroup;
 			children = (
 				A4434AF51FC3C94C003923A3 /* Demo.app */,
+				A4117D0420DCEDA600D8A1C4 /* VdinMengjin.app */,
+				A4117D1020DCEDB400D8A1C4 /* VdinMengjin Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1211,6 +1312,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A4117D0320DCEDA600D8A1C4 /* VdinMengjin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4117D2920DCEDB500D8A1C4 /* Build configuration list for PBXNativeTarget "VdinMengjin" */;
+			buildPhases = (
+				A4117D0220DCEDA600D8A1C4 /* Resources */,
+				A4117D2820DCEDB500D8A1C4 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A4117D1320DCEDB400D8A1C4 /* PBXTargetDependency */,
+			);
+			name = VdinMengjin;
+			productName = VdinMengjin;
+			productReference = A4117D0420DCEDA600D8A1C4 /* VdinMengjin.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		A4117D0F20DCEDB400D8A1C4 /* VdinMengjin Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4117D2520DCEDB500D8A1C4 /* Build configuration list for PBXNativeTarget "VdinMengjin Extension" */;
+			buildPhases = (
+				A4117D0C20DCEDB400D8A1C4 /* Sources */,
+				A4117D0D20DCEDB400D8A1C4 /* Frameworks */,
+				A4117D0E20DCEDB400D8A1C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VdinMengjin Extension";
+			productName = "VdinMengjin Extension";
+			productReference = A4117D1020DCEDB400D8A1C4 /* VdinMengjin Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		A4434AF41FC3C94C003923A3 /* Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4434B0B1FC3C94C003923A3 /* Build configuration list for PBXNativeTarget "Demo" */;
@@ -1220,10 +1355,12 @@
 				A4434AF21FC3C94C003923A3 /* Frameworks */,
 				A4434AF31FC3C94C003923A3 /* Resources */,
 				2DD372BE92DC171B814F6116 /* [CP] Copy Pods Resources */,
+				A4639D2120DCC18B0085FFF2 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A4117D2320DCEDB500D8A1C4 /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -1239,6 +1376,14 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = YanSY;
 				TargetAttributes = {
+					A4117D0320DCEDA600D8A1C4 = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+					};
+					A4117D0F20DCEDB400D8A1C4 = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+					};
 					A4434AF41FC3C94C003923A3 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Manual;
@@ -1264,11 +1409,30 @@
 			projectRoot = "";
 			targets = (
 				A4434AF41FC3C94C003923A3 /* Demo */,
+				A4117D0320DCEDA600D8A1C4 /* VdinMengjin */,
+				A4117D0F20DCEDB400D8A1C4 /* VdinMengjin Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A4117D0220DCEDA600D8A1C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4117D0A20DCEDB400D8A1C4 /* Assets.xcassets in Resources */,
+				A4117D0820DCEDA600D8A1C4 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4117D0E20DCEDB400D8A1C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4117D1F20DCEDB500D8A1C4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4434AF31FC3C94C003923A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1333,6 +1497,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A4117D0C20DCEDB400D8A1C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4117D1A20DCEDB500D8A1C4 /* ExtensionDelegate.m in Sources */,
+				A4117D1720DCEDB500D8A1C4 /* InterfaceController.m in Sources */,
+				A4117D1D20DCEDB500D8A1C4 /* NotificationController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4434AF11FC3C94C003923A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1412,7 +1586,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A4117D1320DCEDB400D8A1C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4117D0F20DCEDB400D8A1C4 /* VdinMengjin Extension */;
+			targetProxy = A4117D1220DCEDB400D8A1C4 /* PBXContainerItemProxy */;
+		};
+		A4117D2320DCEDB500D8A1C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4117D0320DCEDA600D8A1C4 /* VdinMengjin */;
+			targetProxy = A4117D2220DCEDB500D8A1C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		A4117D0620DCEDA600D8A1C4 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4117D0720DCEDA600D8A1C4 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		A4434B031FC3C94C003923A3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1424,6 +1619,92 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A4117D2620DCEDB500D8A1C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9C283KM7PP;
+				INFOPLIST_FILE = "VdinMengjin Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vdin.mengjin.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		A4117D2720DCEDB500D8A1C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9C283KM7PP;
+				INFOPLIST_FILE = "VdinMengjin Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vdin.mengjin.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		A4117D2A20DCEDB500D8A1C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Qing Xu (MDB4B7EBEK)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9C283KM7PP;
+				IBSC_MODULE = VdinMengjin_Extension;
+				INFOPLIST_FILE = VdinMengjin/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vdin.mengjin.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		A4117D2B20DCEDB500D8A1C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Qing Xu (MDB4B7EBEK)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9C283KM7PP;
+				IBSC_MODULE = VdinMengjin_Extension;
+				INFOPLIST_FILE = VdinMengjin/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vdin.mengjin.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
 		A4434B091FC3C94C003923A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1538,7 +1819,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Qing Xu (MDB4B7EBEK)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Qing Xu (MDB4B7EBEK)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9C283KM7PP;
@@ -1554,7 +1835,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vdin.mengjin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a6a83dcf-048c-4421-851d-0aec04acc387";
+				PROVISIONING_PROFILE = "f39639de-de28-467e-980a-bfa848a36696";
 				PROVISIONING_PROFILE_SPECIFIER = zdht.mengJin.Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1566,7 +1847,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Qing Xu (MDB4B7EBEK)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Qing Xu (MDB4B7EBEK)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9C283KM7PP;
@@ -1582,7 +1863,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vdin.mengjin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a6a83dcf-048c-4421-851d-0aec04acc387";
+				PROVISIONING_PROFILE = "f39639de-de28-467e-980a-bfa848a36696";
 				PROVISIONING_PROFILE_SPECIFIER = zdht.mengJin.Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1591,6 +1872,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A4117D2520DCEDB500D8A1C4 /* Build configuration list for PBXNativeTarget "VdinMengjin Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4117D2620DCEDB500D8A1C4 /* Debug */,
+				A4117D2720DCEDB500D8A1C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4117D2920DCEDB500D8A1C4 /* Build configuration list for PBXNativeTarget "VdinMengjin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4117D2A20DCEDB500D8A1C4 /* Debug */,
+				A4117D2B20DCEDB500D8A1C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A4434AF01FC3C94C003923A3 /* Build configuration list for PBXProject "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

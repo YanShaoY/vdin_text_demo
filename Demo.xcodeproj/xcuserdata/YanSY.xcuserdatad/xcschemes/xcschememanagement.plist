@@ -7,11 +7,31 @@
 		<key>Demo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>0</integer>
+		</dict>
+		<key>Mengjin.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>VdinMengjin (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
+		<key>VdinMengjin.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>A4117D0320DCEDA600D8A1C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A4434AF41FC3C94C003923A3</key>
 		<dict>
 			<key>primary</key>
