@@ -6,6 +6,8 @@
 	<dict>
 		<key>Demo.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
@@ -19,6 +21,11 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
+		<key>VdinMengjin Extension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>VdinMengjin.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -28,6 +35,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>A4117D0320DCEDA600D8A1C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4117D0F20DCEDB400D8A1C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

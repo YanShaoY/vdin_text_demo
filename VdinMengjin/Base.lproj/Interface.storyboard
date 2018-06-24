@@ -14,7 +14,16 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <button width="90" alignment="center" verticalAlignment="center" title="开门" id="SEE-HZ-ZN3">
+                        <label alignment="center" text="公司门禁" textAlignment="center" id="9wn-po-NA0"/>
+                        <label alignment="center" text="点击下方开门按钮打开门禁" textAlignment="center" numberOfLines="0" id="TjZ-CT-hyi">
+                            <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label alignment="center" text="正在开门···" textAlignment="center" numberOfLines="0" id="nLR-BY-czm">
+                            <color key="textColor" red="0.36078431370000003" green="0.58823529409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                        </label>
+                        <button width="100" alignment="center" verticalAlignment="bottom" title="开门" id="SEE-HZ-ZN3">
                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="backgroundColor" red="0.0" green="0.95369466150000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="18"/>
@@ -25,6 +34,7 @@
                     </items>
                     <connections>
                         <outlet property="openDoorBt" destination="SEE-HZ-ZN3" id="4jb-ET-c9Y"/>
+                        <outlet property="showMessageLabel" destination="nLR-BY-czm" id="Cuj-HL-kTe"/>
                     </connections>
                 </controller>
             </objects>

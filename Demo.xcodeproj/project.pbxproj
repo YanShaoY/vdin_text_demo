@@ -68,6 +68,7 @@
 		A47C62A71FDE27D400C5C4E9 /* GANetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = A47C62A61FDE27D400C5C4E9 /* GANetworkService.m */; };
 		A47C62AA1FDE294600C5C4E9 /* NSDate+DateString.m in Sources */ = {isa = PBXBuildFile; fileRef = A47C62A81FDE294600C5C4E9 /* NSDate+DateString.m */; };
 		A47C62AD1FDE29A800C5C4E9 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A47C62AB1FDE29A800C5C4E9 /* UIImage+Extension.m */; };
+		A480F17D20DFD7940067D358 /* ComplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A480F17C20DFD7940067D358 /* ComplicationController.m */; };
 		A48361A620B26CF6004EE119 /* GAFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = A48361A520B26CF6004EE119 /* GAFileService.m */; };
 		A486E6251FECA51600CD848B /* EntranceGuardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A486E6241FECA51600CD848B /* EntranceGuardView.m */; };
 		A49200E120C5075200D67983 /* XFVoiceTranslationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A49200E020C5075200D67983 /* XFVoiceTranslationView.m */; };
@@ -270,6 +271,8 @@
 		A47C62A91FDE294600C5C4E9 /* NSDate+DateString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateString.h"; sourceTree = "<group>"; };
 		A47C62AB1FDE29A800C5C4E9 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		A47C62AC1FDE29A800C5C4E9 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		A480F17B20DFD7940067D358 /* ComplicationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComplicationController.h; sourceTree = "<group>"; };
+		A480F17C20DFD7940067D358 /* ComplicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComplicationController.m; sourceTree = "<group>"; };
 		A48361A420B26CF6004EE119 /* GAFileService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAFileService.h; sourceTree = "<group>"; };
 		A48361A520B26CF6004EE119 /* GAFileService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAFileService.m; sourceTree = "<group>"; };
 		A486E6231FECA51600CD848B /* EntranceGuardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntranceGuardView.h; sourceTree = "<group>"; };
@@ -414,6 +417,8 @@
 				A4117D1920DCEDB500D8A1C4 /* ExtensionDelegate.m */,
 				A4117D1B20DCEDB500D8A1C4 /* NotificationController.h */,
 				A4117D1C20DCEDB500D8A1C4 /* NotificationController.m */,
+				A480F17B20DFD7940067D358 /* ComplicationController.h */,
+				A480F17C20DFD7940067D358 /* ComplicationController.m */,
 				A4117D1E20DCEDB500D8A1C4 /* Assets.xcassets */,
 				A4117D2020DCEDB500D8A1C4 /* Info.plist */,
 				A4117D2120DCEDB500D8A1C4 /* PushNotificationPayload.apns */,
@@ -1502,6 +1507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4117D1A20DCEDB500D8A1C4 /* ExtensionDelegate.m in Sources */,
+				A480F17D20DFD7940067D358 /* ComplicationController.m in Sources */,
 				A4117D1720DCEDB500D8A1C4 /* InterfaceController.m in Sources */,
 				A4117D1D20DCEDB500D8A1C4 /* NotificationController.m in Sources */,
 			);
