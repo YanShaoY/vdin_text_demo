@@ -96,6 +96,10 @@
 		A4A3153D1FC436930060C7DA /* GATouchIDValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3153C1FC436930060C7DA /* GATouchIDValidationService.m */; };
 		A4A3D33C1FCE8E8900DBFAB2 /* CycleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3D33B1FCE8E8900DBFAB2 /* CycleProgressView.m */; };
 		A4AAC2CA2057A94300DBC435 /* soundWavesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AAC2C92057A94300DBC435 /* soundWavesVC.m */; };
+		A4AC933D20E0CDF700AF723B /* 支付宝_10万.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4AC933920E0CDF600AF723B /* 支付宝_10万.m4r */; };
+		A4AC933E20E0CDF700AF723B /* 支付宝_1万.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4AC933A20E0CDF600AF723B /* 支付宝_1万.m4r */; };
+		A4AC933F20E0CDF700AF723B /* 支付宝_500万.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4AC933B20E0CDF600AF723B /* 支付宝_500万.m4r */; };
+		A4AC934020E0CDF700AF723B /* 支付宝_100万.m4r in Resources */ = {isa = PBXBuildFile; fileRef = A4AC933C20E0CDF600AF723B /* 支付宝_100万.m4r */; };
 		A4B6B96320AA65970066616F /* GAIATConfiger.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B96220AA65970066616F /* GAIATConfiger.m */; };
 		A4B6B96720AA67530066616F /* GAXFMscDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B96620AA67530066616F /* GAXFMscDataHelper.m */; };
 		A4B6B96A20AA68590066616F /* GASpeechIATService.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B6B96920AA68590066616F /* GASpeechIATService.m */; };
@@ -312,6 +316,10 @@
 		A4A3D33B1FCE8E8900DBFAB2 /* CycleProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleProgressView.m; sourceTree = "<group>"; };
 		A4AAC2C82057A94300DBC435 /* soundWavesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundWavesVC.h; sourceTree = "<group>"; };
 		A4AAC2C92057A94300DBC435 /* soundWavesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = soundWavesVC.m; sourceTree = "<group>"; };
+		A4AC933920E0CDF600AF723B /* 支付宝_10万.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "支付宝_10万.m4r"; sourceTree = "<group>"; };
+		A4AC933A20E0CDF600AF723B /* 支付宝_1万.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "支付宝_1万.m4r"; sourceTree = "<group>"; };
+		A4AC933B20E0CDF600AF723B /* 支付宝_500万.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "支付宝_500万.m4r"; sourceTree = "<group>"; };
+		A4AC933C20E0CDF600AF723B /* 支付宝_100万.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "支付宝_100万.m4r"; sourceTree = "<group>"; };
 		A4B6B96120AA65970066616F /* GAIATConfiger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIATConfiger.h; sourceTree = "<group>"; };
 		A4B6B96220AA65970066616F /* GAIATConfiger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAIATConfiger.m; sourceTree = "<group>"; };
 		A4B6B96520AA67530066616F /* GAXFMscDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAXFMscDataHelper.h; sourceTree = "<group>"; };
@@ -786,6 +794,7 @@
 		A47B00141FF5EB9600DCF4BA /* 004 本地推送服务 */ = {
 			isa = PBXGroup;
 			children = (
+				A4AC933620E0CDAC00AF723B /* 手机铃声 */,
 				A47B00151FF5F07500DCF4BA /* GALocalNoticeService.h */,
 				A47B00161FF5F07500DCF4BA /* GALocalNoticeService.m */,
 			);
@@ -1073,6 +1082,17 @@
 				A4AAC2C92057A94300DBC435 /* soundWavesVC.m */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		A4AC933620E0CDAC00AF723B /* 手机铃声 */ = {
+			isa = PBXGroup;
+			children = (
+				A4AC933A20E0CDF600AF723B /* 支付宝_1万.m4r */,
+				A4AC933920E0CDF600AF723B /* 支付宝_10万.m4r */,
+				A4AC933C20E0CDF600AF723B /* 支付宝_100万.m4r */,
+				A4AC933B20E0CDF600AF723B /* 支付宝_500万.m4r */,
+			);
+			path = "手机铃声";
 			sourceTree = "<group>";
 		};
 		A4B6B95E20AA64430066616F /* SDK */ = {
@@ -1428,13 +1448,17 @@
 				A46054281FC5254700C3BABB /* 2指纹识别成功.json in Resources */,
 				A460542D1FC5254700C3BABB /* 5人脸线框动画.json in Resources */,
 				A4434B051FC3C94C003923A3 /* LaunchScreen.storyboard in Resources */,
+				A4AC933E20E0CDF700AF723B /* 支付宝_1万.m4r in Resources */,
 				A46054271FC5254700C3BABB /* 7线条波浪.json in Resources */,
+				A4AC933D20E0CDF700AF723B /* 支付宝_10万.m4r in Resources */,
 				A4434B021FC3C94C003923A3 /* Assets.xcassets in Resources */,
+				A4AC934020E0CDF700AF723B /* 支付宝_100万.m4r in Resources */,
 				A460542B1FC5254700C3BABB /* 4圈圈旋转.json in Resources */,
 				A460542A1FC5254700C3BABB /* 3圈圈放大.json in Resources */,
 				A41B15661FCFE749007C84C5 /* guideMovie.mp4 in Resources */,
 				A4BB404820AC04EF00B9F808 /* tts64res in Resources */,
 				A46054291FC5254700C3BABB /* 6矩形波浪.json in Resources */,
+				A4AC933F20E0CDF700AF723B /* 支付宝_500万.m4r in Resources */,
 				A460542C1FC5254700C3BABB /* 1指纹识别中.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,6 +18,7 @@
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *showMessageLabel;
 /// 开门按钮
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceButton *openDoorBt;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceButton *cancelBt;
 
 @end
 
@@ -94,6 +95,10 @@
         NSLog(@"iWatch请求发生错误，错误信息: %@", error);
         
     }];
+    
+}
+
+- (IBAction)cancelBtAction {
     
 }
 

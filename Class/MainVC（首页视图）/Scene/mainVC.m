@@ -35,9 +35,9 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.title = self.dataSourceArr[2].title;
-    [self.sideMenuListView scrollTabWithType:SideMenu_Tab_Type_Root toRowNumber:2];
-    [self.sideMenuListView scrollTabWithType:SideMenu_Tab_Type_menu toRowNumber:2];
+    self.title = self.dataSourceArr[0].title;
+    [self.sideMenuListView scrollTabWithType:SideMenu_Tab_Type_Root toRowNumber:0];
+    [self.sideMenuListView scrollTabWithType:SideMenu_Tab_Type_menu toRowNumber:0];
 
 }
 

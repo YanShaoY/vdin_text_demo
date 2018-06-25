@@ -88,6 +88,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
+        
         UIApplicationState state = [UIApplication sharedApplication].applicationState;
         if (state != UIApplicationStateActive && error) {
             
@@ -96,8 +97,8 @@
             NSString * identifer = error.localizedDescription   ? : @"default_Error";
             NSString * body      = error.localizedFailureReason ? : stateMsg;
             NSDictionary * info  = error.userInfo;
-            [[GALocalNoticeService sharedInstance]sendNoticeWithId:identifer Title:title subTitle:subTitle Body:body Info:info];
-            
+            [[GALocalNoticeService sharedInstance]sendNoticeWithId:identifer Title:title soundNamed:@"支付宝_100万.m4r" subTitle:subTitle Body:body Info:info];
+
         }else{
             [MBProgressHUD hudWithText:stateMsg toView:nil];
         }
@@ -131,7 +132,7 @@
 /// 对应app可达状态改变时调用
 /**当手机和手表应用的连接状态改变时，将调用此方法，接受方应该检查连接属性去检查代理回调*/
 - (void)sessionReachabilityDidChange:(WCSession *)session{
-    NSLog(@"%s---能否发送消息的可达状态改变是调用%@",__func__,session);
+    NSLog(@"%s---能否发送消息的可达状态改变时调用%@",__func__,session);
 }
 
 /// 调用接收者的委托。如果传入消息导致接收方启动，将在启动时调用
@@ -174,7 +175,7 @@
             NSString * identifer = nil;
             NSString * body      = showMsgStr;
             NSDictionary * info  = message;
-            [[GALocalNoticeService sharedInstance]sendNoticeWithId:identifer Title:title subTitle:nil Body:body Info:info];
+            [[GALocalNoticeService sharedInstance]sendNoticeWithId:identifer Title:title soundNamed:@"支付宝_1万.m4r" subTitle:nil Body:body Info:info];
             
         }else{
             
@@ -184,9 +185,11 @@
         }
         
         if ([showMsgStr isEqualToString:@"OpenTheDoor"]) {
-            [MBProgressHUD hideHUD];
-            [MBProgressHUD showMessage:@"iWatch请求开门" toView:nil];
-            
+            UIApplicationState state = [UIApplication sharedApplication].applicationState;
+            if (state == UIApplicationStateActive) {
+                [MBProgressHUD hideHUD];
+                [MBProgressHUD showMessage:@"iWatch请求开门" toView:nil];
+            }
             [self requestOpenTheDoor];
         }
         
@@ -241,7 +244,7 @@
     @weakify(self);
     [ibeaconNetWorkManager autoOpenTheDoorRequestComplete:^(id responseObject, BOOL isSuccess) {
         @strongify(self);
-        
+
         NSMutableDictionary * messageDict = [[NSMutableDictionary alloc] init];
         if (isSuccess) {
             [messageDict setValue:@"OK" forKey:@"result"];
@@ -260,12 +263,14 @@
             
             UIApplicationState state = [UIApplication sharedApplication].applicationState;
             if (state != UIApplicationStateActive) {
-                    [[GALocalNoticeService sharedInstance]sendNoticeWithId:identifer Title:title subTitle:nil Body:body Info:info];
+                [[GALocalNoticeService sharedInstance]sendNoticeWithId:identifer Title:title soundNamed:@"支付宝_10万.m4r" subTitle:nil Body:body Info:info];
+            }else{
+                [MBProgressHUD hudWithText:messageDict[@"message"] toView:nil];
             }
         });
         
         
-        if (self.requestSession.paired && self.requestSession.watchAppInstalled) {
+        if (self.requestSession.paired && self.requestSession.watchAppInstalled && self.requestSession.reachable) {
             
             [self.requestSession sendMessage:messageDict replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
                 NSLog(@"手机发送信息后，iWatch端回复: %@", replyMessage);
@@ -276,8 +281,22 @@
             
         }
         
+        ///
+        
+        
     }];
     
+}
+
+#pragma mark -- TODO
+- (NSDictionary *)getCitysMessage {
+    //获取系统当前的时间戳
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval a=[dat timeIntervalSince1970]*1000;
+    NSString *timeString = [NSString stringWithFormat:@"%f", a];
+    //发送的消息与上次一样则不会发送，因此加上时间戳
+    NSDictionary *dict = @{@"watchSessionSycnCitys":[NSString stringWithFormat:@"%@%@", @"watchSessionSycnCitys", timeString]};
+    return dict;
 }
 
 #pragma mark -- 懒加载

@@ -31,6 +31,12 @@
                     Body:(NSString     *_Nonnull )body
                     Info:(NSDictionary *_Nullable)userInfo;
 
+- (void)sendNoticeWithId:(NSString     *_Nullable)identifier
+                   Title:(NSString     *_Nonnull )title
+              soundNamed:(NSString     *_Nullable)soundNamed
+                subTitle:(NSString     *_Nullable)subTitle
+                    Body:(NSString     *_Nonnull )body
+                    Info:(NSDictionary *_Nullable)userInfo;
 @end
 
 

@@ -79,6 +79,25 @@
                     Body:(NSString *)body
                     Info:(NSDictionary *)userInfo{
     
+    [self sendNoticeWithId:identifier Title:title soundNamed:nil subTitle:subTitle Body:body Info:userInfo];
+    
+}
+
+- (void)sendNoticeWithId:(NSString *)identifier
+                   Title:(NSString *)title
+              soundNamed:(NSString *)soundNamed
+                subTitle:(NSString *)subTitle
+                    Body:(NSString *)body
+                    Info:(NSDictionary *)userInfo{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        UIApplicationState state = [UIApplication sharedApplication].applicationState;
+        if (state != UIApplicationStateActive) {
+            return ;
+        }
+    });
+    
     if (@available(iOS 10.0, *)) {
         
         UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
@@ -88,7 +107,13 @@
         content.body     = body;//[NSString localizedUserNotificationStringForKey:body arguments:nil];
         content.userInfo = userInfo;
         content.badge    = @0;
-        content.sound    = [UNNotificationSound defaultSound];
+        
+        if (soundNamed == nil) {
+            content.sound = [UNNotificationSound defaultSound];
+
+        }else{
+            content.sound = [UNNotificationSound soundNamed:soundNamed];
+        }
         
         UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger
                                                       triggerWithTimeInterval:1 repeats:NO];
@@ -113,6 +138,8 @@
         [[UIApplication sharedApplication] presentLocalNotificationNow:self.localNote];
     }
 }
+
+
 
 #pragma mark -- ios10 以后通知的代理方法
 // 当应用在前台的时候，收到本地通知，是用什么方式来展现。系统给了三种形式：
@@ -153,6 +180,8 @@
         [[UIApplication sharedApplication] openURL:url];
     }
 }
+
+
 @end
 
 

@@ -34,7 +34,7 @@
     _autoPlayURL = YES;
     // 若uri设为nil,则默认的音频保存在library/cache下
     NSString * path = [GAFileService obtainGADir];
-    _uriPath = [NSString stringWithFormat:@"%@/%@",path,@"uri.pcm"];
+    _uriPath = [NSString stringWithFormat:@"%@/%@",path,@"uri.wav"];
     
 /*
  
