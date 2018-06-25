@@ -20,14 +20,16 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1.2</string>
+	<key>CLKComplicationPrincipalClass</key>
+	<string>ComplicationController</string>
 	<key>CLKComplicationSupportedFamilies</key>
 	<array>
+		<string>CLKComplicationFamilyCircularSmall</string>
 		<string>CLKComplicationFamilyModularSmall</string>
 		<string>CLKComplicationFamilyModularLarge</string>
 		<string>CLKComplicationFamilyUtilitarianSmall</string>
 		<string>CLKComplicationFamilyUtilitarianSmallFlat</string>
 		<string>CLKComplicationFamilyUtilitarianLarge</string>
-		<string>CLKComplicationFamilyCircularSmall</string>
 		<string>CLKComplicationFamilyExtraLarge</string>
 	</array>
 	<key>NSExtension</key>

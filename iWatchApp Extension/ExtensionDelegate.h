@@ -1,8 +1,8 @@
 //
 //  ExtensionDelegate.h
-//  VdinMengjin Extension
+//  iWatchApp Extension
 //
-//  Created by YanSY on 2018/6/22.
+//  Created by YanSY on 2018/6/25.
 //  Copyright © 2018年 YanSY. All rights reserved.
 //
 

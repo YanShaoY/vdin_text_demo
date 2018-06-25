@@ -1,8 +1,8 @@
 //
 //  InterfaceController.m
-//  VdinMengjin Extension
+//  iWatchApp Extension
 //
-//  Created by YanSY on 2018/6/22.
+//  Created by YanSY on 2018/6/25.
 //  Copyright © 2018年 YanSY. All rights reserved.
 //
 
@@ -28,6 +28,7 @@
 - (void)awakeWithContext:(id)context{
     
     [super awakeWithContext:context];
+    [self setTitle:@"公司门禁"];
     [self.showMessageLabel setHidden:YES];
     
 }
@@ -39,7 +40,7 @@
     if([WCSession isSupported]){
         [self.requestSession activateSession];
     }
-
+    
 }
 
 #pragma mark -- 界面已经消失
@@ -56,18 +57,18 @@
     if (self.requestSession.activationState != WCSessionActivationStateActivated) {
         [self.showMessageLabel setText:@"请求会话未激活···"];
         [self.requestSession activateSession];
-//        [self openDoorBtAction];
+        //        [self openDoorBtAction];
         return;
     }
     
     if (!self.requestSession.reachable) {
         
         [self.showMessageLabel setText:@"无法连接到手机···"];
-//        [self.requestSession activateSession];
-//        [self openDoorBtAction];
+        //        [self.requestSession activateSession];
+        //        [self openDoorBtAction];
         return;
     }
-
+    
     [self.showMessageLabel setText:@"发送开门请求···"];
     
     NSDictionary * mesageDict = [NSDictionary dictionaryWithObjectsAndKeys:@"OpenTheDoor",@"request", nil];
@@ -226,26 +227,6 @@
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

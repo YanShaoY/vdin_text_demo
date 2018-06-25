@@ -23,14 +23,26 @@
                             <color key="textColor" red="0.36078431370000003" green="0.58823529409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                         </label>
-                        <button width="100" alignment="center" verticalAlignment="bottom" title="开门" id="SEE-HZ-ZN3">
-                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="backgroundColor" red="0.0" green="0.95369466150000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" type="system" pointSize="18"/>
-                            <connections>
-                                <action selector="openDoorBtAction" destination="AgC-eL-Hgc" id="2ns-mU-fG5"/>
-                            </connections>
-                        </button>
+                        <group width="136" height="52" alignment="center" verticalAlignment="bottom" id="1JN-us-br6">
+                            <items>
+                                <button width="64" alignment="center" verticalAlignment="bottom" title="开门" id="SEE-HZ-ZN3">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.0" green="0.95369466150000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="18"/>
+                                    <connections>
+                                        <action selector="openDoorBtAction" destination="AgC-eL-Hgc" id="2ns-mU-fG5"/>
+                                    </connections>
+                                </button>
+                                <button width="70" alignment="center" verticalAlignment="bottom" title="取消" id="RpS-SX-4KB">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="1" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="18"/>
+                                    <connections>
+                                        <action selector="openDoorBtAction" destination="AgC-eL-Hgc" id="tII-Po-dCu"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                     </items>
                     <connections>
                         <outlet property="openDoorBt" destination="SEE-HZ-ZN3" id="4jb-ET-c9Y"/>
@@ -64,4 +76,5 @@
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.40000000000000002" green="0.69411764710000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

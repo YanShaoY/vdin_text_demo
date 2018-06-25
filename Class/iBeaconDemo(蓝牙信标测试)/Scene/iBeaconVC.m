@@ -255,7 +255,15 @@
         NSString * identifer = nil;
         NSString * body      = messageDict[@"message"];
         NSDictionary * info  = messageDict;
-        [[GALocalNoticeService sharedInstance]sendNoticeWithId:identifer Title:title subTitle:nil Body:body Info:info];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            UIApplicationState state = [UIApplication sharedApplication].applicationState;
+            if (state != UIApplicationStateActive) {
+                    [[GALocalNoticeService sharedInstance]sendNoticeWithId:identifer Title:title subTitle:nil Body:body Info:info];
+            }
+        });
+        
         
         if (self.requestSession.paired && self.requestSession.watchAppInstalled) {
             
