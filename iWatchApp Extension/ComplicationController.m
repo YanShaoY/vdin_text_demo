@@ -82,14 +82,14 @@
         tmp.headerTextProvider = [CLKSimpleTextProvider textProviderWithText:@"龙易吉凶时"];
         tmp.body1TextProvider = [CLKSimpleTextProvider textProviderWithText:@"当前时辰：吉"];
         tmp.body2TextProvider = [CLKSimpleTextProvider textProviderWithText:@"下一时辰：凶"];
-        handler(tmp);
+        handler(nil);
     }
     else if (complication.family == CLKComplicationFamilyUtilitarianLarge)
     {
         CLKComplicationTemplateUtilitarianLargeFlat *tmp = [CLKComplicationTemplateUtilitarianLargeFlat new];
         tmp.imageProvider = [CLKImageProvider imageProviderWithOnePieceImage:[UIImage imageNamed:@"Modular"]];
         tmp.textProvider = [CLKSimpleTextProvider textProviderWithText:@"当前时辰：吉"];
-        handler(tmp);
+        handler(nil);
     }
     else
     {

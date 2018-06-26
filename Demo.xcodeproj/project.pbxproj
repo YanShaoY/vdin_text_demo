@@ -116,6 +116,7 @@
 		A4D2612620A83B420091C587 /* XFVoiceDictationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D2612520A83B420091C587 /* XFVoiceDictationView.m */; };
 		A4D3EA9D20D8D44A000B5906 /* GAWorkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D3EA9C20D8D44A000B5906 /* GAWorkVC.m */; };
 		A4D3EAA020D8D542000B5906 /* WeiSuWorkCC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D3EA9F20D8D542000B5906 /* WeiSuWorkCC.m */; };
+		A4DF712220E212E00086B870 /* EntranceGuardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DF712120E212E00086B870 /* EntranceGuardVC.m */; };
 		A4EAC42E1FC673A000099677 /* guideAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC42D1FC673A000099677 /* guideAnimationView.m */; };
 		A4EAC4311FC6B3C900099677 /* TakingFacePicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC4301FC6B3C900099677 /* TakingFacePicturesView.m */; };
 		A4EAC43D1FC6DD9800099677 /* UIImage+FaceDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC43C1FC6DD9800099677 /* UIImage+FaceDetection.m */; };
@@ -352,6 +353,8 @@
 		A4D3EA9E20D8D542000B5906 /* WeiSuWorkCC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiSuWorkCC.h; sourceTree = "<group>"; };
 		A4D3EA9F20D8D542000B5906 /* WeiSuWorkCC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiSuWorkCC.m; sourceTree = "<group>"; };
 		A4D8CFBE206E0E06001206BD /* YanSYDemo.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanSYDemo.pch; sourceTree = "<group>"; };
+		A4DF712020E212E00086B870 /* EntranceGuardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntranceGuardVC.h; sourceTree = "<group>"; };
+		A4DF712120E212E00086B870 /* EntranceGuardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntranceGuardVC.m; sourceTree = "<group>"; };
 		A4EAC42C1FC673A000099677 /* guideAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = guideAnimationView.h; sourceTree = "<group>"; };
 		A4EAC42D1FC673A000099677 /* guideAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = guideAnimationView.m; sourceTree = "<group>"; };
 		A4EAC42F1FC6B3C900099677 /* TakingFacePicturesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakingFacePicturesView.h; sourceTree = "<group>"; };
@@ -695,14 +698,10 @@
 		A4646FCC20E087C300DC4047 /* iWatchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
-				A4646FCD20E087C300DC4047 /* InterfaceController.h */,
-				A4646FCE20E087C300DC4047 /* InterfaceController.m */,
+				A4DF711F20E1CF300086B870 /* Service */,
+				A4DF711E20E1CF0C0086B870 /* Class */,
 				A4646FD020E087C300DC4047 /* ExtensionDelegate.h */,
 				A4646FD120E087C300DC4047 /* ExtensionDelegate.m */,
-				A4646FD320E087C300DC4047 /* NotificationController.h */,
-				A4646FD420E087C300DC4047 /* NotificationController.m */,
-				A4646FD620E087C300DC4047 /* ComplicationController.h */,
-				A4646FD720E087C300DC4047 /* ComplicationController.m */,
 				A4117D1E20DCEDB500D8A1C4 /* Assets.xcassets */,
 				A4646FDB20E087C400DC4047 /* Info.plist */,
 				A4646FDC20E087C400DC4047 /* PushNotificationPayload.apns */,
@@ -1262,6 +1261,64 @@
 			name = Scene;
 			sourceTree = "<group>";
 		};
+		A4DF711E20E1CF0C0086B870 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				A4E62B7820E1CE9E00409317 /* 首页视图 */,
+				A4E62B7720E1CE8C00409317 /* 公司门禁页面 */,
+				A4E62B7920E1CEB300409317 /* 通知展示界面 */,
+				A4E62B7A20E1CEC200409317 /* 小图标组件 */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		A4DF711F20E1CF300086B870 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A4E62B7720E1CE8C00409317 /* 公司门禁页面 */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF712020E212E00086B870 /* EntranceGuardVC.h */,
+				A4DF712120E212E00086B870 /* EntranceGuardVC.m */,
+			);
+			name = "公司门禁页面";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A4E62B7820E1CE9E00409317 /* 首页视图 */ = {
+			isa = PBXGroup;
+			children = (
+				A4646FCD20E087C300DC4047 /* InterfaceController.h */,
+				A4646FCE20E087C300DC4047 /* InterfaceController.m */,
+			);
+			name = "首页视图";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A4E62B7920E1CEB300409317 /* 通知展示界面 */ = {
+			isa = PBXGroup;
+			children = (
+				A4646FD320E087C300DC4047 /* NotificationController.h */,
+				A4646FD420E087C300DC4047 /* NotificationController.m */,
+			);
+			name = "通知展示界面";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A4E62B7A20E1CEC200409317 /* 小图标组件 */ = {
+			isa = PBXGroup;
+			children = (
+				A4646FD620E087C300DC4047 /* ComplicationController.h */,
+				A4646FD720E087C300DC4047 /* ComplicationController.m */,
+			);
+			name = "小图标组件";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		A4EAC42B1FC6730900099677 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1608,6 +1665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4646FD220E087C300DC4047 /* ExtensionDelegate.m in Sources */,
+				A4DF712220E212E00086B870 /* EntranceGuardVC.m in Sources */,
 				A4646FD820E087C300DC4047 /* ComplicationController.m in Sources */,
 				A4646FCF20E087C300DC4047 /* InterfaceController.m in Sources */,
 				A4646FD520E087C300DC4047 /* NotificationController.m in Sources */,

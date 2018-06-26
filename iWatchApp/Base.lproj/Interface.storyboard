@@ -9,59 +9,81 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--首页-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller identifier="InterfaceController" title="首页" id="AgC-eL-Hgc" customClass="InterfaceController"/>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--公司门禁-->
+        <scene sceneID="xFS-0M-ewh">
+            <objects>
+                <controller identifier="EntranceGuardVC" title="公司门禁" id="Tcu-Y2-UZ2" customClass="EntranceGuardVC">
                     <items>
-                        <label alignment="center" text="操作方法：" textAlignment="center" id="9wn-po-NA0">
-                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                        </label>
-                        <label alignment="center" text="点击下方开门按钮打开门禁" textAlignment="center" numberOfLines="0" id="TjZ-CT-hyi">
-                            <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
-                        </label>
-                        <separator alignment="left" id="S3b-7i-o4G">
-                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <label alignment="center" text="正在开门···" textAlignment="center" numberOfLines="0" id="nLR-BY-czm">
-                            <color key="textColor" red="0.36078431370000003" green="0.58823529409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                        </label>
-                        <separator alignment="left" id="EoT-Ik-k4P">
-                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <group width="1" alignment="center" verticalAlignment="bottom" radius="10" spacing="5" id="1JN-us-br6">
+                        <group width="1" height="1" alignment="center" verticalAlignment="center" layout="vertical" id="cLx-fR-moz" userLabel="backGroup">
                             <items>
-                                <button width="0.5" alignment="left" verticalAlignment="center" title="开门" id="SEE-HZ-ZN3">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="backgroundColor" red="0.0" green="0.95369466150000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" type="system" pointSize="18"/>
-                                    <connections>
-                                        <action selector="openDoorBtAction" destination="AgC-eL-Hgc" id="2ns-mU-fG5"/>
-                                    </connections>
-                                </button>
-                                <button width="0.5" alignment="right" verticalAlignment="center" title="取消" id="RpS-SX-4KB">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="backgroundColor" red="1" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" type="system" pointSize="18"/>
-                                    <connections>
-                                        <action selector="cancelBtAction" destination="AgC-eL-Hgc" id="LFh-Pv-5D5"/>
-                                    </connections>
-                                </button>
+                                <group width="1" alignment="center" layout="vertical" id="Nlp-xw-7lV" userLabel="methodGroup">
+                                    <items>
+                                        <label width="1" alignment="center" text="操作方法：" textAlignment="center" id="aw3-ds-5Rx">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                        <label width="1" alignment="center" text="点击下方开门按钮打开门禁" textAlignment="center" numberOfLines="2" id="O5k-Gp-E8A">
+                                            <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <separator width="1" widthAdjustment="-5" alignment="center" id="ExO-tk-KOz">
+                                    <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </separator>
+                                <group width="1" alignment="center" verticalAlignment="center" layout="vertical" id="Qw7-ws-o6P" userLabel="showGroup">
+                                    <items>
+                                        <label width="1" alignment="center" verticalAlignment="center" text="正在开门···" textAlignment="center" numberOfLines="0" id="EWY-Ca-jnk">
+                                            <color key="textColor" red="0.36078431370000003" green="0.58823529409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <separator width="1" widthAdjustment="-5" alignment="center" verticalAlignment="bottom" id="LJS-99-b8q">
+                                    <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </separator>
+                                <group width="1" alignment="center" verticalAlignment="bottom" animationDuration="0.5" radius="5" id="bEd-gd-lYG" userLabel="BuutonGroup">
+                                    <items>
+                                        <button width="0.5" widthAdjustment="-5" height="35" alignment="left" verticalAlignment="center" title="开门" id="6Pi-zt-I0q">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.0" green="0.95369466150000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" pointSize="17"/>
+                                            <connections>
+                                                <action selector="openDoorBtAction" destination="Tcu-Y2-UZ2" id="VKO-nV-r9B"/>
+                                            </connections>
+                                        </button>
+                                        <separator alignment="center" verticalAlignment="center" id="lkH-9W-p5p">
+                                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </separator>
+                                        <button width="0.5" widthAdjustment="-5" height="35" alignment="right" verticalAlignment="center" title="取消" id="ZWs-4c-arj">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="1" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" pointSize="17"/>
+                                            <connections>
+                                                <action selector="cancelBtAction" destination="Tcu-Y2-UZ2" id="Wu6-Sg-j50"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                    <color key="backgroundColor" red="0.81568627449999997" green="0.92156862750000001" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <edgeInsets key="margins" left="5" right="5" top="5" bottom="5"/>
+                                </group>
                             </items>
-                            <color key="backgroundColor" red="0.83529411760000005" green="0.90196078430000004" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <edgeInsets key="margins" left="5" right="5" top="5" bottom="5"/>
                         </group>
                     </items>
                     <connections>
-                        <outlet property="cancelBt" destination="RpS-SX-4KB" id="NO2-do-CwD"/>
-                        <outlet property="openDoorBt" destination="SEE-HZ-ZN3" id="4jb-ET-c9Y"/>
-                        <outlet property="showMessageLabel" destination="nLR-BY-czm" id="Cuj-HL-kTe"/>
+                        <outlet property="cancelBt" destination="ZWs-4c-arj" id="4po-20-fsH"/>
+                        <outlet property="openDoorBt" destination="6Pi-zt-I0q" id="bHK-ro-poa"/>
+                        <outlet property="showMessageLabel" destination="EWY-Ca-jnk" id="ink-dx-1YF"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="439" y="345"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
