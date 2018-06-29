@@ -66,7 +66,6 @@
 		A46A21D31FEA359900F43DB6 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A46A21D21FEA359900F43DB6 /* BaseModel.m */; };
 		A46A21D71FEA425E00F43DB6 /* BaseCC.m in Sources */ = {isa = PBXBuildFile; fileRef = A46A21D61FEA425E00F43DB6 /* BaseCC.m */; };
 		A46A21DD1FEA54C400F43DB6 /* ibeaconPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A46A21DC1FEA54C400F43DB6 /* ibeaconPopMenuView.m */; };
-		A46FAAF620E63310009628CD /* XunFeiMscVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A46FAAF520E63310009628CD /* XunFeiMscVC.m */; };
 		A47B00171FF5F07500DCF4BA /* GALocalNoticeService.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B00161FF5F07500DCF4BA /* GALocalNoticeService.m */; };
 		A47B4F701FC41D1800E34638 /* guidePage.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B4F6F1FC41D1800E34638 /* guidePage.m */; };
 		A47C62A41FDE27B900C5C4E9 /* GANetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A47C62A21FDE27B900C5C4E9 /* GANetworkTool.m */; };
@@ -121,6 +120,8 @@
 		A4D3EA9D20D8D44A000B5906 /* GAWorkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D3EA9C20D8D44A000B5906 /* GAWorkVC.m */; };
 		A4D3EAA020D8D542000B5906 /* WeiSuWorkCC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D3EA9F20D8D542000B5906 /* WeiSuWorkCC.m */; };
 		A4DF712220E212E00086B870 /* EntranceGuardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DF712120E212E00086B870 /* EntranceGuardVC.m */; };
+		A4E530B920E638F000B4A763 /* XunFeiMscTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E530B820E638F000B4A763 /* XunFeiMscTextVC.m */; };
+		A4E530BC20E63A2F00B4A763 /* XunFeiMscTableRowCC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E530BB20E63A2E00B4A763 /* XunFeiMscTableRowCC.m */; };
 		A4EAC42E1FC673A000099677 /* guideAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC42D1FC673A000099677 /* guideAnimationView.m */; };
 		A4EAC4311FC6B3C900099677 /* TakingFacePicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC4301FC6B3C900099677 /* TakingFacePicturesView.m */; };
 		A4EAC43D1FC6DD9800099677 /* UIImage+FaceDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EAC43C1FC6DD9800099677 /* UIImage+FaceDetection.m */; };
@@ -293,8 +294,6 @@
 		A46A21D61FEA425E00F43DB6 /* BaseCC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCC.m; sourceTree = "<group>"; };
 		A46A21DB1FEA54C400F43DB6 /* ibeaconPopMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ibeaconPopMenuView.h; sourceTree = "<group>"; };
 		A46A21DC1FEA54C400F43DB6 /* ibeaconPopMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ibeaconPopMenuView.m; sourceTree = "<group>"; };
-		A46FAAF420E63310009628CD /* XunFeiMscVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XunFeiMscVC.h; sourceTree = "<group>"; };
-		A46FAAF520E63310009628CD /* XunFeiMscVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XunFeiMscVC.m; sourceTree = "<group>"; };
 		A47B00151FF5F07500DCF4BA /* GALocalNoticeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GALocalNoticeService.h; sourceTree = "<group>"; };
 		A47B00161FF5F07500DCF4BA /* GALocalNoticeService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GALocalNoticeService.m; sourceTree = "<group>"; };
 		A47B4F6E1FC41D1800E34638 /* guidePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = guidePage.h; sourceTree = "<group>"; };
@@ -384,6 +383,10 @@
 		A4D8CFBE206E0E06001206BD /* YanSYDemo.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanSYDemo.pch; sourceTree = "<group>"; };
 		A4DF712020E212E00086B870 /* EntranceGuardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EntranceGuardVC.h; path = Class/EntranceGuardVC.h; sourceTree = "<group>"; };
 		A4DF712120E212E00086B870 /* EntranceGuardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EntranceGuardVC.m; path = Class/EntranceGuardVC.m; sourceTree = "<group>"; };
+		A4E530B720E638F000B4A763 /* XunFeiMscTextVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XunFeiMscTextVC.h; sourceTree = "<group>"; };
+		A4E530B820E638F000B4A763 /* XunFeiMscTextVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XunFeiMscTextVC.m; sourceTree = "<group>"; };
+		A4E530BA20E63A2E00B4A763 /* XunFeiMscTableRowCC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XunFeiMscTableRowCC.h; sourceTree = "<group>"; };
+		A4E530BB20E63A2E00B4A763 /* XunFeiMscTableRowCC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XunFeiMscTableRowCC.m; sourceTree = "<group>"; };
 		A4EAC42C1FC673A000099677 /* guideAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = guideAnimationView.h; sourceTree = "<group>"; };
 		A4EAC42D1FC673A000099677 /* guideAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = guideAnimationView.m; sourceTree = "<group>"; };
 		A4EAC42F1FC6B3C900099677 /* TakingFacePicturesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakingFacePicturesView.h; sourceTree = "<group>"; };
@@ -852,8 +855,10 @@
 		A46FAAF320E631C2009628CD /* 讯飞语音页面 */ = {
 			isa = PBXGroup;
 			children = (
-				A46FAAF420E63310009628CD /* XunFeiMscVC.h */,
-				A46FAAF520E63310009628CD /* XunFeiMscVC.m */,
+				A4E530B720E638F000B4A763 /* XunFeiMscTextVC.h */,
+				A4E530B820E638F000B4A763 /* XunFeiMscTextVC.m */,
+				A4E530BA20E63A2E00B4A763 /* XunFeiMscTableRowCC.h */,
+				A4E530BB20E63A2E00B4A763 /* XunFeiMscTableRowCC.m */,
 			);
 			name = "讯飞语音页面";
 			sourceTree = "<group>";
@@ -1784,8 +1789,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4646FD220E087C300DC4047 /* ExtensionDelegate.m in Sources */,
-				A46FAAF620E63310009628CD /* XunFeiMscVC.m in Sources */,
 				A4DF712220E212E00086B870 /* EntranceGuardVC.m in Sources */,
+				A4E530B920E638F000B4A763 /* XunFeiMscTextVC.m in Sources */,
+				A4E530BC20E63A2F00B4A763 /* XunFeiMscTableRowCC.m in Sources */,
 				A4646FD820E087C300DC4047 /* ComplicationController.m in Sources */,
 				A41A1DBC20E333640018E873 /* InterfaceController.m in Sources */,
 				A4646FD520E087C300DC4047 /* NotificationController.m in Sources */,

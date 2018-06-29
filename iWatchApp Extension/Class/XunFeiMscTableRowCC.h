@@ -1,5 +1,5 @@
 //
-//  XunFeiMscVC.h
+//  XunFeiMscTableRowCC.h
 //  iWatchApp Extension
 //
 //  Created by YanSY on 2018/6/29.
@@ -9,6 +9,6 @@
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
 
-@interface XunFeiMscVC : WKInterfaceController
+@interface XunFeiMscTableRowCC : NSObject
 
 @end

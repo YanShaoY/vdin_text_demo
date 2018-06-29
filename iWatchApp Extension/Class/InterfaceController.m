@@ -23,15 +23,16 @@
 - (void)awakeWithContext:(id)context{
     [super awakeWithContext:context];
     [self setTitle:@"首页"];
-    NSArray * titleArr = [[NSArray alloc]initWithObjects:@"公司门禁",nil];
+    NSArray * titleArr = [[NSArray alloc]initWithObjects:@"公司门禁",@"讯飞语音",nil];
+    NSArray * vcIdArr = [[NSArray alloc]initWithObjects:@"EntranceGuardVC",@"XunFeiMscTextVC",nil];
     
     [self.pageVCArr removeAllObjects];
     [self.vcContextArr removeAllObjects];
     
     for (int i = 0; i < titleArr.count; i++) {
         
-        [self.pageVCArr addObject:@"EntranceGuardVC"];
-        
+        [self.pageVCArr addObject:vcIdArr[i]];
+
         NSMutableDictionary * contextDict = [[NSMutableDictionary alloc]init];
         [contextDict setValue:titleArr[i] forKey:@"title"];
         [contextDict setValue:[NSString stringWithFormat:@"%d",i] forKey:@"count"];

@@ -151,7 +151,7 @@
     
     NSMutableDictionary * messageDict = [[NSMutableDictionary alloc] init];
     [messageDict setValue:@"OK" forKey:@"result"];
-    [messageDict setValue:@"iPhone收到请求，正在响应" forKey:@"message"];
+    [messageDict setValue:@"手机正在响应请求~" forKey:@"message"];
     replyHandler(messageDict);
     
     [self dealWithiWatchRequestFor:message];

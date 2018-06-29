@@ -85,6 +85,41 @@
             </objects>
             <point key="canvasLocation" x="439" y="345"/>
         </scene>
+        <!--讯飞语音-->
+        <scene sceneID="KBa-sE-djb">
+            <objects>
+                <controller identifier="XunFeiMscTextVC" title="讯飞语音" id="UvB-Wm-Tcz" customClass="XunFeiMscTextVC">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="vertical" id="2KE-Bh-RU0" userLabel="backGroup">
+                            <items>
+                                <table alignment="left" id="g0l-C0-SO3">
+                                    <items>
+                                        <tableRow identifier="XunFeiMscTableRowCC" id="BWP-pb-5hu" customClass="XunFeiMscTableRowCC">
+                                            <group key="rootItem" width="1" alignment="left" id="PPC-Ci-Kuv">
+                                                <items>
+                                                    <label width="1" height="1" alignment="center" verticalAlignment="center" text="语音识别" textAlignment="center" id="aGi-3M-PdI">
+                                                        <color key="textColor" red="0.23137254900000001" green="0.39607843139999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <connections>
+                                                <outlet property="titleLable" destination="aGi-3M-PdI" id="GYd-HA-KXr"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                </table>
+                                <switch width="1" alignment="left" value="YES" title="Switch" id="m7A-Xo-tz3"/>
+                                <slider width="1" alignment="left" value="1" maximum="3" steps="3" id="KsK-mY-jbq"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="mscTableView" destination="g0l-C0-SO3" id="NXI-f8-Cff"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="648" y="345"/>
+        </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
             <objects>

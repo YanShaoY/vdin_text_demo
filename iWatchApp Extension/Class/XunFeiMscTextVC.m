@@ -1,18 +1,20 @@
 //
-//  XunFeiMscVC.m
+//  XunFeiMscTextVC.m
 //  iWatchApp Extension
 //
 //  Created by YanSY on 2018/6/29.
 //  Copyright © 2018年 YanSY. All rights reserved.
 //
 
-#import "XunFeiMscVC.h"
+#import "XunFeiMscTextVC.h"
 
-@interface XunFeiMscVC ()
+@interface XunFeiMscTextVC ()
+
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceTable *mscTableView;
 
 @end
 
-@implementation XunFeiMscVC
+@implementation XunFeiMscTextVC
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
