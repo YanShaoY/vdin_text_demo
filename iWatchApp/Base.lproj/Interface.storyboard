@@ -21,7 +21,7 @@
             <objects>
                 <controller identifier="EntranceGuardVC" title="公司门禁" id="Tcu-Y2-UZ2" customClass="EntranceGuardVC">
                     <items>
-                        <group width="1" height="1" alignment="center" verticalAlignment="center" layout="vertical" id="cLx-fR-moz" userLabel="backGroup">
+                        <group width="1" height="1" alignment="center" verticalAlignment="center" backgroundImage="hill" layout="vertical" id="cLx-fR-moz" userLabel="backGroup">
                             <items>
                                 <group width="1" alignment="center" layout="vertical" id="Nlp-xw-7lV" userLabel="methodGroup">
                                     <items>
@@ -29,7 +29,7 @@
                                             <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                                         </label>
                                         <label width="1" alignment="center" text="点击下方开门按钮打开门禁" textAlignment="center" numberOfLines="2" id="O5k-Gp-E8A">
-                                            <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="1" green="0.98431372549019602" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                                         </label>
                                     </items>
@@ -106,8 +106,8 @@
             <objects>
                 <controller id="4sK-HA-Art" customClass="NotificationController"/>
             </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="439" y="643"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.40000000000000002" green="0.69411764710000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.0" green="0.95369466150000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

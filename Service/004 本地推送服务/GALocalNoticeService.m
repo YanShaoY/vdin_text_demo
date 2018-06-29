@@ -115,13 +115,13 @@
             content.sound = [UNNotificationSound soundNamed:soundNamed];
         }
         
-        UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger
-                                                      triggerWithTimeInterval:1 repeats:NO];
+        /// 这里不使用triger 不延时处理
+//        UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:1 repeats:NO];
         
         NSString * requestId = identifier ? : @"Default";
         UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:requestId
                                                                               content:content
-                                                                              trigger:trigger];
+                                                                              trigger:nil];
         
         
         UNUserNotificationCenter * localCenter = [UNUserNotificationCenter currentNotificationCenter];

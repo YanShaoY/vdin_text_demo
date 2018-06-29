@@ -16,6 +16,11 @@
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>
+		<key>iWatchAPPWatchKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>iWatchApp (Complication).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -29,12 +34,12 @@
 		<key>iWatchApp Extension.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>13</integer>
 		</dict>
 		<key>iWatchApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>14</integer>
+			<integer>12</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
