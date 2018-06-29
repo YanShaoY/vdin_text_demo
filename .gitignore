@@ -1,3 +1,7 @@
 
 *.xcuserstate
 Demo.xcworkspace/xcuserdata/YanSY.xcuserdatad/UserInterfaceState.xcuserstate
+Demo.xcodeproj/xcuserdata/YanSY.xcuserdatad/xcschemes/iWatchApp (Notification).xcscheme
+.DS_Store
+Demo.xcodeproj/xcuserdata/YanSY.xcuserdatad/xcschemes/iWatchApp (Complication).xcscheme
+Demo.xcodeproj/xcuserdata/YanSY.xcuserdatad/xcschemes/iWatchApp.xcscheme
